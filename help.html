@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>UltrantMediaServer(JS)4.0使用指南</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Ultrant Media Server(JS) 4.0 使用指南</h1>
+<h2>一、	 UMS多媒体点播/直播系统</h2>
+<h3>1.1.	概述</h3>
+<p>Ultrant Media Server(JS) 4.0（以下简称UMS)是IMMAAC公司新推出的一款拥有自主知识产权的多媒体点播/直播高性能服务器软件。</p>
+<p>UMS采用了高实时性网络传输协议——RTMP。RTMP(Real Time Messaging Protocol)实时消息传送协议是Adobe Systems公司为Flash播放器和服务器之间音频、视频和数据传输而设计开发的开放协议。 RTMP是基于消息的紧凑型传输协议，不仅可以单连接传输多个视频流，还能够发送远程调用，并能够通过远程共享数据对象进行多端数据同步，很适合实时互动类网络应用，譬如直播秀、远程同步教学、网络游戏等应用场景。</p>
+<p>同时，UMS具备以下特点：</p>
+<blockquote>
+<ol>
+<li>UMS 能构建大规模化的伸缩性极强的集群</li>
+<li>UMS 支持流量均衡技术和双向互动</li>
+<li>UMS 安全可靠，稳定性强</li>
+<li>UMS 覆盖众多终端设备，提升用户体验。</li>
+<li>UMS 高性能，低延迟，响应快。</li>
+<li>UMS 跨平台，易部署，受众面广</li>
+</ol>
+</blockquote>
+<h2>二、	UMS基本使用</h2>
+<p>UMS通过使用RTMP协议向Flash Player传输或接收多种比特率的直播/点播媒体流、数据以及远程调用信息，通过HTTP协议向iPhone/iPad/iTouch/iMac等传输直播/点播媒体流.UMS服务器支持基于Adobe Flash/AIR技术平台的流媒体点播/直播及其他功能.</p>
+<h3>2.1. 确保UMS正常运行</h3>
+<p>检验UMS是否正常运行的方法如下：用浏览器访问UMS服务器管理系统首页：<a href="http://127.0.0.1/admin">http://127.0.0.1/admin</a>，如果出现下图所示网页及黑色flash播放器，则表明UMS服务工作正常。如果服务不能正常运行，有可能但不限于以下几种原因：</p>
+<blockquote>
+<ol>
+<li>端口被占用。UMS监听80和1935端口，以对外提供配置管理和流媒体服务，如果端口被其他程序占用，则UMS不能正常启动和工作。</li>
+<li>杀毒软件限制安装，导致文件被删除。某些杀毒软件会误报病毒，并删除正常的安装文件，导致UMS不能正常安装。</li>
+<li>服务器防火墙未开放1935端口或80端口。注意：关闭防火墙并不代表防火墙会开放所有端口，请将1935端口和80端口加入防火墙例外。<br>
+<img src="/images/help/main.png" /></li>
+</ol>
+</blockquote>
+<h3>2.2.    管理UMS服务</h3>
+<h4>2.2.1 启动、停止、重启UMS服务</h4>
+<p>UMS服务器的启动、停止和重启操作需要通过系统自带的服务管理器进行管理，如下图所示。<br>
+<img src="/images/help/svc.png" /></p>
+<h3>2.3.    表格刷新</h3>
+<p>后台数据展现主要是以表格为主，在表格右上侧位置都有“刷新”按钮，需要刷新，请点击，如下图：<br>
+<img src="/images/help/flush.png" /></p>
+<h2>三、	后台管理</h2>
+<h3>3.1.    登录</h3>
+<p>如管理员处于未登录状态，则首先要登录管理系统，缺省管理员帐号为:admin,密码为:123456。登录界面如下图：<br>
+<img src="/images/help/admin-login.png" /></p>
+<p>如要修改管理员密码，请点击管理界面右上角的&quot;admin&quot;下拉框，如下图：<br>
+<img src="/images/help/conf-admin-menu.png" /></p>
+<p>点击&quot;修改密码&quot;菜单，进入修改密码界面:<br>
+<img src="/images/help/conf-passwd.png" /></p>
+<p>修改完后，点击&quot;保存&quot;。</p>
+<h3>3.2.    服务器配置</h3>
+<h5>3.2.1  配置管理</h5>
+<p>在UMS服务器管理界面上，选择左边工具栏的“配置管理”选项，进入UMS服务器软件配置管理界面。菜单选项如下图：<br>
+<img src="/images/help/conf-menu.png" /></p>
+<p>UMS基本配置、速度限制、媒体库配置界面如下图：<br>
+<img src="/images/help/conf-ums-base.png" /></p>
+<h6>3.2.1.1. 转码配置</h6>
+<p>UMS系统包含视频文件自动转码功能。自动转码功能可以自动将您添加到多媒体目录中的视频文件转换成可供网络流式播放的视频格式。使用自动转码功能，UMS系统可以为包括个人电脑、iOS设备（iPhone/iPad/iTouch）、Android设备等多种终端提供流式视频服务。
+自动转码功能配置界面如下图所示：<br>
+<img src="/images/help/conf-transcode.png" /></p>
+<p>要获取各个参数的使用方法，请将鼠标移动至相关文本框，您可以通过界面提示信息来修改参数。</p>
+<h4>3.3.    后台管理</h4>
+<p>在UMS服务器管理界面上，选择左边工具栏的“后台管理”选项，进入UMS服务器软件配置管理界面。菜单选项如下图：<br>
+<img src="/images/help/conf-menu-1.png" /></p>
+<h5>3.3.1.   统计分析</h5>
+<h6>3.3.1.1. 总带宽与流量</h6>
+<p>UMS系统可以查看服务器总流量与带宽，如下图：<br>
+<img src="/images/help/total-stat.png" /> </p>
+<h6>3.3.1.2. 客户端信息</h6>
+<p>UMS系统可以查看每个连接的信息，如下图：<br>
+<img src="/images/help/client-stat.png" /> </p>
+<h6>3.3.1.3. 单个客户端的带宽与流量</h6>
+<p>UMS系统还可以查看单个客户端的流量与带宽，如下图：<br>
+<img src="/images/help/single-stat.png" /> </p>
+<h4>3.3.2.   内容管理</h4>
+<h5>3.3.2.1.   分类管理</h5>
+<p>UMS支持对媒体内容进行分类，目前支持三级分类，点击“内容管理”-&gt;“分类管理”菜单，进入分类管理界面，如下图：<br>
+<img src="/images/help/category.png" /></p>
+<p>分类的属性“首页显示”，如果选择“是”，表示该分类会显示在UMS系统的首页里。
+管理员可以自己定义分类信息，操作有添加分类，编辑分类和删除分类等。</p>
+<h6>3.3.2.1.   评论管理</h6>
+<p>点击“内容管理”-&gt;“评论管理”, 可对用户的评论进行管理。普通用户的评论都会显示如下表格中，并可以编辑，搜索，删除等操作，如下图：<br>
+<img src="/images/help/comment-manage.png" /> 
+在此处可以删除所有点播视频下的不和谐的评论。</p>
+<h4>3.3.3.   点播管理</h4>
+<h5>3.3.3.1. 媒体库管理</h5>
+<p>点击“点播管理”-&gt;“媒体库管理”, 如下图。
+添加媒体库方法如下：</p>
+<blockquote>
+<ol>
+<li>在“添加新的媒体库”输入框内输入所要添加的文件夹的相对路径或绝对路径，相对路径是相对于UMS安装文件夹所在的位置，即node.exe文件所在位置。</li>
+<li>通过媒体库文件夹条目左边的删除按钮删除相应的媒体库（真实的文件夹不会删除）。</li>
+</ol>
+</blockquote>
+<p>配置完成后，您需要点击“保存”以确认修改，然后重启UMS服务以使修改生效。 如下图:<br>
+<img src="/images/help/media-library.png" /></p>
+<p>在媒体库的表格里，点击“导入”，就可以把媒体文件导入到本地数据库中，后台服务就开始自动转码。如果导入媒体库中的媒体文件后，有新的媒体文件添加到媒体库，需要再次导入。如果媒体文件没有增加，只需导入一次，不用每次都导入。如果要查看转码情况，请点击“查看转码详情”。</p>
+<h6>3.3.3.1.1 查看转码详情</h6>
+<p>在媒体库的表格里，点击相应媒体库的“查看转码详情”按钮，即可查看当前媒体库的原始媒体文件信息和转码后的文件列表，如下图：<br>
+<img src="/images/help/transcode-before.png" /></p>
+<p>在媒体库的表格里，点击“查看转码详情”，查看转码进度与结果，如下图：<br>
+<img src="/images/help/transcode-after.png" /></p>
+<h6>3.3.3.1.2 编辑与发布</h6>
+<p>在“转码后文件详情”的表格里，可以对转码文件进行编辑，然后再发布，如下图：<br>
+<img src="/images/help/transcode-edit.png" /></p>
+<p>发布操作，如下图：<br>
+<img src="/images/help/transcode-publish.png" /></p>
+<p>发布成功后，用户就可以观看该视频。同时，还可以对转码后的目标文件进行截图，推荐到首页，推荐到搜索页，删除等操作。</p>
+<p>【注意】转码后的媒体文件，不会自动发布，转码后的媒体文件需要经过管理员手动发布，才能进入“点播管理”页面内的“点播管理”列表。只有进入点播列表的媒体文件才能被首页和分类页呈现，才能播放。</p>
+<h5>3.3.3.2.  点播管理</h5>
+<p>点击左侧菜单的“点播管理”，选择“点播管理”，对发布成功的视频，都会呈现在如下表格中，并可以编辑，截图，推荐到首页，推荐到搜索页，删除等操作，如下图：<br>
+<img src="/images/help/vod-manage.png" /> </p>
+<p>在此处可以删除该点播视频下的不和谐评论。见下图：<br>
+<img src="/images/help/vod-del-comment.png" /> </p>
+<h4>3.3.4.   直播管理</h4>
+<h5>3.3.4.1 添加直播</h5>
+<p>点击“直播管理”，点击“编辑”，输入标题和token，如下图：<br>
+<img src="/images/help/edit-live.png" /> </p>
+<p>添加成功后，显示在如下表格里：<br>
+<img src="/images/help/live-manage.png" /> </p>
+<h5>3.3.4.2. 录制管理</h5>
+<p>直播前，添加录制功能，修改录制文件存放位置，如下图：<br>
+<img src="/images/help/record-path.png" /> </p>
+<p>直播结束后，对录播文件可以进行管理，发布到点播中，如下图：<br>
+<img src="/images/help/record-publish.png" /> </p>
+<p>发布成功后，可以在“点播管理”里查看，见3.3.3.2.</p>
+<h4>3.3.5.   虚拟直播管理</h4>
+<h5>3.3.5.1. 媒体资源管理</h5>
+<p>在UMS系统中，可以使用视频文件发布为虚拟直播，媒体资源管理操作如下图：<br>
+<img src="/images/help/virtual-media-manage.png" /> </p>
+<h5>3.3.5.2. 发布虚拟直播</h5>
+<p>点击查看直播文件，可以把文件发布为虚拟直播，如下图：<br>
+<img src="/images/help/virtual-publish.png" /> </p>
+<h5>3.3.5.3. 节目单管理</h5>
+<p>直播文件发布虚拟成功后，可以在节目单管理查询。<br>
+<img src="/images/help/program-manage.png" /> </p>
+<h5>3.3.5.4. 计划任务管理</h5>
+<p>节目单的虚拟直播在指定的时间内开始播放，如下图：<br>
+<img src="/images/help/schedule-manage.png" /> </p>
+<h4>3.3.5.   用户管理</h4>
+<p>点击左侧菜单“后台管理”，选择“用户管理”，如下图：<br>
+<img src="/images/help/user-manage.png" /> </p>
+<p>在此，管理员可进行的操作有，添加用户，编辑，重置密码等，如下图：<br>
+<img src="/images/help/user-manage-op.png" /> </p>
+<h2>四、	集成播放器</h2>
+<h3>4.1. 将播放器集成到自有页面</h3>
+<p>本节介绍如何将UMS自带umplayer播放器集成到已有的网站页面上。步骤如下：</p>
+<blockquote>
+<ol>
+<li>安装目录下webroot\public\umplayer文件夹下的vod.html文件提供了如何集成umplayer播放器的代码示例，请根据页面上的文件引用来判断需要将哪些文件拷贝到自有网站。其中，基本的播放器文件是umplayer.js、umplayer.swf、umplayer.html5.js，这三个文件必须放在同一个文件夹下，否则容易出错。</li>
+<li>将vod.html文件中的js代码部分拷贝到自有页面上，解决文件依赖关系。</li>
+<li>修改页面上的file参数，通常通过后端脚本生成该页面。</li>
+</ol>
+</blockquote>
+<p>【注意】file参数的形式必须为如下格式：http://www.example.com:port/path/to/file.m3u8 或 rtmp://www.example.com:port/appname/streamname。</p>
+<h2>五、	测试直播功能</h2>
+<h3>5.1. 准备摄像设备</h3>
+<p>您可以使用USB网络摄像头或专业的视频采集卡（需要Adobe Flash Media Live Encoder3.1程序能够识别）来作为视频源。</p>
+<h3>5.2. 使用Adobe Flash Media Live Encoder3.1发布直播流</h3>
+<p>您可以使用Adobe公司提供的免费软件Adobe Flash Media Live Encoder3.1来测试UMS软件的直播功能。安装过程及帮助详见Adobe官方网站。打开Adobe Flash Media Live Encoder3.1软件，确保视频采集设备和音频采集设备能正常工作，正常工作的硬件设备看似应该如下图所示：<br>
+<img src="/images/help/fmle1.jpg" /></p>
+<p>请正确设置好上图红色矩形框所标注的位置，其中设置如下：<br>
+FMS URL位置处的URL地址应该为”rtmp://{UMS所在服务器IP地址}/live”,<br>
+Stream位置处应该为”livestream?token=123456”。<br>
+【注意】如果不希望服务器录制视频，应加上ctrl=norecord参数，形式如下：<br>
+livestream?token=123456&amp;ctrl=norecord<br>
+如果视频编码格式为VP6，服务器将无法录制，此时，应设置ctrl=norecord参数，否则可能出错。<br>
+设置完成后，要首先按下”Connect”按钮，如果“Connect”按钮上的文字变成“Disconnect”，则表明连接成功；然后按最下边红色矩形框标注的“Start”按钮，以启动直播发布。</p>
+<p>正常工作的Adobe Flash Media Live Encoder3.1看似应该如下图所示：<br>
+<img src="/images/help/fmle2.jpg" /></p>
+<h3>5.3. 使用Open Broadcaster Software(OBS)发布直播流</h3>
+<p>您还可以使用开源免费直播流采集发布软件OBS来测试UMS软件的直播功能。软件下载地址<a href="http://obsproject.com">OBS官方网站</a>。使用过程帮助详见第八章。</p>
+<h3>5.4. 查看直播视频</h3>
+<p>通过UMS服务器管理系统自带的直播测试页面来查看直播，菜单项如下图所示。<br>
+<img src="/images/help/live-test.png" /></p>
+<h2>六、	点播网站</h2>
+<h3>6.1. 首页</h3>
+<p>在浏览器输入web服务地址：http://localhost，或者http://domain.com，显示如下图:<br>
+<img src="/images/help/home-1.png" />
+上图显示操作有，搜索，分类信息，登录，注册等。</p>
+<p>下图显示“特别推荐”和“最新视频”，<br>
+<img src="/images/help/home-2.png" />
+在点播管理中，管理视频，使其显示在特别推荐栏目中。</p>
+<p>在首页展示的分类视频，如下图：<br>
+<img src="/images/help/home-3.png" /></p>
+<h3>6.2. 注册页</h3>
+<p>如果用户想对某视频进行评论和收藏，必须注册并登录系统中。点击首页的注册，如下图：<br>
+<img src="/images/help/register.png" /></p>
+<h3>6.3. 登录</h3>
+<p>如果用户注册成功，就可以点击首页的登录，弹出如下登录框：<br>
+<img src="/images/help/user-login.png" /></p>
+<h3>6.4. 分类页</h3>
+<p>选择首页的“电影”分类，如下图：<br>
+<img src="/images/help/user-cate.png" /></p>
+<h3>6.5. 搜索页</h3>
+<p>在首页的搜索框里输入想看的视频名称，就可以进行搜索，比如输入“aa”，如下图：<br>
+<img src="/images/help/user-search.png" />
+图中上半部分显示的是搜索结果，下半部分显示的热门推荐。在点播管理中，可以推荐视频显示到搜索页的热门推荐中。</p>
+<h3>6.6. 播放页</h3>
+<p>在首页，点击一个视频，就进入了播放页，如下图：<br>
+<img src="/images/help/user-play-1.png" /></p>
+<p>用户登录后，对该视频，可以进行评论和收藏，如下图：<br>
+<img src="/images/help/user-play-2.png" /></p>
+<h3>6.7. 个人中心页</h3>
+<p>在首页点击登录，输入用户名和密码后，点击右上侧的下拉菜单，选择基本信息，如下图：<br>
+<img src="/images/help/user-menu.png" /></p>
+<p>然后，进入个人中心，如下图：<br>
+<img src="/images/help/usercenter.png" /></p>
+<h3>6.7.1. 基本信息</h3>
+<p>在个人中心页，选择左侧的基本信息，可以点击编辑，修改个人信息。<br>
+<img src="/images/help/user-edit.png" /></p>
+<h3>6.7.2. 我的收藏</h3>
+<p>在个人中心页，选择左侧的我的收藏，可以查看收藏的视频，和取消收藏。<br>
+<img src="/images/help/user-favor.png" /></p>
+<h3>6.7.2. 密码管理</h3>
+<p>在个人中心页，选择左侧的密码管理，可以重置密码。<br>
+<img src="/images/help/user-pass.png" /></p>
+<h2>七、	购买UMS正版授权</h2>
+<p>UMS为商业软件，从版本1.8.8起，Ultrant Media Server Community社区版和Ultrant Media Server商业版合二为一，在没有正版授权的情况下，UMS即为有限功能的社区版，限制连接数为20个并发，限制直播推送路数为1路，不限制使用期限。注意，未经正版授权的社区版UMS软件不能用于商业用途。如果您购买了正版授权，则没有上述限制。</p>
+<h3>7.1.	UMS授权方式及UNLS软件授权服务器</h3>
+<p>UMS通过UNLS(Ultrant Net Licensing Service)服务程序及UMS加密锁进行授权，UNLS服务从UMS4.0版开始和UMS服务合二为一。</p>
+<h3>7.2.	配置UNLS服务</h3>
+<p>请首先确保UNLS服务（UMS4.0后UMS服务即为UNLS服务）已经安装。<br>
+<img src="/images/help/conf-misc.png" /></p>
+<p>要获取各个参数的使用方法，请将鼠标移动至相关文本框，您可以通过界面提示信息来修改参数。
+注意：这里设置的IP地址是UNLS服务要绑定的IP地址，通常设置为0.0.0.0，即绑定任意地址；端口值则是UNLS要监听的软件授权服务端口，配置适当的UMS服务主程序将连接到该端口与UNLS进行通信，以获取正版软件授权信息；服务器口令则是UMS连接到UNLS以获取软件授权服务的服务接入口令，只有配置正确接入口令的UMS服务主程序才能接入UNLS服务。超过活动连接超时时间值的UNLS连接将被关闭，但UMS服务主程序会自动重连，定时关闭连接并不会影响服务。
+加密锁是一个小巧的USB设备，类似于银行使用的优盾，您购买的正版UMS软件均附有加密锁，您可以在购买时指定将多个授权码写到一个加密锁中，也可以指定每一个授权码单独写到一个加密锁中。为使UNLS能正常提供正版软件授权服务，您必须将加密锁时刻插在装有UNLS服务程序的硬件服务器上。</p>
+<h3>7.3.	获取UMS正版软件授权码</h3>
+<p>您需要用到随UMS主程序一起安装的授权码查看软件工具SNViewer来获取UMS加密锁中的授权码。首先，请将随软件购买的UMS加密锁插在装有UMS软件的计算机的空闲USB接口上。然后，打开UMS安装文件夹下的SNViewer.exe程序，正常情况下，SNViewer会显示该加密锁内部的所有授权码，以及每一个授权码对应的并发数，如下图：<br>
+<img src="/images/help/snviewer.jpg" /></p>
+<p>接下来，点击“文件-&gt;保存文件…”菜单，将授权码信息保存为文本文件，以供后续使用，如下图：<br>
+<img src="/images/help/save_sn.jpg" /></p>
+<h3>7.4.	配置UMS以连接UNLS</h3>
+<p>UMS主程序通过连接到UNLS服务以获取正版授权。通过UMS服务器管理系统配置授权码，如下图：<br>
+<img src="/images/help/conf-sn.png" /></p>
+<p>其中，UNLS服务器地址即UMS服务器软件对外提供服务的IP地址；UNLS服务器口令应与章节7.2中配置的UNLS服务器口令一致。最后，从章节7.3保存的授权码文件中拷贝一个授权码，粘贴到配置界面的“软件授权码”文本框，点击“应用”按钮后选择“保存”，然后重启服务，UMS即会自动连接UNLS服务。</p>
+<h2>八、OBS软件使用教程</h2>
+<h3>8.1.软件介绍</h3>
+<p>Q：什么是OBS？</p>
+<p>A：OBS是目前最好用的直播软件，并且支持MAC的OS X系统。</p>
+<p>Q：好用不？</p>
+<p>A：国外软件有中文无广告全免费，安装就含32位与64位版本，通吃各种电脑。</p>
+<p>Q：哪下载？为啥用它？<br></p>
+<p><img src="/images/help/201403291720046127.jpg" /></p>
+<p>A：登录：<a href="http://obsproject.com/download">OBS官方网站</a> 点绿色的Download即可，自动安装，老版本自动升级。</p>
+<p>OBS优点：绿色，傻瓜，好用，有深度。</p>
+<p>注意：目前仅适用于 Windows Vista\7\8 MAC（不支持XP，XP用户请出门左转Xsplit）</p>
+<h3>8.2.通用型设置与傻瓜快速上手指南</h3>
+<h4>8.2.1. 设定部分</h4>
+<p><br>
+<img src="/images/help/201403291720067983.jpg" /></p>
+<p>①一般属性，建议按图中所示设置。
+<br>
+<img src="/images/help/201403291720068822.jpg" /></p>
+<p>①品质选择</p>
+<p>卡丁车，CF，坦克世界类，请选6-7</p>
+<p>DOTA，LOL，星际争霸类，请选7-8</p>
+<p>卡牌游戏，讲课画图，GAL类游戏，请选9-10</p>
+<p>②最大比特率与影像-压缩分辨率设置</p>
+<p>先登录<a href="www.speedtest.net">www.speedtest.net</a>，点begin test测试上传速度。以下举例：<br></p>
+<p><img src="/images/help/201403291720076955.jpg" /></p>
+<p>结果出来看UPLOAD SPEED。</p>
+<p>1Mbps左右的请设置最大码率为500kbps，压缩分辨率为720x480或与480接近。</p>
+<p>2Mbps左右的请设置最大码率为1500kbps，压缩分辨率为1280x720或与720接近。</p>
+<p>低于0.5Mbps的，还是去看直播吧。</p>
+<p>附：分辨率与码率参考设置
+<br></p>
+<p><img src="/images/help/201403291720051198.jpg" /></p>
+<p>同时取消CBR固定位元素，勾选使用自定义缓存大小，缓冲大小与最大比特率一致。</p>
+<p><br>
+<img src="/images/help/201403291720089339.jpg" /></p>
+<p>“伺服器”位置，填写UMS系统中直播应用的地址，形式如：rtmp://ip:port/live，<br>
+“播放路径/串流码”位置，填写在UMS系统中已经注册的直播流名称，如：livestream。<br>
+【注意】由于OBS生成的音频和视频的时间戳是分别独立打时间戳，与标准RTMP协议规定的统一打时间戳不符，因此，在UMS录制的过程中，要对时间戳进行校正，所以，要特别指出客户端的类型是obs，如livestream?client=obs，否则UMS录制的视频流将不能正常播放。如果不希望UMS自动录制，请加上ctrl=norecord参数，如：livestream?client=obs&amp;ctrl=norecord。</p>
+<p><br>
+<img src="/images/help/201403291720094773.jpg" /></p>
+<p>基本解析度选择自己屏幕分辨率即可，压缩分辨率参考上面最大码率设置。</p>
+<p>配置高开36采样数，配置低不开任何滤镜。</p>
+<p>FPS帧数，配置低开24fps配置高开30fps。</p>
+<p>停用Aero勾上即可。</p>
+<p><br>
+<img src="/images/help/201403291720096511.jpg" /></p>
+<p>选好播放器和麦克风，如默认有声，就无需更改。</p>
+<p><br>
+<img src="/images/help/201403291720119664.jpg" /></p>
+<p>按照图中所示设置即可。</p>
+<p><br>
+<img src="/images/help/201403291720127016.jpg" /></p>
+<p>按照图中所示设置即可。</p>
+<h4>8.2.2. OBS界面傻瓜快速上手设置</h4>
+<p><br>
+<img src="/images/help/201403291720135873.jpg" /></p>
+<p>①添加场景：鼠标移至场景，右键添加场景，无需设置，确定即可</p>
+<p>②来源：下方空白处右键，添加显示器获取，无需起名，点确定，窗口勾选兼容模式，点确定即可。</p>
+<p>③来源处显示器获取打上勾，点预览串流，看到有图像就没有问题。</p>
+<p>④保证服务器和串流码填写正确后，选择开始串流，进入游戏后，把图像改为无边框或窗口全屏化。</p>
+<p>祝你直播愉快。</p>
+<p>【常见问题】</p>
+<p>1、D3DX10_43.dll错误，80004005错误
+请确保</p>
+<p><a href="http://www.microsoft.com/en-us/download/details.aspx?id=35">DIRECTX</a></p>
+<p><a href="http://www.microsoft.com/en-us/download/details.aspx?id=5555">C++</a></p>
+<p><a href="http://www.microsoft.com/en-us/download/details.aspx?id=17851">NET FRAMEWORK 4.0</a>程序是最新的。</p>
+<p>2、别人老说我画面卡怎么回事？<br></p>
+<p><img src="/images/help/201403291720137305.jpg" /></p>
+<p>打开OBS界面，看是否有跳帧，丢帧现象。跳帧，说明你CPU吃不消，降低分辨率。丢帧，说明你最大比特率（码率）太高了，实际上传速度达不到，才会丢帧，降低码率。这种情况小区共享宽带特别常见。</p>
+<p>3、为什么我看不到直播画面/直播不了/提示重新连接？</p>
+<p><br>
+<img src="/images/help/201406161705274076.jpg" /></p>
+<p>看一下软件右下角是否为灰色，灰色表示未推流成功，请检查网络、电脑防火墙和直播码是否正确。</p>
+<p><br>
+<img src="/images/help/201406161705277976.jpg" /></p>
+<p>绿色表示正常推流。（黄色和红色表示直播掉帧，请根据自己的上传速度进行直播设置。）</p>
+<p>【小技巧】</p>
+<p>1、可以按住Ctrl键移动物件一次多个视窗拖曳，按住Shift键调整高度宽度会动到该物件比例（会拉到有点长有点扁，拉不好！看字体与画面会模糊）请注意</p>
+<p>2、检视视窗里Ctrl + ↑ ↓键盘上下键，可对任物件上前后景位置调整</p>
+<p>3、某些游戏发现抓取不到的时候，尝试关闭Aero去抓取!</p>
+<p>4、OBS支持按键发话!!不想不雅话语被直播的时候好用!或是有突发声音不想被直播时能使用快捷键快速反应!</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
