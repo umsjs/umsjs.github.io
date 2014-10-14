@@ -1,0 +1,3246 @@
+{
+    "project": {},
+    "files": {
+        "ums.js": {
+            "name": "ums.js",
+            "modules": {
+                "ums.js": 1
+            },
+            "classes": {
+                "ums.RTMPCall": 1,
+                "ums.RTMPOptions": 1,
+                "ums.NetStream": 1,
+                "ums.RTMPServer": 1,
+                "ums.Application": 1,
+                "EventEmitterEx": 1,
+                "ums.PublishPipe": 1,
+                "ums.PublishPool": 1,
+                "ums.RTMPClient": 1,
+                "ums.RTMPConnector": 1,
+                "ums.NetConnection": 1,
+                "ums.RTSPConnector": 1,
+                "ums.RTSPConnection": 1,
+                "ums": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "ums.js": {
+            "name": "ums.js",
+            "submodules": {},
+            "classes": {
+                "ums.RTMPCall": 1,
+                "ums.RTMPOptions": 1,
+                "ums.NetStream": 1,
+                "ums.RTMPServer": 1,
+                "ums.Application": 1,
+                "EventEmitterEx": 1,
+                "ums.PublishPipe": 1,
+                "ums.PublishPool": 1,
+                "ums.RTMPClient": 1,
+                "ums.RTMPConnector": 1,
+                "ums.NetConnection": 1,
+                "ums.RTSPConnector": 1,
+                "ums.RTSPConnection": 1,
+                "ums": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "ums.js",
+            "line": 3451,
+            "description": "javascript glue wrapper of umsjs module",
+            "author": "IMMAAC Co.,Ltd."
+        }
+    },
+    "classes": {
+        "ums.RTMPCall": {
+            "name": "ums.RTMPCall",
+            "shortname": "ums.RTMPCall",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 112,
+            "description": "A ums.RTMPCall object is a remote call information collection, contains RPC \ncommand name, transaction id, properties, arguments as well as response \ncontext."
+        },
+        "ums.RTMPOptions": {
+            "name": "ums.RTMPOptions",
+            "shortname": "ums.RTMPOptions",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 158,
+            "description": "Options object used to construct RTMPServer or RTMPConnector, every option \nitem has its own listeners, changes make on the option item will be \nnotified to its listeners"
+        },
+        "ums.NetStream": {
+            "name": "ums.NetStream",
+            "shortname": "ums.NetStream",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 330,
+            "description": "Javascript version of NetStream in actionscript3. Both client-side and \nserver-side could use this class to manipulate streams over RTMPClient\nor NetConnection."
+        },
+        "ums.RTMPServer": {
+            "name": "ums.RTMPServer",
+            "shortname": "ums.RTMPServer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 946
+        },
+        "ums.Application": {
+            "name": "ums.Application",
+            "shortname": "ums.Application",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 1116
+        },
+        "EventEmitterEx": {
+            "name": "EventEmitterEx",
+            "shortname": "EventEmitterEx",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 1259
+        },
+        "ums.PublishPipe": {
+            "name": "ums.PublishPipe",
+            "shortname": "ums.PublishPipe",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 1281
+        },
+        "ums.PublishPool": {
+            "name": "ums.PublishPool",
+            "shortname": "ums.PublishPool",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 1665
+        },
+        "ums.RTMPClient": {
+            "name": "ums.RTMPClient",
+            "shortname": "ums.RTMPClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 2146
+        },
+        "ums.RTMPConnector": {
+            "name": "ums.RTMPConnector",
+            "shortname": "ums.RTMPConnector",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 2598
+        },
+        "ums.NetConnection": {
+            "name": "ums.NetConnection",
+            "shortname": "ums.NetConnection",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 2718
+        },
+        "ums.RTSPConnector": {
+            "name": "ums.RTSPConnector",
+            "shortname": "ums.RTSPConnector",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 3139
+        },
+        "ums.RTSPConnection": {
+            "name": "ums.RTSPConnection",
+            "shortname": "ums.RTSPConnection",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 3246
+        },
+        "ums": {
+            "name": "ums",
+            "shortname": "ums",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "ums.js",
+            "namespace": "",
+            "file": "ums.js",
+            "line": 3451
+        }
+    },
+    "classitems": [
+        {
+            "file": "ums.js",
+            "line": 120,
+            "description": "为当前调用返回一个_result结果.\n该接口必须是远端发过来的调用对象，且被调函数名不能为'onStatus'，\n即不能调用'onStatus'调用对象的这一接口。",
+            "itemtype": "method",
+            "name": "echoResult",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "...",
+                    "description": "返回的参数",
+                    "type": "Number/String/Boolean/Array/Object/Buffer"
+                }
+            ],
+            "example": [
+                "\n    cmd.echoResult(arg1, ..., argN);"
+            ],
+            "class": "ums.RTMPCall",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 139,
+            "description": "为当前调用返回一个_error结果.\n该接口必须是远端发过来的调用对象，且被调函数名不能为'onStatus'，\n即不能调用'onStatus'调用对象的这一接口。",
+            "itemtype": "method",
+            "name": "echoError",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "...",
+                    "description": "返回的参数",
+                    "type": "Number/String/Boolean/Array/Object/Buffer"
+                }
+            ],
+            "example": [
+                "\n    cmd.echoResult(arg1, ..., argN);"
+            ],
+            "class": "ums.RTMPCall",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 166,
+            "description": "RTMPServer选项.允许接受的最大连接并发数（开发版为：50；线上版默认值为：1000）.",
+            "itemtype": "property",
+            "name": "maxConn",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 174,
+            "description": "RTMPServer/RTMPConnector选项.遇到断言失败则退出执行（默认值为：true）.",
+            "itemtype": "property",
+            "name": "breakOnAssert",
+            "type": "Boolean",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 182,
+            "description": "RTMPServer/RTMPConnector选项.RTMPServer/RTMPConnector线程池内的工作线程数量\n（默认值为：20）.",
+            "itemtype": "property",
+            "name": "numOfThreads",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 191,
+            "description": "RTMPServer/RTMPConnector选项.允许IPv6（默认值为：false）.",
+            "itemtype": "property",
+            "name": "enableIPv6",
+            "type": "Boolean",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 199,
+            "description": "RTMPServer选项.RTMPServer绑定的IP地址（默认值为：0.0.0.0）.",
+            "itemtype": "property",
+            "name": "rtmpIP",
+            "type": "String",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 207,
+            "description": "RTMPServer选项.RTMPServer的监听端口（默认值为：1935）.",
+            "itemtype": "property",
+            "name": "rtmpPort",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 215,
+            "description": "RTMPServer/RTMPConnector选项.连接活跃检查时间间隔（以秒为单位，默认值为：60）.",
+            "itemtype": "property",
+            "name": "activeCheckInterval",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 223,
+            "description": "RTMPServer选项.重用IP地址和端口（默认值为：true）.",
+            "itemtype": "property",
+            "name": "reuseAddress",
+            "type": "Boolean",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 231,
+            "description": "RTMPServer选项.内核为监听套接口排队的最大连接个数（默认值为：0）.",
+            "itemtype": "property",
+            "name": "backlog",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 239,
+            "description": "RTMPServer/RTMPConnector选项.收/发数据响应窗口值（以KB为单位，默认值为：48）.",
+            "itemtype": "property",
+            "name": "windowSize",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 247,
+            "description": "RTMPServer/RTMPConnector选项.活动连接最大超时时间（以秒为单位，默认值为：\n36000）.计算一个连接从建立连接到当前时间的时间间隔，该时间间隔即为该连接\n的连接总时长。如果某一连接的连接总时长超过该选项值，该连接将被关闭。",
+            "itemtype": "property",
+            "name": "activeConnTimeout",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 257,
+            "description": "RTMPServer/RTMPConnector选项不活动连接最大超时时间（以秒为单位，默认值为：300）.\n计算一个连接从发生最近一次网络活动（收/发数据）的时间开始到当前时间的时间间隔，\n该时间间隔即为该连接的空闲时间。如果某个连接的空闲时间超过该选项值，即认为该\n连接为不活动连接，该连接将被关闭。",
+            "itemtype": "property",
+            "name": "deadConnTimeout",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 268,
+            "description": "RTMPServer选项.RTMPServer接受TCP连接的间隔时间（以毫秒为单位，默认值为：0）.\nRTMPServer两次接受TCP连接的时间间隔称为接受时间间隔。如果向RTMPServer新建立\n的TCP连接距离上一次接受连接的时间间隔小于该选项值，则服务器会等待，等待的时\n间长度为该选项值与实际连接间隔的时间差。当等待完成后才接受新的连接。",
+            "itemtype": "property",
+            "name": "acceptInterval",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 279,
+            "description": "RTMPServer选项.服务端应用接受一个RTMP连接的超时时间（以秒为单位，默认值为：60）.\n当一个RTMP连接成功完成握手操作后，客户端会发送一个'connect'命令到RTMPServer，该\n命令里面携带客户端希望连接的服务端应用名称及其他信息，ums.Application通过设置\n'connect'事件的监听处理函数来捕获该连接操作。用户须在该选项值内调用\nums.Application.accept()接口来接受或拒绝该连接，如果超出该选项设定的时间值，仍未\n调用该接口，则连接会被默认拒绝。",
+            "itemtype": "property",
+            "name": "acceptTimeout",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 292,
+            "description": "RTMPServer/RTMPConnector选项.直播发布池的ID号（默认值为：0）.\n对于RTMPServer来说，RTMPServer将接收到的客户端推送\n过来的直播音视频数据流发布到发布池中，当有订阅者连接到该RTMPServer订阅直播流时，\nRTMPServer将直播流数据从发布池中获取数据，并发送给客户端。对于RTMPConnector来说，\nRTMPConnector能创建向外的连接(NetConnection实例)，并通过建于该连接之上的NetStream\n的edge接口将远端RTMPServer上发布的直播流数据拉取过来并发布到为其指定的发布池中，\n如果该发布池被其他RTMPServer实例共用，则可通过这些RTMPServer对外提供直播流订阅服\n务。\n注意 : 系统内部自动创建publishId为0的发布池，作为默认发布池，该发布池无法提供js接\n口，也无法进行操作，如果希望使用PublishPool的相关接口和功能，请自行创建PublishPool\n实例，并将其publishId指定给相应的RTMPServer或RTMPConnector实例。",
+            "itemtype": "property",
+            "name": "publishId",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 310,
+            "description": "RTMPServer选项.为当前RTMPServer实例指定媒体库文件夹.当需要使用RTMPServer做vod（视\n频点播）业务时，需要为RTMPServer实例指定媒体文件的路径，即媒体文件所在的文件夹路径。\n文件夹路径可以是相对路径（相对于ums安装路径），也可以是绝对路径，以字符串形式给出，\n例如：myOptions.mediaFolders = ['video','d:\\\\video'];",
+            "itemtype": "property",
+            "name": "mediaFolders",
+            "type": "Array of String",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 321,
+            "description": "RTMPServer/RTMPConnector选项.允许EOF连续重试的次数.\nRTMP连接接收网络数据，允许EOF连续重试的次数。当重试次数超过此限制时，连接将被关闭。",
+            "itemtype": "property",
+            "name": "eofTimes",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPOptions",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 346,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持除'_error/_result/onStatus/connect/error/close'等事件之\n外的任何自定义事件.上述事件为内部保留事件，用户不应定义与这些事\n件同名的事件处理函数。与用户自定义事件相对应的事件处理函数的参\n数列表与远端调用时传入的参数列表一致。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    stream.on(event_name, function(){});"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 363,
+            "description": "流关闭事件及其事件监听处理程序.\n该关闭事件仅表明当前流被关闭，并不意味着RTMP连接被关闭。",
+            "itemtype": "event",
+            "name": "close",
+            "example": [
+                "\n    stream.on('close', function(){\n        // Do some recycle work\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 374,
+            "description": "对端发过来的流关闭事件及其事件监听处理程序.\n该关闭事件由对端发出，用以关闭当前流。",
+            "itemtype": "event",
+            "name": "closeStream",
+            "example": [
+                "\n    stream.on('closeStream', function(cmd){\n        stream.close();\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 385,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    stream.on('error', function(err){\n        console.dir(err);\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 397,
+            "description": "RTMP网络流状态事件及其事件监听处理程序.\n如果添加'onStatus'事件监听函数，则当出现网络状态事件时回调函数将\n被调用。'onStatus'事件发送自网络对端，是一种不需要回复的远程调用，\n用于通知网络对端特定的状态信息，包括流的播放、发布状态等。",
+            "itemtype": "event",
+            "name": "onStatus",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "状态信息",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    stream.on('onStatus', function(event){\n        console.dir(event);\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 411,
+            "description": "Audio/Video数据及其数据监听处理程序.\n如果添加'data'事件监听函数，则当出现Audio/Video数据包时回调函数将\n被调用。",
+            "itemtype": "event",
+            "name": "data",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "Audio/Video数据",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    stream.on('data', function(data){\n        console.dir(data);\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 424,
+            "description": "metadata数据及其数据监听处理程序.\n如果添加'onMetaData'事件监听函数，则当出现metadata数据包时回调函\n数将被调用。",
+            "itemtype": "event",
+            "name": "onMetaData",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "metadata数据",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    stream.on('onMetaData', function(data){\n        console.dir(data);\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 437,
+            "description": "调用一个远端处理函数.\n如果指定返回结果的回调处理函数，则远端理论上应该返回结果，该结果\n由该回调函数处理，否则，不返回结果。回调函数的第一个参数为远端返\n回的调用对象（ums.RTMPCall实例）。理论上，返回结果也是一个远程调\n用，只不过是针对特定函数_result和_error函数的特定调用。返回\n_result表示远端函数正确执行；返回_error则表示远端函数执行出错。",
+            "itemtype": "method",
+            "name": "call",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "proc_name",
+                    "description": "要调用的远端函数的名称",
+                    "type": "String"
+                },
+                {
+                    "name": "...",
+                    "description": "要传递给远端函数的参数",
+                    "type": "Number/String/Boolean/Array/Object/Buffer"
+                },
+                {
+                    "name": "callback",
+                    "description": "[可选], 远端函数返回结果的处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    stream.call('foo', 'arg1', 'arg2', function(cmd){\n        console.dir(cmd);\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 479,
+            "description": "向服务端发送一个播放命令.\n调用该接口并不会返回_result或_error结果，要想捕获播放事件，请调用\nums.NetStream.on接口订阅onStatus事件，并判断event.code值是否为下述状态之一：\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;1.'NetStream.Play.StreamNotFound':表示流不存在；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;2.'NetStream.Play.Reset':表示播放重置；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;3.'NetStream.Play.Start':表示播放开始；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;4.'NetStream.Play.Stop':表示播放停止；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;5.'NetStream.Play.Complete':表示播放结束；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;6.'NetStream.Play.Transition':转换指令；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;7.'NetStream.Play.TransitionComplete':转换结束（通过onPlayStatus发送）；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;8.'NetStream.Play.UnpublishNotify':发布者停止发布通知。\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;9.'NetStream.Play.Failed':未知的失败；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;10.'NetStream.Play.FileStructureInvalid':文件结构不可用；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;11.'NetStream.Play.NoSupportedTrackFound':不支持的流格式；\n     <br>&nbsp;&nbsp;&nbsp;&nbsp;12.'NetStream.Play.InsufficientBW':带宽不够。\n<br>形如：\n\n     stream.on('onStatus', function(cmd, event){\n         switch(event.code) {\n             case \"NetStream.Play.Failed\":\n                 // \"error\",An error has occurred in playback for a reason other than those \n                 // listed elsewhere in this table, such as the subscriber not having read\n                 // access.\n                 break;\n             case \"NetStream.Play.FileStructureInvalid\":\n                 // \"error\",(AIR and Flash Player 9.0.115.0) The application detects an\n                 // invalid file structure and will not try to play this type of file.\n                 break;\n             case \"NetStream.Play.NoSupportedTrackFound\":\n                 // \"error\",(AIR and Flash Player 9.0.115.0) The application does not\n                 // detect any supported tracks (video, audio or data) and will not try to\n                 // play the file.\n                 break;\n             case \"NetStream.Play.StreamNotFound\":\n                 // \"error\",The file passed to the NetStream.play() method can't be found.\n                 break;\n             case \"NetStream.Play.InsufficientBW\":\n                 // \"warning\",(Flash Media Server) The client does not have sufficient\n                 // bandwidth to play the data at normal speed.\n                 break;\n             case \"NetStream.Play.PublishNotify\":\n                 // \"status\",The initial publish to a stream is sent to all subscribers.\n                 break;\n             case \"NetStream.Play.Reset\":\n                 // \"status\",Caused by a play list reset.\n                 break;\n             case \"NetStream.Play.Start\":\n                 // \"status\",Playback has started.\n                 break;\n             case \"NetStream.Play.Stop\":\n                 // \"status\",Playback has stopped.\n                 break;\n             case \"NetStream.Play.Transition\":\n                 // \"status\",(Flash Media Server 3.5) The server\n                 // received the command to transition to another stream as a result of bitrate stream switching.\n                 // This code indicates a success status event for the NetStream.play2() call to initiate a stream\n                 // switch. If the switch does not succeed, the server sends a NetStream.Play.Failed event instead.\n                 // When the stream switch occurs, an onPlayStatus event with a code of\n                 // \"NetStream.Play.TransitionComplete\" is dispatched. For Flash Player 10 and later.\n                 break;\n             case \"NetStream.Play.UnpublishNotify\":\n                 // \"status\",An unpublish from a stream is sent to all subscribers.\n                 break;\n             case \"NetStream.Play.Complete\":\n                 // \"status\",Playback has completed.\n                 break;\n         }\n     });",
+            "itemtype": "method",
+            "name": "play",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "要播放的流的名称",
+                    "type": "String"
+                },
+                {
+                    "name": "startPos",
+                    "description": "开始播放的起始时间戳。如果startPos < -1 ,表示\n       如果存在同名的直播流，则优先放直播流，如果直播流不存在\n       而点播文件存在，则播放点播文件；如果startPos = -1，表\n       示只播放同名的直播流；如果startPos >= 0则表示只播放点\n       播流)",
+                    "type": "Number"
+                }
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 570,
+            "description": "向服务端发送一个播放命令，并将接收到的音视频数据流发布到本地发布池.\n该接口是一个复合操作，接口内部完成两个操作：1.向远端服务器发送一个\n'play'调用；2.将接收到的音视频数据以直播流的形式发布到创建\nRTMPConnector实例时指定的PublishPool实例中。要想捕获播放事件，请调\n用NetStream.on接口订阅onStatus事件，形如：\n    NetStream.on('onStatus', function(cmd, event){});\n并判断event.code值是否为下述状态之一：\n1.'NetStream.Play.StreamNotFound':表示流不存在；\n2.'NetStream.Play.Reset':表示播放重置；\n3.'NetStream.Play.Start':表示播放开始；\n4.'NetStream.Play.Complete':表示播放结束。",
+            "itemtype": "method",
+            "name": "edge",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "remoteStreamName",
+                    "description": "要拉取的流的名称",
+                    "type": "String"
+                },
+                {
+                    "name": "localStreamName",
+                    "description": "[可选]，发布到本地的流的名称。如果\n       不设置该参数，则拉取的视频流将会以原有名字发布到本地\n       PublishPool实例中.",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "异步操作结果回调函数，函数的第一个参数为\n       操作结果错误信息，如果出错，则该值不为null",
+                    "type": "Function"
+                }
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 624,
+            "description": "设置开启/关闭数据包冒泡功能.\n如果设置开启数据包冒泡功能，则可以通过监听'data'事件来接收到\nVideo/Audio/MetaData数据包。\n异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，\n则表明设置成功，否则，表明设置失败。\n\n设置开启/关闭将Audio/Video数据转换成onMediaData包发送功能.\n如果设置开启数据包冒泡功能，则可以通过监听'onMediaData'事件来\n接收到Video/Audio数据包。\n异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，\n则表明设置成功，否则，表明设置失败。",
+            "itemtype": "method",
+            "name": "setFlags",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "flags",
+                    "description": "是否开启数据包冒泡功能",
+                    "type": "Number"
+                },
+                {
+                    "name": "callback",
+                    "description": "异步设置完成回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    stream.setFlags(NSFLAG_BUBBLE | NSFLAG_MEDIADATA, function(err){\n        if (err) {\n            return console.dir(err);\n        }\n        stream.on('data', function(data){\n            console.dir(data);\n        });\n        stream.on('bufferEvent', function(type){\n            console.dir(type);\n        });\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 670,
+            "description": "设置音视频同步延时.",
+            "itemtype": "method",
+            "name": "setDelay",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "msDelay",
+                    "description": "同步延时的时间，以毫秒为单位",
+                    "type": "Number"
+                },
+                {
+                    "name": "callback",
+                    "description": "异步设置完成回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    stream.setDelay(msDelay, function(err){\n        if (err) {\n            return console.dir(err);\n        }\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 703,
+            "description": "预发布一个流到发布池中.\n该接口是一个复合接口，调用此接口，创建一个Publisher，并注册到预\n先指定的发布池中。\n如果接口调用出错，err将不为null，stream不可用；反之，err为null,\nstream对象可用。",
+            "itemtype": "method",
+            "name": "createPublisher",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "cmd",
+                    "description": "远程调用对象实例",
+                    "type": "ums.RTMPCall"
+                },
+                {
+                    "name": "autoEcho",
+                    "description": "是否自动回复",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "callback",
+                    "description": "回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    stream.on('publish', function(cmd){\n        stream.createPublisher(cmd, true, function(err, streamName){\n            if (err) {\n                return console.log('createPublisher :', err);\n            }\n            console.log('stream name :', streamName);\n        });\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 782,
+            "description": "旁通play调用到底层.将远程调用对象透传到底层。",
+            "itemtype": "method",
+            "name": "createPlayer",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "cmd",
+                    "description": "远程调用对象实例",
+                    "type": "ums.RTMPCall"
+                }
+            ],
+            "example": [
+                "\n    stream.on('play', function(cmd){\n        stream.createPlayer(cmd, function(err, streamName, bLive){});\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 821,
+            "description": "主动关闭一个流。",
+            "itemtype": "method",
+            "name": "close",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    stream.on('closeStream', function(cmd){\n        stream.close(function(err){\n            if (err) { return console.log(err); }\n        });\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 845,
+            "description": "旁通seek调用到底层.将远程调用对象透传到底层。",
+            "itemtype": "method",
+            "name": "seek",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "cmd",
+                    "description": "远程调用对象实例",
+                    "type": "ums.RTMPCall"
+                }
+            ],
+            "example": [
+                "\n    stream.on('seek', function(cmd){\n        stream.seek(cmd);\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 863,
+            "description": "暂停一个本地流。",
+            "itemtype": "method",
+            "name": "localPause",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "bPause",
+                    "description": "设置暂停(true)或取消暂停(false)",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "nTimestamp",
+                    "description": "设置暂停时的时间戳，以毫秒为单位",
+                    "type": "Uint"
+                },
+                {
+                    "name": "callback",
+                    "description": "异步完成回调",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    stream.on('pause', function(cmd, bPause, nTimestamp){\n        stream.localPause(bPause, nTimestamp, function(err){\n            if (err) {\n                return console.dir(err);   \n            }\n        });\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 890,
+            "description": "旁通pause调用到底层.将远程调用对象透传到底层。",
+            "itemtype": "method",
+            "name": "pause",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "cmd",
+                    "description": "远程调用对象实例",
+                    "type": "ums.RTMPCall"
+                }
+            ],
+            "example": [
+                "\n    stream.on('pause', function(cmd){\n        stream.pause(cmd);\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 908,
+            "description": "旁通pauseRAW调用到底层.将远程调用对象透传到底层。",
+            "itemtype": "method",
+            "name": "pauseRAW",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "cmd",
+                    "description": "远程调用对象实例",
+                    "type": "ums.RTMPCall"
+                }
+            ],
+            "example": [
+                "\n    stream.on('pauseRAW', function(cmd){\n        stream.pauseRAW(cmd);\n    });"
+            ],
+            "class": "ums.NetStream",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 950,
+            "description": "Called when a low level socket connect in.if 'connection' event handler \nis registered, we will emit a 'connection' event to that handler, or we \naccept the connection as default behavior.",
+            "itemtype": "method",
+            "name": "_internalCallback",
+            "access": "private",
+            "tagname": "",
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 977,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持'connection/reject/error/close'事件。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数，事件处理函数的第一个参数是\n                                新建立的TCP连接的基本信息，包括本端IP地址\n                                和对端IP地址",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    server.on('connection', function(sockInfo){\n        console.dir(sockInfo);\n    });"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 994,
+            "description": "新连接事件及其事件监听处理程序.\n当一个新的TCP连接建立时，'connection'事件将被抛出，如果事先注册\n          有该事件的监听处理函数，则会调用该处理函数；否则，该TCP连接将被\n          默认接受。",
+            "itemtype": "event",
+            "name": "connection",
+            "params": [
+                {
+                    "name": "sockInfo",
+                    "description": "新建立的TCP连接的IP信息",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    server.on('connection', function(sockInfo){\n        console.dir(sockInfo);\n    });"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1008,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    server.on('error', function(err){\n        if (err) {\n            console.dir(err);\n        }\n    });"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1022,
+            "description": "RTMPServer关闭事件及其事件监听处理程序.\n如果添加'close'事件监听函数，则当RTMPServer关闭时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "close",
+            "example": [
+                "\n    server.on('close', function(){\n        // Do some recycle work\n    });"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1033,
+            "description": "启动RTMPServer实例并使其开始接受新连接的接口.\n调用该接口将开始运行一个RTMPServer实例以接受新的连接。回调函数被\n执行时，表明启动工作结束，可以进行后续操作。",
+            "itemtype": "method",
+            "name": "start",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "RTMPServer开始运行的回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    server.start(function callback(err){\n        if (err) {\n            console.dir(err);\n        }\n    });"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1050,
+            "description": "注册一个服务端的应用到该RTMPServer实例.如果该RTMPServer实例中不存在\n与要注册的应用同名的应用，则该应用会被成功注册；否则抛出应用重名异常。",
+            "itemtype": "method",
+            "name": "register",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "app_instance",
+                    "description": "服务端应用程序实例",
+                    "type": "ums.Application"
+                }
+            ],
+            "example": [
+                "\n    var app = new ums.Application('live');\n    server.register(app);"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1062,
+            "description": "通过客户端连接ID获取连接对象。",
+            "itemtype": "method",
+            "name": "getClientById",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "clientId",
+                    "description": "客户端连接的ID",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var client = server.getClientById(clientId);"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1072,
+            "description": "接受或拒绝一个刚建立的连到该RTMPServer的TCP连接.如果要拒绝一个刚建立\n的连到该RTMPServer的TCP连接，isAccept应为true;反之，如果要拒绝一个TCP连接，\nisAccept应为false。",
+            "itemtype": "method",
+            "name": "accept",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "sockInfo",
+                    "description": "新建立的TCP连接信息，该参数必须由'connection'\n                      事件的监听回调函数传入",
+                    "type": "Object"
+                },
+                {
+                    "name": "isAccept",
+                    "description": "是否接受该TCP连接",
+                    "type": "Boolean"
+                }
+            ],
+            "example": [
+                "\n    server.accept(sockInfo, isAccept);"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1086,
+            "description": "关闭RTMPServer实例.\n调用该接口将关闭一个RTMPServer实例，成功关闭后将触发'close'事件。",
+            "itemtype": "method",
+            "name": "close",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    server.close();"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1096,
+            "description": "获取RTMPServer实例上所有连接的流量统计信息.\n调用该接口将获取当前RTMPServer实例上所有连接的接收/发送数据统计信息。",
+            "itemtype": "method",
+            "name": "stat",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    var stats = server.stat();"
+            ],
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1106,
+            "description": "RTMPServer选项设置集合.\n构造该RTMPServer实例时传入的选项集合实例。",
+            "itemtype": "property",
+            "name": "options",
+            "type": "ums.RTMPOptions",
+            "access": "public",
+            "tagname": "",
+            "class": "ums.RTMPServer",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1120,
+            "description": "Called when a application level command received.",
+            "itemtype": "method",
+            "name": "_internalCallback",
+            "access": "private",
+            "tagname": "",
+            "class": "ums.Application",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1145,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持'connect/error/close'事件. 当一个新的RTMP连接建立时，\n'connect'事件将被抛出，如果事先注册有该事件的监听处理程序，则\n会调用该处理函数；否则，该RTMP连接将被默认拒绝。'connect'事件\n处理函数的第一个参数是新建立的TCP连接的基本信息，包括本端IP地\n址和对端IP地址。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    application.on('connect', function(cmd, client){\n        console.dir(cmd);\n        // Accept new connection\n        application.accept(cmd, client, true);\n    });"
+            ],
+            "class": "ums.Application",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1166,
+            "description": "连接建立事件及其事件监听处理程序.\n如果添加'connect'事件监听函数，则当有新连接建立时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "connect",
+            "params": [
+                {
+                    "name": "cmd",
+                    "description": "远程调用对象",
+                    "type": "ums.RTMPCall"
+                },
+                {
+                    "name": "client",
+                    "description": "新建立的客户端对象",
+                    "type": "ums.RTMPClient"
+                },
+                {
+                    "name": "...",
+                    "description": "[可选],剩余参数",
+                    "type": "Number/String/Boolean/Array/Object/Buffer"
+                }
+            ],
+            "example": [
+                "\n    application.on('connect', function(cmd, client){\n        console.dir(cmd);\n        // Accept new connection\n        application.accept(cmd, client, true);\n    });"
+            ],
+            "class": "ums.Application",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1182,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    application.on('error', function(err){\n        console.dir(err);\n    });"
+            ],
+            "class": "ums.Application",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1194,
+            "description": "应用关闭事件及其事件监听处理程序.\n如果添加'close'事件监听函数，则当应用关闭时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "close",
+            "example": [
+                "\n    application.on('close', function(){\n        // Do some recycle work\n    });"
+            ],
+            "class": "ums.Application",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1205,
+            "description": "接受或拒绝一个刚建立的连到该RTMPServer的RTMP连接.如果要拒绝一个刚建立的\n连到该RTMPServer的RTMP连接，isAccept应为true;反之，如果要拒绝一个TCP连接，\nisAccept应为false。",
+            "itemtype": "method",
+            "name": "accept",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "cmd",
+                    "description": "远端发过来的RTMP RPC命令实例.",
+                    "type": "ums.RTMPCall"
+                },
+                {
+                    "name": "client",
+                    "description": "新建立的RTMP连接实例，该参数必须由\n                    'connect'事件的监听回调函数传入)",
+                    "type": "ums.RTMPClient"
+                },
+                {
+                    "name": "isAccept",
+                    "description": "是否接受该RTMP连接.",
+                    "type": "Boolean"
+                }
+            ],
+            "example": [
+                "\n    application.accept(cmd, client, isAccept);"
+            ],
+            "class": "ums.Application",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1220,
+            "description": "枚举连接到本应用上的所有端的连接对象.\n在处理大量连接时，使用该方法比较高效，如果要查找某一符合条件的连接对象，\n建议使用该方法。注意：当client为null时，表明连接集合为空。",
+            "itemtype": "method",
+            "name": "enumClients",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "枚举结果回调函数\n callback param client {ums.RTMPClient} 已建立连接的RTMPClient实例\n                isEnd {Boolean} 是否是最后一个枚举值\n callback return : isContinue {Boolean} 指示枚举是否继续",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    application.enumClients(function callback(client, isEnd){\n       var isContinue = true;\n       console.log(\"isEmpty :\", !clit, \";isEnd :\", isEnd, \";index :\", nCount++);\n       nCount++;\n       if (isEnd) {\n           console.log('Count of clients :', nCount);\n       }\n       return isContinue;\n    });\n    "
+            ],
+            "class": "ums.Application",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1244,
+            "description": "以[array]的形式获取连接到该应用的所有客户端实例[ums.RTMPClient].返回连接到\n该应用的所有的客户端连接，返回结果是array类型，数组元素类型为ums.RTMPClient\n实例。如果要查找某一符合条件的连接对象，建议使用enumClients方法。",
+            "itemtype": "property",
+            "name": "clients",
+            "access": "public",
+            "tagname": "",
+            "type": "Array of ums.RTMPClient",
+            "example": [
+                "\n    var clients = application.clients;\n    for (var i = 0;i < clients.length;i++) {\n        console.dir(clients[i]);\n    }"
+            ],
+            "class": "ums.Application",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1285,
+            "description": "Called when a publish pipe level event received.",
+            "itemtype": "method",
+            "name": "_internalCallback",
+            "access": "private",
+            "tagname": "",
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1311,
+            "description": "直播流名称属性.",
+            "itemtype": "property",
+            "name": "name",
+            "type": "String",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    console.log(publishPipe.name);"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1321,
+            "description": "管道所在的发布池实例.",
+            "itemtype": "property",
+            "name": "pool",
+            "type": "ums.PublishPool",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    console.log(publishPipe.pool);"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1331,
+            "description": "管道上的所有订阅流实例.",
+            "itemtype": "property",
+            "name": "subStreams",
+            "type": "Object",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    for (var subIndex in publishPipe.subStreams) {\n        console.log(publishPipe.subStreams[subIndex]);\n    }"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1343,
+            "description": "管道上的所有发布流实例.",
+            "itemtype": "property",
+            "name": "pubStreams",
+            "type": "Object",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    for (var pubIndex in publishPipe.pubStreams) {\n        console.log(publishPipe.pubStreams[pubIndex]);\n    }"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1355,
+            "description": "管道上当前允许数据通行的Publisher的口令值。",
+            "itemtype": "property",
+            "name": "publishToken",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    console.log(publishPipe.publishToken);"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1371,
+            "description": "管道上的发布者数量。",
+            "itemtype": "property",
+            "name": "publisherSize",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    console.log(publishPipe.publisherSize);"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1387,
+            "description": "管道上的订阅者数量。",
+            "itemtype": "property",
+            "name": "subscriberSize",
+            "type": "Number",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    console.log(publishPipe.subscriberSize);"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1403,
+            "description": "关闭直播管道.",
+            "itemtype": "method",
+            "name": "close",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    var isSucceed = publishPipe.close();"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1412,
+            "description": "发送一个数据包到订阅者发送队列，该数据包必须是metadata/video/audio三种数据\n类型中的一种.",
+            "itemtype": "method",
+            "name": "feed",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "packet",
+                    "description": "要切换的直播源的序号",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    publishPipe.feed({\n        type : 0x12, // metadata\n        size : 129,  // not used when type == metadata\n        timestamp : 0,\n        streamId : 0, // not used\n        data : buffer_data, // not used when type == metadata\n        metadata : {\n            width: 320,\n            height: 240,\n            videodatarate: 0,\n            framerate: 15,\n            videocodecid: 2,\n            audiosamplerate: 22050,\n            audiosamplesize: 16,\n            stereo: true,\n            audiocodecid: 2\n        }\n    });\n    publishPipe.feed({\n        type : 0x08, // audio data\n        size : 131,  // size of buffer_data\n        timestamp : 40, // milliseconds\n        streamId : 0, // not used\n        data : [buffer_data], // array of audio data buffer which total size is 131\n    });"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1481,
+            "description": "向所有订阅者一个远程调用.\n该接口不能指定返回结果的回调处理函数，也不能接受返回结果。",
+            "itemtype": "method",
+            "name": "broadcast",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "proc_name",
+                    "description": "要调用的远端函数的名称",
+                    "type": "String"
+                },
+                {
+                    "name": "...",
+                    "description": "要传递给远端函数的参数",
+                    "type": "Number/String/Boolean/Array/Object/Buffer"
+                }
+            ],
+            "example": [
+                "\n    publishPipe.broadcast('foo', 'arg1', 'arg2');"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1514,
+            "description": "切换直播流的某个直播源.",
+            "itemtype": "method",
+            "name": "switchPublisher",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "publishToken",
+                    "description": "要切换的直播源的序号",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n    var isSucceed = publishPipe.switchPublisher(2);"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1524,
+            "description": "关闭一个直播流的所有发布者.",
+            "itemtype": "method",
+            "name": "releasePublishers",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    var isSucceed = publishPipe.releasePublishers();"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1536,
+            "description": "关闭一个直播流的所有订阅者.",
+            "itemtype": "method",
+            "name": "releaseSubscribers",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    var isSucceed = publishPipe.releaseSubscribers();"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1548,
+            "description": "关闭一个直播流的所有发布者和订阅者.",
+            "itemtype": "method",
+            "name": "releaseStream",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    var isSucceed = publishPipe.releaseStream();"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1560,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持'error/end/metadata/aacSeqHeader/\navcSeqHeader/audioStart/videoStart'事件。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    publishPipe.on('end', function(){\n        console.log(this.name, 'has stopped publishing.');\n    });"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1576,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    publishPipe.on('error', function(error_msg){\n        console.dir(error_msg);\n    });"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1588,
+            "description": "metadata事件及其事件监听处理程序.\n如果添加'metadata'事件监听函数，则当收到onMetaData事件时回\n调函数将被调用。",
+            "itemtype": "event",
+            "name": "metadata",
+            "params": [
+                {
+                    "name": "metadata",
+                    "description": "meta数据对象",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    publishPipe.on('metadata', function(metadata){\n        console.dir(metadata);\n    });"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1601,
+            "description": "aac序列头事件及其事件监听处理程序.\n如果添加'aacSeqHeader'事件监听函数，则当收到aac序列头数据时回\n调函数将被调用。",
+            "itemtype": "event",
+            "name": "aacSeqHeader",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "aac序列头数据",
+                    "type": "Buffer"
+                }
+            ],
+            "example": [
+                "\n    publishPipe.on('aacSeqHeader', function(data){\n        console.dir(data);\n    });"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1614,
+            "description": "avc序列头事件及其事件监听处理程序.\n如果添加'avcSeqHeader'事件监听函数，则当收到avc序列头数据时回\n调函数将被调用。",
+            "itemtype": "event",
+            "name": "avcSeqHeader",
+            "params": [
+                {
+                    "name": "data",
+                    "description": "avc序列头数据",
+                    "type": "Buffer"
+                }
+            ],
+            "example": [
+                "\n    publishPipe.on('avcSeqHeader', function(data){\n        console.dir(data);\n    });"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1627,
+            "description": "直播音频流开始发布事件及其事件监听处理程序.\n如果添加'audioStart'事件监听函数，则当一个新的直播流中的音频流开始发布时回\n调函数将被调用。",
+            "itemtype": "event",
+            "name": "audioStart",
+            "example": [
+                "\n    publishPipe.on('audioStart', function(streamName){\n        console.log(this.name, '\\' audio is now publishing...');\n    });"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1639,
+            "description": "直播视频流开始发布事件及其事件监听处理程序.\n如果添加'videoStart'事件监听函数，则当一个新的直播流中的视频流开始发布时回\n调函数将被调用。",
+            "itemtype": "event",
+            "name": "videoStart",
+            "example": [
+                "\n    publishPipe.on('videoStart', function(){\n        console.log(this.name, '\\' video is now publishing...');\n    });"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1651,
+            "description": "直播视频流发布者/订阅住数量变化事件及其事件监听处理程序.\n如果添加'peerChanged'事件监听函数，则当一个发布者或订阅者数量发生变化时回\n调函数将被调用。",
+            "itemtype": "event",
+            "name": "peerChanged",
+            "params": [
+                {
+                    "name": "peerCount",
+                    "description": "发布者或订阅者数量",
+                    "type": "Number"
+                },
+                {
+                    "name": "isPublisher",
+                    "description": "是否是发布者",
+                    "type": "Boolean"
+                }
+            ],
+            "example": [
+                "\n    publishPipe.on('peerChanged', function(size, isPublisher){\n        console.log(this.name, size, isPublisher);\n    });"
+            ],
+            "class": "ums.PublishPipe",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1669,
+            "description": "发布池中所有的发布管道集合。",
+            "itemtype": "property",
+            "name": "pipes",
+            "type": "Object",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    for (var publishName in publishPool.pipes) {\n        console.log(publishPool.pipes[publishName]);\n    }"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1681,
+            "description": "连接器属性，为ums.PublishPool实例指定一个RTMPConnector实例属性.\n该属性将在自动级联功能开启后用于创建连通直播源服务器的连接。",
+            "itemtype": "property",
+            "name": "connector",
+            "type": "ums.RTMPConnector",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    publishPool.connector = connector;"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1692,
+            "description": "Called when a publish pool level event received.",
+            "itemtype": "method",
+            "name": "_internalCallback",
+            "access": "private",
+            "tagname": "",
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1749,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持'error/ready/publish'事件。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    publishPool.on('publishStart', function(streamName){\n        console.log(streamName);\n    });"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1764,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    publishPool.on('error', function(error_msg){\n        console.dir(error_msg);\n    });"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1776,
+            "description": "发布池就绪.\n如果添加'ready'事件监听函数，则当发布池就绪时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "ready",
+            "example": [
+                "\n    publishPool.on('ready', function(){\n        // do some initial work\n    });"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1787,
+            "description": "直播流开始发布事件及其事件监听处理程序.\n如果添加'publish'事件监听函数，则当一个新的直播流开始发布时回\n调函数将被调用。",
+            "itemtype": "event",
+            "name": "publish",
+            "params": [
+                {
+                    "name": "pipe",
+                    "description": "直播流发布管道",
+                    "type": "ums.PublishPipe"
+                }
+            ],
+            "example": [
+                "\n    publishPool.on('publish', function(pipe){\n        console.log(pipe.name, 'is now publishing...');\n    });"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1800,
+            "description": "根据指定的名称，创建一个直播管道.\n返回所创建的发布管道，返回结果是ums.PublishPipe类型。",
+            "itemtype": "method",
+            "name": "createPublishPipe",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var pipe = publishPool.createPublishPipe('livestream');"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1811,
+            "description": "以[array]的形式获取该发布池中所有直播流的名称[string].\n返回该发布池中所有直播流的名称，返回结果是array类型，数据元素类型为string。",
+            "itemtype": "method",
+            "name": "getStreamNames",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    var names = publishPool.getStreamNames();\n    for (var i = 0;i < names.length;i++) {\n        console.log(names[i]);\n    }"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1824,
+            "description": "查询某个直播流名称是否存在于该发布池中.\n如果同名的直播流存在，则返回true;否则返回false。",
+            "itemtype": "method",
+            "name": "exists",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var isExists = publishPool.exists(streamName);"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1835,
+            "description": "切换直播流的某个直播源.",
+            "itemtype": "method",
+            "name": "switchPublisher",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                },
+                {
+                    "name": "publishToken",
+                    "description": "要切换的直播源的序号",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n    var isSucceed = publishPool.switchPublisher(streamName, 2);"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1846,
+            "description": "关闭一个直播流的所有发布者.",
+            "itemtype": "method",
+            "name": "releasePublishers",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var isSucceed = publishPool.releasePublishers(streamName);"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1859,
+            "description": "关闭一个直播流的所有订阅者.",
+            "itemtype": "method",
+            "name": "releaseSubscribers",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var isSucceed = publishPool.releaseSubscribers(streamName);"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1872,
+            "description": "关闭一个直播流的所有发布者和订阅者.",
+            "itemtype": "method",
+            "name": "releaseStream",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var isSucceed = publishPool.releaseStream(streamName);"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1885,
+            "description": "获取发布池中某个流的发布者数量.",
+            "itemtype": "method",
+            "name": "getPublisherSize",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var size = publishPool.getPublisherSize(streamName);"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1895,
+            "description": "获取发布池中某个流的订阅者数量.",
+            "itemtype": "method",
+            "name": "getSubscriberSize",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var size = publishPool.getSubscriberSize(streamName);"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1905,
+            "description": "获取发布池中某个流的发布token.",
+            "itemtype": "method",
+            "name": "getPublishToken",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var token = publishPool.getPublishToken(streamName);"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 1915,
+            "description": "根据直播流名称获取发布管道.",
+            "itemtype": "method",
+            "name": "getPublishPipe",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "streamName",
+                    "description": "直播流的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var pipe = publishPool.getPublishPipe(streamName);"
+            ],
+            "class": "ums.PublishPool",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2150,
+            "itemtype": "method",
+            "name": "_internalCallback",
+            "access": "private",
+            "tagname": "",
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2279,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持除'_error/_result/onStatus/connect/error/close'等事件之外的\n任何自定义事件.上述事件为内部保留事件，用户不应定义与这些事件同名的\n远程调用函数名。与用户自定义事件相对应的事件处理函数的参数列表与远端\n调用时传入的参数列表一致。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数\n\n    client.on('connect', function(cmd, client){\n        console.dir(cmd);\n        // 接受新连接\n        app.accept(cmd, client, true);\n    });",
+                    "type": "Function"
+                }
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2299,
+            "description": "连接关闭事件及其事件监听处理程序.",
+            "itemtype": "event",
+            "name": "close",
+            "params": [
+                {
+                    "name": "result",
+                    "description": "连接关闭信息。信息含有三个属性:\n                       result.code是底层错误码，\n                       result.message是底层错误码对应的解释，\n                       result.userCode是用户自定义错误代码，\n                       如果code不为0，说明关闭事件是由底层\n                       错误引起，此时userCode为0；如果关闭\n                       动作是由上层js业务逻辑主动出发，此时\n                       设置的userCode才会被带出.",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    client.on('close', function(result){\n        console.log(result); // { message: 'success', code: 0, line: 639, userCode: 100 }\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2317,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息\n\n    client.on('error', function(error_msg){\n        console.log(error_msg);\n    });",
+                    "type": "Error"
+                }
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2329,
+            "description": "RTMP网络状态事件及其事件监听处理程序.\n如果添加'onStatus'事件监听函数，则当出现网络状态事件时回调函数将\n被调用。'onStatus'事件发送自网络对端，是一种不需要回复的远程调用，\n用于通知网络对端特定的状态信息，包括连接状态等。",
+            "itemtype": "event",
+            "name": "onStatus",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "状态信息",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    client.on('onStatus', function(event){\n        console.dir(event);\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2343,
+            "description": "调用一个远端处理函数.\n如果指定返回结果的回调处理函数，则远端理论上应该返回结果，该结果由\n该回调函数处理，否则，不返回结果。回调函数的第一个参数为远端返回的\n调用对象（ums.RTMPCall实例）。理论上，返回结果也是一个远程调用，只\n不过是针对特定函数_result和_error函数的特定调用。返回_result表示远\n端函数正确执行；返回_error则表示远端函数执行出错。",
+            "itemtype": "method",
+            "name": "call",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "proc_name",
+                    "description": "要调用的远端函数的名称)",
+                    "type": "String"
+                },
+                {
+                    "name": "...",
+                    "description": "[可选],要\n                         传递给远端函数的参数",
+                    "type": "Number/String/Boolean/Array/Object/Buffer"
+                },
+                {
+                    "name": "callback",
+                    "description": "[可选], 远端函数返回结果的处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    client.call('foo', 'arg1', 'arg2', function(cmd){\n        console.dir(cmd);\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2386,
+            "description": "在本地创建一个新流.\n该接口是一个复合接口，调用此接口，正常情况下会完成如下操作：\n1.在本地创建一个流，得到流的的streamId，然后在内部会创建一个\nNetStream类型的对象，将得到的streamId赋予该NetStream实例，最\n后将接口调用错误信息和NetStream实例通过回调函数返回。\n如果接口调用出错，err将不为null，stream不可用；反之，err为null,\nstream对象可用。",
+            "itemtype": "method",
+            "name": "createStream",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "cmd",
+                    "description": "远程调用对象",
+                    "type": "ums.RTMPCall"
+                },
+                {
+                    "name": "callback",
+                    "description": ", 返回结果的处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    client.on('createStream', function(cmd){\n        this.createStream(cmd, function(err, stream){\n            if (err) {\n                return console.dir(err);\n            } else {\n                // do some thing with stream\n            }\n        });\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2431,
+            "description": "关闭一个指定的流.",
+            "itemtype": "method",
+            "name": "closeStream",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "stream_id",
+                    "description": "要关闭的流的id",
+                    "type": "Number"
+                },
+                {
+                    "name": "callback",
+                    "description": ", 返回结果的处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    client.closeStream(streamId, function(err){\n        if (err) {\n            return console.dir(err);\n        } else {\n            // do some thing\n        }\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2466,
+            "description": "关闭底层RTMP连接.该接口在关闭连接之前会向远端发送关闭连接通知\n（onStatus:NetConnection.Connect.Closed）。",
+            "itemtype": "method",
+            "name": "close",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "userCode",
+                    "description": "用户自定义连接关闭码，将在close事件回调中被带出。",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n    client.close(userCode);"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2477,
+            "description": "异步获取数据包及字节数发送统计.\n调用该接口将异步获取底层网络数据收发统计。",
+            "itemtype": "method",
+            "name": "stat",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "异步结果回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    client.stat(function(err, stats){\n        if (err) {\n            return console.dir(err);\n        }\n        console.dir(stats);\n    })"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2493,
+            "description": "设置开启/关闭命令发送完成通知(该接口主要用于开发调试，建议生产环境\n中关闭命令发送完成通知功能以提高运行效率).\n如果设置命令发送完成通知功能，则每一个RTMP RPC命令在成功发送完成\n后，都可以通过监听'cmdSentDone'事件来捕获发出去的命令包的拷贝。\n异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，\n则表明设置成功，否则，表明设置失败。",
+            "itemtype": "method",
+            "name": "openNotify",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "eNotifyType",
+                    "description": "是否开启相应的事件通知,可以是下列\n       值之一,或是其中几项的组合(通过|组合):\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_AUDIO_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_VIDEO_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_META_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_CMD_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_ALL_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_ACTIVECHECK",
+                    "type": "Enum of mask"
+                },
+                {
+                    "name": "callback",
+                    "description": "异步设置完成回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    client.openNotify(ums.CONST.NOTIFY_CMD_SENTDONE|NOTIFY_ACTIVECHECK,\n        function(err){\n            if (err) {\n                console.dir(err);\n            }\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2521,
+            "description": "旁通接口，释放一个流.\n该接口是旁通接口，用于执行实际的releaseStream操作，当监听到远端发\n起的releaseStream事件时调用，参数为事件监听函数接收到的命令对象。",
+            "itemtype": "method",
+            "name": "releaseStream",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    client.on('releaseStream', function(cmd){\n        client.releaseStream(cmd);\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2534,
+            "description": "旁通接口，删除一个流.\n该接口是旁通接口，用于执行实际的deleteStream操作，当监听到远端发\n起的deleteStream事件时调用，参数为事件监听函数接收到的命令对象。",
+            "itemtype": "method",
+            "name": "deleteStream",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    client.on('deleteStream', function(cmd){\n        client.deleteStream(cmd);\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2547,
+            "description": "旁通接口，发布一个流.\n该接口是旁通接口，用于执行实际的FCPublish操作，当监听到远端发\n起的FCPublish事件时调用，参数为事件监听函数接收到的命令对象。",
+            "itemtype": "method",
+            "name": "FCPublish",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    client.on('FCPublish', function(cmd){\n        client.FCPublish(cmd);\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2560,
+            "description": "旁通接口，发布一个流.\n该接口是旁通接口，用于执行实际的FCUnpublish操作，当监听到远端发\n起的FCUnpublish事件时调用，参数为事件监听函数接收到的命令对象。",
+            "itemtype": "method",
+            "name": "FCUnpublish",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    client.on('FCUnpublish', function(cmd){\n        client.FCUnpublish(cmd);\n    });"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2573,
+            "description": "RTMPClient之上的所有NetStream实例数组.\n通过streamId为索引访问相应的NetStream实例。",
+            "itemtype": "property",
+            "name": "streams",
+            "type": "Array of NetStream",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    var streams = client.streams;\n    for (var i = 0;i < streams.length;i++) {\n        console.dir(streams[i]);\n    }"
+            ],
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2587,
+            "description": "唯一标识一个连接的标志.\n同一个RTMPServer管理的RTMPClient实例具有不重复的ID。",
+            "itemtype": "property",
+            "name": "clientId",
+            "type": "String",
+            "access": "public",
+            "tagname": "console.log(client.clientId);",
+            "class": "ums.RTMPClient",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2602,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持'error/close'事件。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数，事件处理函数的第一个参数是\n                                新建立的TCP连接的基本信息，包括本端IP地址\n                                和对端IP地址",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connector.on('error', function(err){\n        console.dir(err);\n    });"
+            ],
+            "class": "ums.RTMPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2619,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    connector.on('error', function(err){\n        console.dir(err);\n    });"
+            ],
+            "class": "ums.RTMPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2631,
+            "description": "关闭事件及其事件监听处理程序.\n如果添加'close'事件监听函数，则当RTMPConnector关闭时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "close",
+            "example": [
+                "\n    connector.on('close', function(){\n        // Do some recycle work\n    });"
+            ],
+            "class": "ums.RTMPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2642,
+            "description": "启动RTMPConnector实例并开始接受新连接的接口.\n调用该接口将开始运行一个RTMPConnector实例以创建NetConnection实例。\n回调函数被执行时，表明启动工作结束，可以进行后续操作。",
+            "itemtype": "method",
+            "name": "start",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "RTMPConnector开始运行的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    connector.start(function(err){\n        if (err) {\n            console.dir(err);\n        }\n    });"
+            ],
+            "class": "ums.RTMPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2660,
+            "description": "创建一个新的NetConnection实例。\n该接口创建一个向外的连接对象NetConnection的实例，用于建立向外的连接。",
+            "itemtype": "method",
+            "name": "createConnection",
+            "access": "public",
+            "tagname": "",
+            "return": {
+                "description": "新的NetConnection实例。\n\n    var conn = connector.createConnection();",
+                "type": "ums.NetConnection"
+            },
+            "class": "ums.RTMPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2671,
+            "description": "枚举向外建立的所有连接对象.\n在处理大量连接时，使用该方法比较高效，如果要查找某一符合条件的连接对象，\n建议使用该方法。注意：当connection为null时，表明连接集合为空。",
+            "itemtype": "method",
+            "name": "enumConnections",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "枚举结果回调函数\n callback param conn {ums.NetConnection} NetConnection实例\n                isEnd {Boolean} 是否是最后一个枚举值\n callback return : isContinue {Boolean} 指示枚举是否继续",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connector.enumConnections(function callback(conn, isEnd){\n       var isContinue = true;\n       console.log(\"isEmpty :\", !conn, \";isEnd :\", isEnd, \";index :\", nCount++);\n       nCount++;\n       if (isEnd) {\n           console.log('Count of connections :', nCount);\n       }\n       return isContinue;\n    });\n    "
+            ],
+            "class": "ums.RTMPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2695,
+            "description": "关闭RTMPConnector实例.\n调用该接口将关闭一个RTMPConnector实例，成功关闭后将触发'close'事件。",
+            "itemtype": "method",
+            "name": "close",
+            "access": "public",
+            "tagname": "connector.close();",
+            "class": "ums.RTMPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2705,
+            "description": "RTMPConnector选项设置集合.\n构造该RTMPConnector实例时传入的选项集合实例。",
+            "itemtype": "property",
+            "name": "options",
+            "type": "ums.RTMPOptions",
+            "access": "public",
+            "tagname": "if (connector.options) {\n        console.dir(options);\n    }",
+            "class": "ums.RTMPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2722,
+            "itemtype": "method",
+            "name": "_internalCallback",
+            "access": "private",
+            "tagname": "",
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2785,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持除'_error/_result/onStatus/error/close'等事件之外的 \n任何自定义事件.上述事件为内部保留事件，用户不应定义与这些事件同名的\n远程调用函数名。与用户自定义事件相对应的事件处理函数的参数列表与远端\n调用时传入的参数列表一致。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connection.on('error', function(err){\n        if (err) {\n            console.dir(err);\n        }\n    });"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2805,
+            "description": "连接关闭事件及其事件监听处理程序.",
+            "itemtype": "event",
+            "name": "close",
+            "params": [
+                {
+                    "name": "result",
+                    "description": "连接关闭信息。信息含有三个属性:\n                       result.code是底层错误码，\n                       result.message是底层错误码对应的解释，\n                       result.userCode是用户自定义错误代码，\n                       如果code不为0，说明关闭事件是由底层\n                       错误引起，此时userCode为0；如果关闭\n                       动作是由上层js业务逻辑主动出发，此时\n                       设置的userCode才会被带出.",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    connection.on('close', function(result){\n        console.log(result); // { message: 'success', code: 0, line: 639, userCode: 100 }\n    });"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2823,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    connection.on('error', function(err){\n        if (err) {\n            console.dir(err);\n        }\n    });"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2837,
+            "description": "RTMP网络状态事件及其事件监听处理程序.\n如果添加'onStatus'事件监听函数，则当出现网络状态事件时回调函数将\n被调用。'onStatus'事件发送自网络对端，是一种不需要回复的远程调用，\n用于通知网络对端特定的状态信息，包括连接状态等。",
+            "itemtype": "event",
+            "name": "onStatus",
+            "params": [
+                {
+                    "name": "event",
+                    "description": "状态信息",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    connection.on('onStatus', function(event){\n        console.dir(event);\n    });"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2851,
+            "description": "关闭底层RTMP连接.该接口在关闭连接之前会向远端发送关闭连接通知\n（onStatus:NetConnection.Connect.Closed）。",
+            "itemtype": "method",
+            "name": "close",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "userCode",
+                    "description": "用户自定义连接关闭码，将在close事件回调中被带出。",
+                    "type": "Number"
+                }
+            ],
+            "example": [
+                "\n    connection.close(userCode);"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2862,
+            "description": "异步获取数据包及字节数发送统计.\n调用该接口将异步获取底层网络数据收发统计。",
+            "itemtype": "method",
+            "name": "stat",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "异步结果回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connection.stat(function(err, stats){\n        if (err) {\n            return console.dir(err);\n        }\n        console.dir(stats);\n    })"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2878,
+            "description": "设置开启/关闭命令发送完成通知(该接口主要用于开发调试，建议生产环境\n中关闭命令发送完成通知功能以提高运行效率).\n如果设置命令发送完成通知功能，则每一个RTMP RPC命令在成功发送完成\n后，都可以通过监听'cmdSentDone'事件来捕获发出去的命令包的拷贝。\n异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，\n则表明设置成功，否则，表明设置失败。",
+            "itemtype": "method",
+            "name": "openNotify",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "eNotifyType",
+                    "description": "是否开启相应的事件通知,可以是下列\n       值之一,或是其中几项的组合(通过|组合):\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_AUDIO_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_VIDEO_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_META_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_CMD_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_ALL_SENTDONE,\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_ACTIVECHECK",
+                    "type": "Enum of mask"
+                },
+                {
+                    "name": "callback",
+                    "description": "异步设置完成回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connection.openNotify(ums.CONST.NOTIFY_CMD_SENTDONE|ums.CONST.NOTIFY_ACTIVECHECK,\n        function(err){\n            if (err) {\n                console.dir(err);\n            }\n    });"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2906,
+            "description": "向远端RTMP服务器发起一个连接建立操作。\n该接口是一个复合接口，正常情况下将完成三部操作：\n    <br>&nbsp;&nbsp;&nbsp;&nbsp;1.向远端服务器发起一个TCP连接；\n    <br>&nbsp;&nbsp;&nbsp;&nbsp;2.TCP连接建立后，将和RTMP服务器完成RTMP握手操作；\n    <br>&nbsp;&nbsp;&nbsp;&nbsp;3.握手成功后，将发送connect命令到相应的服务端应用（server-side \napplication）。\n<br>调用该接口必须指定'onStatus'事件回调函数以捕获连接事件，回调函数形如：\n<br>&nbsp;&nbsp;&nbsp;&nbsp;function(cmd, event[, arg1, ..., argN]){}\n<br>判断event.code值是否为下述状态之一，以获得连接结果：\n<br>&nbsp;&nbsp;&nbsp;&nbsp;1.\"NetConnection.Connect.AppShutdown\"：服务端应用已关闭.\n<br>&nbsp;&nbsp;&nbsp;&nbsp;2.\"NetConnection.Connect.Closed\"：连接关闭成功.\n<br>&nbsp;&nbsp;&nbsp;&nbsp;3.\"NetConnection.Connect.Failed\"：连接尝试失败.\n<br>&nbsp;&nbsp;&nbsp;&nbsp;4.\"NetConnection.Connect.IdleTimeout\"：连接空闲超时.\n<br>&nbsp;&nbsp;&nbsp;&nbsp;5.\"NetConnection.Connect.InvalidApp\"：服务端应用名不可用.\n<br>&nbsp;&nbsp;&nbsp;&nbsp;6.\"NetConnection.Connect.Rejected\"：服务端应用拒绝访问.\n<br>&nbsp;&nbsp;&nbsp;&nbsp;7.\"NetConnection.Connect.Success\"：连接成功.\n<br>&nbsp;&nbsp;&nbsp;&nbsp;8.\"NetConnection.Connect.TokenExpired\"：token过期.",
+            "itemtype": "method",
+            "name": "connect",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "url",
+                    "description": "要连接的RTMP服务器的地址，地址形式：\n                 rtmp://ip:port/app_name",
+                    "type": "String"
+                },
+                {
+                    "name": "properties",
+                    "description": "[可选],命令属性扩展",
+                    "type": "Object"
+                },
+                {
+                    "name": "...",
+                    "description": "[可选],扩展参数项",
+                    "type": "Number/String/Boolean/Array/Object/Buffer"
+                },
+                {
+                    "name": "callback",
+                    "description": "异步调用完成回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    conn.connect('rtmp://127.0.0.1:1935/vod', {key:'value'}, 'abc', function(cmd, event){\n        console.dir(event);\n        switch(event.code){\n        case 'NetConnection.Connect.Success':\n            // Do continue work\n            break;\n        case 'NetConnection.Connect.Failed':\n            conn.close();\n            break;\n        }\n    });"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 2996,
+            "description": "发送创建一个新流的命令.\n该接口是一个复合接口，调用此接口，正常情况下会完成如下操作：\n<br>&nbsp;&nbsp;&nbsp;&nbsp;1.向远端服务器发送一个'createStream'\n远程调用；\n<br>&nbsp;&nbsp;&nbsp;&nbsp;2.如果调用成功，将得到服务端返回的\nstreamId，然后在内部会创建一个NetStream类型的对象，将服务端返\n回的streamId赋予该NetStream实例；\n<br>&nbsp;&nbsp;&nbsp;&nbsp;3.将接口调用错误信息和NetStream实\n例通过回调函数返回。\n<br>如果接口调用出错，err将不为null，stream不可用；反之，err\n为null,stream对象可用。",
+            "itemtype": "method",
+            "name": "createStream",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    conn.createStream(function(err, stream){\n        console.dir(arguments);\n        if (err) {\n            return console.log(err);\n        }\n        // Do continue work\n    });"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3039,
+            "description": "调用一个远端处理函数.\n如果指定返回结果的回调处理函数，则远端理论上应该返回结果，该结果由\n该回调函数处理，否则，不返回结果。回调函数的第一个参数为远端返回的\n调用对象（ums.RTMPCall实例）。理论上，返回结果也是一个远程调用，只\n不过是针对特定函数_result和_error函数的特定调用。返回_result表示远\n端函数正确执行；返回_error则表示远端函数执行出错。",
+            "itemtype": "method",
+            "name": "call",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "proc_name",
+                    "description": "要调用的远端函数的名称",
+                    "type": "String"
+                },
+                {
+                    "name": "...",
+                    "description": "[可选], 要\n                         传递给远端函数的参数",
+                    "type": "Number/String/Boolean/Array/Object/Buffer"
+                },
+                {
+                    "name": "callback",
+                    "description": "[可选], 远端函数返回结果的处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connection.call('foo', 'arg1', 'arg2', function(cmd){\n        console.dir(cmd);\n    });"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3082,
+            "description": "关闭一个指定的流.",
+            "itemtype": "method",
+            "name": "closeStream",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "stream_id",
+                    "description": "要关闭的流的id",
+                    "type": "Number"
+                },
+                {
+                    "name": "callback",
+                    "description": ", 返回结果的处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    client.closeStream(streamId, function(err){\n        if (err) {\n            return console.dir(err);\n        } else {\n            // do some thing\n        }\n    });"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3114,
+            "description": "NetConnection之上的所有NetStream实例数组.\n通过streamId为索引访问相应的NetStream实例。",
+            "itemtype": "property",
+            "name": "streams",
+            "type": "Array of NetStream",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    var streams = conn.streams;\n    for (var i = 0;i < streams.length;i++) {\n        console.dir(streams[i]);\n    }"
+            ],
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3128,
+            "description": "唯一标识一个连接的标志.\n同一个RTMPConnector管理的NetConnection实例具有不重复的ID。",
+            "itemtype": "property",
+            "name": "clientId",
+            "type": "String",
+            "access": "public",
+            "tagname": "console.log(connection.clientId);",
+            "class": "ums.NetConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3143,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持'error/close'事件。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数，事件处理函数的第一个参数是\n                                新建立的TCP连接的基本信息，包括本端IP地址\n                                和对端IP地址",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connector.on('error', function(err){\n        console.dir(err);\n    });"
+            ],
+            "class": "ums.RTSPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3160,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    connector.on('error', function(err){\n        console.dir(err);\n    });"
+            ],
+            "class": "ums.RTSPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3172,
+            "description": "关闭事件及其事件监听处理程序.\n如果添加'close'事件监听函数，则当RTSPConnector关闭时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "close",
+            "example": [
+                "\n    connector.on('close', function(){\n        // Do some recycle work\n    });"
+            ],
+            "class": "ums.RTSPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3183,
+            "description": "启动RTSPConnector实例并开始接受新连接的接口.\n调用该接口将开始运行一个RTSPConnector实例以创建NetConnection实例。\n回调函数被执行时，表明启动工作结束，可以进行后续操作。",
+            "itemtype": "method",
+            "name": "start",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "RTSPConnector开始运行的回调函数",
+                    "type": "Function"
+                },
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    connector.start(function(err){\n        if (err) {\n            console.dir(err);\n        }\n    });"
+            ],
+            "class": "ums.RTSPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3201,
+            "description": "创建一个新的RTSPConnection实例。\n该接口创建一个向外的连接对象RTSPConnection的实例，用于建立向外的连接。",
+            "itemtype": "method",
+            "name": "createConnection",
+            "access": "public",
+            "tagname": "",
+            "return": {
+                "description": "新的RTSPConnection实例。\n\n    var conn = connector.createConnection();",
+                "type": "ums.RTSPConnection"
+            },
+            "class": "ums.RTSPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3212,
+            "description": "枚举向外建立的所有连接对象.\n在处理大量连接时，使用该方法比较高效，如果要查找某一符合条件的连接对象，\n建议使用该方法。注意：当connection为null时，表明连接集合为空。",
+            "itemtype": "method",
+            "name": "enumConnections",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "枚举结果回调函数\n callback param conn {ums.RTSPConnection} RTSPConnection\n                isEnd {Boolean} 是否是最后一个枚举值\n callback return : isContinue {Boolean} 指示枚举是否继续",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connector.enumConnections(function callback(conn, isEnd){\n       var isContinue = true;\n       console.log(\"isEmpty :\", !conn, \";isEnd :\", isEnd, \";index :\", nCount++);\n       nCount++;\n       if (isEnd) {\n           console.log('Count of connections :', nCount);\n       }\n       return isContinue;\n    });\n    "
+            ],
+            "class": "ums.RTSPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3236,
+            "description": "关闭RTSPConnector实例.\n调用该接口将关闭一个RTSPConnector实例，成功关闭后将触发'close'事件。",
+            "itemtype": "method",
+            "name": "close",
+            "access": "public",
+            "tagname": "connector.close();",
+            "class": "ums.RTSPConnector",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3250,
+            "itemtype": "method",
+            "name": "_internalCallback",
+            "access": "private",
+            "tagname": "",
+            "class": "ums.RTSPConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3288,
+            "description": "为特定事件添加一个监听处理程序.\n当前支持除'_error/_result/onStatus/error/close'等事件之外的 \n任何自定义事件.上述事件为内部保留事件，用户不应定义与这些事件同名的\n远程调用函数名。与用户自定义事件相对应的事件处理函数的参数列表与远端\n调用时传入的参数列表一致。",
+            "itemtype": "method",
+            "name": "on",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "event_name",
+                    "description": "要订阅的事件名称",
+                    "type": "String"
+                },
+                {
+                    "name": "callback",
+                    "description": "事件处理函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connection.on('error', function(err){\n        if (err) {\n            console.dir(err);\n        }\n    });"
+            ],
+            "class": "ums.RTSPConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3308,
+            "description": "连接关闭事件及其事件监听处理程序.\n表示RTMP连接关闭事件。",
+            "itemtype": "event",
+            "name": "close",
+            "example": [
+                "\n    connection.on('close', function(){\n        // Do some recycle work\n    });"
+            ],
+            "class": "ums.RTSPConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3319,
+            "description": "错误事件及其事件监听处理程序.\n如果添加'error'事件监听函数，则当出现内部错误时回调函数将被调用。",
+            "itemtype": "event",
+            "name": "error",
+            "params": [
+                {
+                    "name": "error_msg",
+                    "description": "错误信息",
+                    "type": "Error"
+                }
+            ],
+            "example": [
+                "\n    connection.on('error', function(err){\n        if (err) {\n            console.dir(err);\n        }\n    });"
+            ],
+            "class": "ums.RTSPConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3333,
+            "description": "关闭底层RTSP连接.",
+            "itemtype": "method",
+            "name": "close",
+            "access": "public",
+            "tagname": "",
+            "example": [
+                "\n    connection.close();"
+            ],
+            "class": "ums.RTSPConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3342,
+            "description": "异步获取数据包及字节数发送统计.\n调用该接口将异步获取底层网络数据收发统计。",
+            "itemtype": "method",
+            "name": "stat",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "callback",
+                    "description": "异步结果回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connection.stat(function(err, stats){\n        if (err) {\n            return console.dir(err);\n        }\n        console.dir(stats);\n    })"
+            ],
+            "class": "ums.RTSPConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3358,
+            "description": "设置开启/关闭命令发送完成通知(该接口主要用于开发调试，建议生产环境\n中关闭命令发送完成通知功能以提高运行效率).\n如果设置命令发送完成通知功能，则每一个RTMP RPC命令在成功发送完成\n后，都可以通过监听'cmdSentDone'事件来捕获发出去的命令包的拷贝。\n异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，\n则表明设置成功，否则，表明设置失败。",
+            "itemtype": "method",
+            "name": "openNotify",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "eNotifyType",
+                    "description": "是否开启相应的事件通知,可以是下列\n       值之一,或是其中几项的组合(通过|组合):\n       <br>&nbsp;&nbsp;&nbsp;&nbsp;ums.CONST.NOTIFY_ACTIVECHECK",
+                    "type": "Enum of mask"
+                },
+                {
+                    "name": "callback",
+                    "description": "异步设置完成回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    connection.openNotify(ums.CONST.NOTIFY_ACTIVECHECK,\n        function(err){\n            if (err) {\n                console.dir(err);\n            }\n    });"
+            ],
+            "class": "ums.RTSPConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3381,
+            "description": "向远端RTSP服务器发起一个连接建立操作。",
+            "itemtype": "method",
+            "name": "connect",
+            "access": "public",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "url",
+                    "description": "要连接的RTSP服务器的地址，地址形式：\n                 rtsp://ip:port/stream_name",
+                    "type": "String"
+                },
+                {
+                    "name": "properties",
+                    "description": "连接参数集合，需含有发布到本地的流名称参数，形如：\n                 { streamName : 'livestream' }",
+                    "type": "Object"
+                },
+                {
+                    "name": "callback",
+                    "description": "异步调用完成回调函数",
+                    "type": "Function"
+                }
+            ],
+            "example": [
+                "\n    var props = { streamName : 'livestream' };\n    conn.connect('rtsp://127.0.0.1:554/stream', props, function(event){\n        console.dir(event);\n        switch(event.code){\n        case 'RTSPConnection.Connect.Success':\n            // Do continue work\n            break;\n        case 'RTSPConnection.Connect.Failed':\n            conn.close();\n            break;\n        }\n    });"
+            ],
+            "class": "ums.RTSPConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3440,
+            "description": "唯一标识一个RTSPConnection连接的标志.\n同一个RTSPConnector管理的RTSPConnection实例具有不重复的ID。",
+            "itemtype": "property",
+            "name": "clientId",
+            "type": "String",
+            "access": "public",
+            "tagname": "console.log(connection.clientId);",
+            "class": "ums.RTSPConnection",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3455,
+            "description": "创建一个ums.RTMPOptions实例.",
+            "itemtype": "method",
+            "name": "createRTMPOptions",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "is_server_type",
+                    "description": "指定参数集对象是否为server类型",
+                    "type": "Boolean"
+                }
+            ],
+            "example": [
+                "\n    // 创建一个RTMPServer选项集合，构造参数指定为服务器选项集合类型\n    var serverOpt = ums.createRTMPOptions(true);\n    // 创建RTMPConnector选项集合，构造参数指定为连接器选项集合类型\n    var server = ums.createRTMPOptions(false);"
+            ],
+            "class": "ums",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3468,
+            "description": "创建一个ums.RTMPServer实例.",
+            "itemtype": "method",
+            "name": "createRTMPServer",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "serverOpt",
+                    "description": "参数集对象，创建时须指定为server类型",
+                    "type": "ums.RTMPOptions"
+                }
+            ],
+            "example": [
+                "\n    // 创建一个RTMPServer选项集合，构造参数指定为服务器选项集合\n    var serverOpt = ums.createRTMPOptions(true);\n    // 创建RTMPServer实例\n    var server = ums.createRTMPServer(serverOpt);"
+            ],
+            "class": "ums",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3481,
+            "description": "创建一个ums.RTMPConnector实例.",
+            "itemtype": "method",
+            "name": "createRTMPConnector",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "connectorOpt",
+                    "description": "参数集对象，创建时须指定为非server类型",
+                    "type": "ums.RTMPOptions"
+                }
+            ],
+            "example": [
+                "\n    // 创建一个非RTMPServer选项集合，构造参数指定为非服务器选项集合\n    var connectorOpt = ums.createRTMPOptions(false);\n    // 创建RTMPConnector实例\n    var connector = ums.createRTMPConnector(connectorOpt);"
+            ],
+            "class": "ums",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3494,
+            "description": "创建一个ums.Application实例.",
+            "itemtype": "method",
+            "name": "createApplication",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "app_name",
+                    "description": "应用的名称",
+                    "type": "String"
+                }
+            ],
+            "example": [
+                "\n    var app = ums.createApplication('live');"
+            ],
+            "class": "ums",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3504,
+            "description": "创建一个ums.PublishPool实例.",
+            "itemtype": "method",
+            "name": "createPublishPool",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "is_use_default",
+                    "description": "是否使用缺省的实例，而不创建新的PublishPool实例",
+                    "type": "Boolean"
+                },
+                {
+                    "name": "poolOpt",
+                    "description": "参数集对象，包含级联配置信息，如下\n               poolOpt.appName {String} 应用名称;\n               poolOpt.rtmpAddress {Object} 含有host或port属性的对象，要注册到redis中的本机对外提供直播服务的主机地址和端口;\n               poolOpt.subEx {String} 为避免混淆而在以流名称为事件名时所添加的前缀;\n               poolOpt.streamEx {String} 为避免混淆而在以流名称为索引查询redis时所添加的前缀;\n               poolOpt.redisAddress {Object} 含有host和port属性的对象，用于指定redis服务器;\n               poolOpt.cluster {Boolean} 指定是否开启自动级联相关接口及功能，当poolOpt.cluster\n                                         为false时，PublishPool.publish和PublishPool.subscribe\n                                         接口仅能在本地发布/订阅直播流。",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    var poolOpt = {\n        cluster : true,\n        appName : 'live',\n        rtmpAddress : {host : '127.0.0.1', port : 1935},\n        subEx : '__sub_ex__',\n        streamEx : '__livestream_ex__',\n        redisAddress : {host:'127.0.0.1', port:6379}\n    };\n    // 创建一个直播流发布池\n    var publishPool = ums.createPublishPool(false, poolOpt);"
+            ],
+            "class": "ums",
+            "module": "ums.js"
+        },
+        {
+            "file": "ums.js",
+            "line": 3532,
+            "description": "创建一个ums.RTSPConnector实例.",
+            "itemtype": "method",
+            "name": "createRTSPConnector",
+            "access": "public",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "connectorOpt",
+                    "description": "参数集对象",
+                    "type": "Object"
+                }
+            ],
+            "example": [
+                "\n    // 声明一个非RTSPConnector选项集合\n    var connectorOpt = {\n        activeCheckInterval : 30,\n        activeConnTimeout : 360000,\n        deadConnTimeout : 3600,\n        numOfThreads : 4,\n        publishId : publishPool.publishId // 一个已经创建好的PublishPool实例的id\n                                          // 用于接收RTSP实时流\n    };\n    // 创建RTSPConector实例\n    var connector = ums.createRTSPConnector(connectorOpt);"
+            ],
+            "class": "ums",
+            "module": "ums.js"
+        }
+    ],
+    "warnings": []
+}

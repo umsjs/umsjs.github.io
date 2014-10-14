@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ums.Application</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/EventEmitterEx.html">EventEmitterEx</a></li>
+            
+                <li><a href="../classes/ums.html">ums</a></li>
+            
+                <li><a href="../classes/ums.Application.html">ums.Application</a></li>
+            
+                <li><a href="../classes/ums.NetConnection.html">ums.NetConnection</a></li>
+            
+                <li><a href="../classes/ums.NetStream.html">ums.NetStream</a></li>
+            
+                <li><a href="../classes/ums.PublishPipe.html">ums.PublishPipe</a></li>
+            
+                <li><a href="../classes/ums.PublishPool.html">ums.PublishPool</a></li>
+            
+                <li><a href="../classes/ums.RTMPCall.html">ums.RTMPCall</a></li>
+            
+                <li><a href="../classes/ums.RTMPClient.html">ums.RTMPClient</a></li>
+            
+                <li><a href="../classes/ums.RTMPConnector.html">ums.RTMPConnector</a></li>
+            
+                <li><a href="../classes/ums.RTMPOptions.html">ums.RTMPOptions</a></li>
+            
+                <li><a href="../classes/ums.RTMPServer.html">ums.RTMPServer</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnection.html">ums.RTSPConnection</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnector.html">ums.RTSPConnector</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/ums.js.html">ums.js</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>ums.Application Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/ums.js.html#l1116"><code>ums.js:1116</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/ums.js.html">ums.js</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+        
+        
+        
+            <li class="api-class-tab events"><a href="#events">Events</a></li>
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method private">
+                                <a href="#method__internalCallback">_internalCallback</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_accept">accept</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_enumClients">enumClients</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_on">on</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                        
+                            <li class="index-item property public">
+                                <a href="#property_clients">clients</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+                <div class="index-section events">
+                    <h3>Events</h3>
+
+                    <ul class="index-list events">
+                        
+                            <li class="index-item event">
+                                <a href="#event_close">close</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_connect">connect</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_error">error</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__internalCallback" class="method item private">
+    <h3 class="name"><code>_internalCallback</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1120"><code>ums.js:1120</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Called when a application level command received.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_accept" class="method item public">
+    <h3 class="name"><code>accept</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>cmd</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>client</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>isAccept</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1205"><code>ums.js:1205</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>接受或拒绝一个刚建立的连到该RTMPServer的RTMP连接.如果要拒绝一个刚建立的
+连到该RTMPServer的RTMP连接，isAccept应为true;反之，如果要拒绝一个TCP连接，
+isAccept应为false。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">cmd</code>
+                        <span class="type"><a href="..\classes\ums.RTMPCall.html" class="crosslink">ums.RTMPCall</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>远端发过来的RTMP RPC命令实例.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">client</code>
+                        <span class="type"><a href="..\classes\ums.RTMPClient.html" class="crosslink">ums.RTMPClient</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>新建立的RTMP连接实例，该参数必须由
+                    &#39;connect&#39;事件的监听回调函数传入)</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">isAccept</code>
+                        <span class="type">Boolean</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>是否接受该RTMP连接.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>application.accept(cmd, client, isAccept);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_enumClients" class="method item public">
+    <h3 class="name"><code>enumClients</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1220"><code>ums.js:1220</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>枚举连接到本应用上的所有端的连接对象.
+在处理大量连接时，使用该方法比较高效，如果要查找某一符合条件的连接对象，
+建议使用该方法。注意：当client为null时，表明连接集合为空。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>枚举结果回调函数
+ callback param client {ums.RTMPClient} 已建立连接的RTMPClient实例
+                isEnd {Boolean} 是否是最后一个枚举值
+ callback return : isContinue {Boolean} 指示枚举是否继续</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>application.enumClients(function callback(client, isEnd){
+   var isContinue = true;
+   console.log(&quot;isEmpty :&quot;, !clit, &quot;;isEnd :&quot;, isEnd, &quot;;index :&quot;, nCount++);
+   nCount++;
+   if (isEnd) {
+       console.log(&#39;Count of clients :&#39;, nCount);
+   }
+   return isContinue;
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_on" class="method item public">
+    <h3 class="name"><code>on</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>event_name</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1145"><code>ums.js:1145</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>为特定事件添加一个监听处理程序.
+当前支持&#39;connect/error/close&#39;事件. 当一个新的RTMP连接建立时，
+&#39;connect&#39;事件将被抛出，如果事先注册有该事件的监听处理程序，则
+会调用该处理函数；否则，该RTMP连接将被默认拒绝。&#39;connect&#39;事件
+处理函数的第一个参数是新建立的TCP连接的基本信息，包括本端IP地
+址和对端IP地址。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">event_name</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要订阅的事件名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>事件处理函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>application.on(&#39;connect&#39;, function(cmd, client){
+    console.dir(cmd);
+    // Accept new connection
+    application.accept(cmd, client, true);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+
+        
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_clients" class="property item public">
+    <h3 class="name"><code>clients</code></h3>
+    <span class="type">Array of ums.RTMPClient</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1244"><code>ums.js:1244</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>以[array]的形式获取连接到该应用的所有客户端实例[ums.RTMPClient].返回连接到
+该应用的所有的客户端连接，返回结果是array类型，数组元素类型为ums.RTMPClient
+实例。如果要查找某一符合条件的连接对象，建议使用enumClients方法。</p>
+
+    </div>
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var clients = application.clients;
+for (var i = 0;i &lt; clients.length;i++) {
+    console.dir(clients[i]);
+}</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+            <div id="events" class="api-class-tabpanel">
+                <h2 class="off-left">Events</h2>
+
+                
+                    <div id="event_close" class="events item">
+    <h3 class="name"><code>close</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1194"><code>ums.js:1194</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>应用关闭事件及其事件监听处理程序.
+如果添加&#39;close&#39;事件监听函数，则当应用关闭时回调函数将被调用。</p>
+
+    </div>
+
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>application.on(&#39;close&#39;, function(){
+    // Do some recycle work
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_connect" class="events item">
+    <h3 class="name"><code>connect</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1166"><code>ums.js:1166</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>连接建立事件及其事件监听处理程序.
+如果添加&#39;connect&#39;事件监听函数，则当有新连接建立时回调函数将被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">cmd</code>
+                        <span class="type"><a href="..\classes\ums.RTMPCall.html" class="crosslink">ums.RTMPCall</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>远程调用对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">client</code>
+                        <span class="type"><a href="..\classes\ums.RTMPClient.html" class="crosslink">ums.RTMPClient</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>新建立的客户端对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">...</code>
+                        <span class="type">Number/String/Boolean/Array/Object/Buffer</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>[可选],剩余参数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>application.on(&#39;connect&#39;, function(cmd, client){
+    console.dir(cmd);
+    // Accept new connection
+    application.accept(cmd, client, true);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_error" class="events item">
+    <h3 class="name"><code>error</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1182"><code>ums.js:1182</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>错误事件及其事件监听处理程序.
+如果添加&#39;error&#39;事件监听函数，则当出现内部错误时回调函数将被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">error_msg</code>
+                        <span class="type">Error</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>错误信息</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>application.on(&#39;error&#39;, function(err){
+    console.dir(err);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

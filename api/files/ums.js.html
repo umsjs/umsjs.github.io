@@ -1,0 +1,3696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ums.js</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/EventEmitterEx.html">EventEmitterEx</a></li>
+            
+                <li><a href="../classes/ums.html">ums</a></li>
+            
+                <li><a href="../classes/ums.Application.html">ums.Application</a></li>
+            
+                <li><a href="../classes/ums.NetConnection.html">ums.NetConnection</a></li>
+            
+                <li><a href="../classes/ums.NetStream.html">ums.NetStream</a></li>
+            
+                <li><a href="../classes/ums.PublishPipe.html">ums.PublishPipe</a></li>
+            
+                <li><a href="../classes/ums.PublishPool.html">ums.PublishPool</a></li>
+            
+                <li><a href="../classes/ums.RTMPCall.html">ums.RTMPCall</a></li>
+            
+                <li><a href="../classes/ums.RTMPClient.html">ums.RTMPClient</a></li>
+            
+                <li><a href="../classes/ums.RTMPConnector.html">ums.RTMPConnector</a></li>
+            
+                <li><a href="../classes/ums.RTMPOptions.html">ums.RTMPOptions</a></li>
+            
+                <li><a href="../classes/ums.RTMPServer.html">ums.RTMPServer</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnection.html">ums.RTSPConnection</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnector.html">ums.RTSPConnector</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/ums.js.html">ums.js</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: ums.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+/*******************************************************************************
+ * javascript glue wrapper of umsjs module
+ * @module ums.js
+ * @author IMMAAC Co.,Ltd.
+*******************************************************************************/
+
+var EventEmitter    = require(&#x27;events&#x27;).EventEmitter;
+var ums = null;
+
+if (process.platform == &#x27;win32&#x27;) {
+    var exePath = process.argv[0];
+    if (exePath.lastIndexOf(&#x27;noded.exe&#x27;) &gt; -1) {
+        ums = require(&#x27;./Debug/win32/umsjs.node&#x27;);
+    } else{
+        ums = require(&#x27;./Release/win32/umsjs.node&#x27;);
+    }
+} else if (process.umsjsBuildType == &#x27;debug&#x27;) {
+    ums = require(&#x27;./Debug/&#x27;+process.platform+&#x27;/umsjs.node&#x27;);
+} else {
+    ums = require(&#x27;./Release/&#x27;+process.platform+&#x27;/umsjs.node&#x27;);
+}
+
+if (!EventEmitter.listenerCount) {
+    EventEmitter.listenerCount = function(emitter, type) {
+      var ret;
+      if (!emitter._events || !emitter._events[type])
+        ret = 0;
+      else if (typeof emitter._events[type] === &#x27;function&#x27;)
+        ret = 1;
+      else
+        ret = emitter._events[type].length;
+      return ret;
+    };
+}
+
+function isLocalAddress(address){
+    var interfaces = require(&#x27;os&#x27;).networkInterfaces();
+    for (var k in interfaces) {
+        for(var i = 0;i &lt; interfaces[k].length;i++){
+            if (interfaces[k][i].address == address) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+//******************************************************************************
+// Constant variables definition
+//
+// User Control Message (4)
+// The client or the server sends this message to notify the peer about
+// the user control events. This message carries Event type and Event
+// data.
+//******************************************************************************
+
+ums.CONST = {
+    // Event data : stream id - send from server
+    MUCTRL_STREAM_BEGIN         : 0,
+    // Event data : stream id - send from server
+    MUCTRL_STREAM_EOF           : 1,
+    // Event data : stream id - send from server
+    MUCTRL_STREAM_DRY           : 2,
+    // Event data : stream id;ext event data : buffer length - send from client
+    MUCTRL_SET_BUFFER_LENGTH    : 3,
+    // Event data : stream id - send from server
+    MUCTRL_STREAM_IS_RECORDED   : 4,
+    // Event data : server timestamp - send from server(need client response)
+    MUCTRL_PING_REQUEST         : 6,
+    // Event data : client timestamp - send from client(response server request)
+    MUCTRL_PING_RESPONSE        : 7,
+
+    NOTIFY_AUDIO_SENTDONE       : 0x01,
+    NOTIFY_VIDEO_SENTDONE       : 0x02,
+    NOTIFY_META_SENTDONE        : 0x04,
+    NOTIFY_CMD_SENTDONE         : 0x08,
+    NOTIFY_ALL_SENTDONE         : 0x0F,
+    NOTIFY_RAWDATA_RECVDONE     : 0x10,
+    NOTIFY_RAWDATA_SENTDONE     : 0x20,
+    NOTIFY_ACTIVECHECK          : 0x40,
+    // Log binary io data to file control flags
+    NOTIFY_LOGRECVBIN           : 0x80,
+    // RTSP SDP data recv done notify
+    NOTIFY_SDP_RECVDONE         : 0x0100,
+    // RTSP packet data recv done notify
+    NOTIFY_PACKET_RECVDONE      : 0x0200,
+
+    // Active check event : ping packet has been sent to client successfully
+    ACTIVECHECK_SENTPING        : 0,
+    // Active check event : received ping packet from client
+    ACTIVECHECK_RECVPING        : 1,
+    // Active check event : pong packet has been sent to client successfully
+    ACTIVECHECK_SENTPONG        : 2,
+    // Active check event : received pong packet from client
+    ACTIVECHECK_RECVPONG        : 3,
+
+    BUFFER_EVENT_FULL           : 0,
+    BUFFER_EVENT_EMPTY          : 1,
+
+    NSFLAG_BUBBLE               : 0x01,
+    NSFLAG_MEDIADATA            : 0x02,
+    NSFLAG_AUDIOSAMPLEACCESS    : 0x04,
+    NSFLAG_VIDEOSAMPLEACCESS    : 0x08,
+    NSFLAG_BUFFEREVENT          : 0x10,
+
+    PACKET_TYPE_AUDIO           : 0x08,
+    PACKET_TYPE_VIDEO           : 0x09,
+    PACKET_TYPE_METADATA        : 0x12,
+    PACKET_TYPE_COMMAND         : 0x14,
+};
+
+/*******************************************************************************
+* A ums.RTMPCall object is a remote call information collection, contains RPC 
+* command name, transaction id, properties, arguments as well as response 
+* context.
+*
+* @class ums.RTMPCall
+*******************************************************************************/
+
+/**
+ * 为当前调用返回一个_result结果.
+ * 该接口必须是远端发过来的调用对象，且被调函数名不能为&#x27;onStatus&#x27;，
+ * 即不能调用&#x27;onStatus&#x27;调用对象的这一接口。
+ *
+ * @method echoResult
+ * @public
+ * @param ... {Number/String/Boolean/Array/Object/Buffer} 返回的参数
+ * @example
+ *     cmd.echoResult(arg1, ..., argN);
+ **/
+ums.RTMPCall.prototype.echoResult = function(__args){
+    var args = [&#x27;_result&#x27;];
+    for (var i = 0; i &lt; arguments.length; i++) {
+        args.push(arguments[i]);
+    };
+    this.echo.apply(this, args);
+}
+
+/**
+ * 为当前调用返回一个_error结果.
+ * 该接口必须是远端发过来的调用对象，且被调函数名不能为&#x27;onStatus&#x27;，
+ * 即不能调用&#x27;onStatus&#x27;调用对象的这一接口。
+ *
+ * @method echoError
+ * @public
+ * @param ... {Number/String/Boolean/Array/Object/Buffer} 返回的参数
+ * @example
+ *     cmd.echoResult(arg1, ..., argN);
+ **/
+ums.RTMPCall.prototype.echoError = function(__args){
+    var args = [&#x27;_error&#x27;];
+    for (var i = 0; i &lt; arguments.length; i++) {
+        args.push(arguments[i]);
+    };
+    this.echo.apply(this, args);
+}
+
+/*******************************************************************************
+ * Options object used to construct RTMPServer or RTMPConnector, every option 
+ * item has its own listeners, changes make on the option item will be 
+ * notified to its listeners
+ * 
+ * @class ums.RTMPOptions
+*******************************************************************************/
+
+/**
+ * RTMPServer选项.允许接受的最大连接并发数（开发版为：50；线上版默认值为：1000）.
+ * 
+ * @property maxConn
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer/RTMPConnector选项.遇到断言失败则退出执行（默认值为：true）.
+ * 
+ * @property breakOnAssert
+ * @type Boolean
+ * @public
+ **/
+
+/**
+ * RTMPServer/RTMPConnector选项.RTMPServer/RTMPConnector线程池内的工作线程数量
+ * （默认值为：20）.
+ * 
+ * @property numOfThreads
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer/RTMPConnector选项.允许IPv6（默认值为：false）.
+ *
+ * @property enableIPv6
+ * @type Boolean
+ * @public
+ **/
+
+/**
+ * RTMPServer选项.RTMPServer绑定的IP地址（默认值为：0.0.0.0）.
+ * 
+ * @property rtmpIP
+ * @type String
+ * @public
+ **/
+
+/**
+ * RTMPServer选项.RTMPServer的监听端口（默认值为：1935）.
+ * 
+ * @property rtmpPort
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer/RTMPConnector选项.连接活跃检查时间间隔（以秒为单位，默认值为：60）.
+ * 
+ * @property activeCheckInterval
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer选项.重用IP地址和端口（默认值为：true）.
+ * 
+ * @property reuseAddress
+ * @type Boolean
+ * @public
+ **/
+
+/**
+ * RTMPServer选项.内核为监听套接口排队的最大连接个数（默认值为：0）.
+ * 
+ * @property backlog
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer/RTMPConnector选项.收/发数据响应窗口值（以KB为单位，默认值为：48）.
+ * 
+ * @property windowSize
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer/RTMPConnector选项.活动连接最大超时时间（以秒为单位，默认值为：
+ * 36000）.计算一个连接从建立连接到当前时间的时间间隔，该时间间隔即为该连接
+ * 的连接总时长。如果某一连接的连接总时长超过该选项值，该连接将被关闭。
+ * 
+ * @property activeConnTimeout
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer/RTMPConnector选项不活动连接最大超时时间（以秒为单位，默认值为：300）.
+ * 计算一个连接从发生最近一次网络活动（收/发数据）的时间开始到当前时间的时间间隔，
+ * 该时间间隔即为该连接的空闲时间。如果某个连接的空闲时间超过该选项值，即认为该
+ * 连接为不活动连接，该连接将被关闭。
+ * 
+ * @property deadConnTimeout
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer选项.RTMPServer接受TCP连接的间隔时间（以毫秒为单位，默认值为：0）.
+ * RTMPServer两次接受TCP连接的时间间隔称为接受时间间隔。如果向RTMPServer新建立
+ * 的TCP连接距离上一次接受连接的时间间隔小于该选项值，则服务器会等待，等待的时
+ * 间长度为该选项值与实际连接间隔的时间差。当等待完成后才接受新的连接。
+ * 
+ * @property acceptInterval
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer选项.服务端应用接受一个RTMP连接的超时时间（以秒为单位，默认值为：60）.
+ * 当一个RTMP连接成功完成握手操作后，客户端会发送一个&#x27;connect&#x27;命令到RTMPServer，该
+ * 命令里面携带客户端希望连接的服务端应用名称及其他信息，ums.Application通过设置
+ * &#x27;connect&#x27;事件的监听处理函数来捕获该连接操作。用户须在该选项值内调用
+ * ums.Application.accept()接口来接受或拒绝该连接，如果超出该选项设定的时间值，仍未
+ * 调用该接口，则连接会被默认拒绝。
+ * 
+ * @property acceptTimeout
+ * @type Number
+ * @public
+ **/
+
+/**
+ * RTMPServer/RTMPConnector选项.直播发布池的ID号（默认值为：0）.
+ * 对于RTMPServer来说，RTMPServer将接收到的客户端推送
+ * 过来的直播音视频数据流发布到发布池中，当有订阅者连接到该RTMPServer订阅直播流时，
+ * RTMPServer将直播流数据从发布池中获取数据，并发送给客户端。对于RTMPConnector来说，
+ * RTMPConnector能创建向外的连接(NetConnection实例)，并通过建于该连接之上的NetStream
+ * 的edge接口将远端RTMPServer上发布的直播流数据拉取过来并发布到为其指定的发布池中，
+ * 如果该发布池被其他RTMPServer实例共用，则可通过这些RTMPServer对外提供直播流订阅服
+ * 务。
+ * 注意 : 系统内部自动创建publishId为0的发布池，作为默认发布池，该发布池无法提供js接
+ * 口，也无法进行操作，如果希望使用PublishPool的相关接口和功能，请自行创建PublishPool
+ * 实例，并将其publishId指定给相应的RTMPServer或RTMPConnector实例。
+ * 
+ * @property publishId
+ * @type Number
+ * @public
+ **/
+
+/** 
+ * RTMPServer选项.为当前RTMPServer实例指定媒体库文件夹.当需要使用RTMPServer做vod（视
+ * 频点播）业务时，需要为RTMPServer实例指定媒体文件的路径，即媒体文件所在的文件夹路径。
+ * 文件夹路径可以是相对路径（相对于ums安装路径），也可以是绝对路径，以字符串形式给出，
+ * 例如：myOptions.mediaFolders = [&#x27;video&#x27;,&#x27;d:\\video&#x27;];
+ * 
+ * @property mediaFolders
+ * @type Array of String
+ * @public
+ **/
+
+/**
+ * RTMPServer/RTMPConnector选项.允许EOF连续重试的次数.
+ * RTMP连接接收网络数据，允许EOF连续重试的次数。当重试次数超过此限制时，连接将被关闭。
+ * 
+ * @property eofTimes
+ * @type Number
+ * @public
+ **/
+
+/*******************************************************************************
+ * Javascript version of NetStream in actionscript3. Both client-side and 
+ * server-side could use this class to manipulate streams over RTMPClient
+ * or NetConnection.
+ * 
+ * @class ums.NetStream
+*******************************************************************************/
+
+ums.NetStream = function(conn, streamId){
+    this.connection = conn;
+    this.streamId = streamId;
+    this.closed = false;
+    conn.streams[streamId] = this;
+    this.delay = 0;
+};
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持除&#x27;_error/_result/onStatus/connect/error/close&#x27;等事件之
+ * 外的任何自定义事件.上述事件为内部保留事件，用户不应定义与这些事
+ * 件同名的事件处理函数。与用户自定义事件相对应的事件处理函数的参
+ * 数列表与远端调用时传入的参数列表一致。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数
+ *
+ * @example
+ *     stream.on(event_name, function(){});
+ **/
+
+/**
+ * 流关闭事件及其事件监听处理程序.
+ * 该关闭事件仅表明当前流被关闭，并不意味着RTMP连接被关闭。
+ *
+ * @event close
+ * @example
+ *     stream.on(&#x27;close&#x27;, function(){
+ *         // Do some recycle work
+ *     });
+ **/
+
+/**
+ * 对端发过来的流关闭事件及其事件监听处理程序.
+ * 该关闭事件由对端发出，用以关闭当前流。
+ *
+ * @event closeStream
+ * @example
+ *     stream.on(&#x27;closeStream&#x27;, function(cmd){
+ *         stream.close();
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ * 
+ * @event error
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     stream.on(&#x27;error&#x27;, function(err){
+ *         console.dir(err);
+ *     });
+ **/
+
+/**
+ * RTMP网络流状态事件及其事件监听处理程序.
+ * 如果添加&#x27;onStatus&#x27;事件监听函数，则当出现网络状态事件时回调函数将
+ * 被调用。&#x27;onStatus&#x27;事件发送自网络对端，是一种不需要回复的远程调用，
+ * 用于通知网络对端特定的状态信息，包括流的播放、发布状态等。
+ *
+ * @event onStatus
+ * @param event {Object} 状态信息
+ * @example
+ *     stream.on(&#x27;onStatus&#x27;, function(event){
+ *         console.dir(event);
+ *     });
+ **/
+
+/**
+ * Audio/Video数据及其数据监听处理程序.
+ * 如果添加&#x27;data&#x27;事件监听函数，则当出现Audio/Video数据包时回调函数将
+ * 被调用。
+ *
+ * @event data
+ * @param data {Object} Audio/Video数据
+ * @example
+ *     stream.on(&#x27;data&#x27;, function(data){
+ *         console.dir(data);
+ *     });
+ **/
+
+/**
+ * metadata数据及其数据监听处理程序.
+ * 如果添加&#x27;onMetaData&#x27;事件监听函数，则当出现metadata数据包时回调函
+ * 数将被调用。
+ *
+ * @event onMetaData
+ * @param data {Object} metadata数据
+ * @example
+ *     stream.on(&#x27;onMetaData&#x27;, function(data){
+ *         console.dir(data);
+ *     });
+ **/
+
+/**
+ * 调用一个远端处理函数.
+ * 如果指定返回结果的回调处理函数，则远端理论上应该返回结果，该结果
+ * 由该回调函数处理，否则，不返回结果。回调函数的第一个参数为远端返
+ * 回的调用对象（ums.RTMPCall实例）。理论上，返回结果也是一个远程调
+ * 用，只不过是针对特定函数_result和_error函数的特定调用。返回
+ * _result表示远端函数正确执行；返回_error则表示远端函数执行出错。
+ *
+ * @method call
+ * @public
+ * @async
+ * @param proc_name {String} 要调用的远端函数的名称
+ * @param ... {Number/String/Boolean/Array/Object/Buffer} 要传递给远端函数的参数
+ * @param callback {function} [可选], 远端函数返回结果的处理函数
+ * @example
+ *     stream.call(&#x27;foo&#x27;, &#x27;arg1&#x27;, &#x27;arg2&#x27;, function(cmd){
+ *         console.dir(cmd);
+ *     });
+ **/
+ums.NetStream.prototype.call = function(){
+    var args = [];
+    for (var i = 0; i &lt; arguments.length; i++) {
+        if (i + 1 &lt; arguments.length &amp;&amp; typeof arguments[i] == &#x27;function&#x27;) {
+            throw Error(&#x27;Invalid arguments&#x27;);
+        };
+        args.push(arguments[i]);
+    };
+    var name = args[0] || null;
+    if (!name) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    var cmd = {};
+    cmd.name = args.shift();
+    if (args.length &gt; 0 &amp;&amp; typeof args[args.length - 1] == &#x27;function&#x27;) {
+        cmd.callback = call_cb.bind(this, args.pop());
+    }
+    cmd.args = args;
+    cmd.channelId = 3;
+    cmd.streamId = this.streamId;
+    this.connection.__call__(cmd);
+}
+
+/**
+ * 向服务端发送一个播放命令.
+ * 调用该接口并不会返回_result或_error结果，要想捕获播放事件，请调用
+ * ums.NetStream.on接口订阅onStatus事件，并判断event.code值是否为下述状态之一：
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.&#x27;NetStream.Play.StreamNotFound&#x27;:表示流不存在；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.&#x27;NetStream.Play.Reset&#x27;:表示播放重置；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3.&#x27;NetStream.Play.Start&#x27;:表示播放开始；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;4.&#x27;NetStream.Play.Stop&#x27;:表示播放停止；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.&#x27;NetStream.Play.Complete&#x27;:表示播放结束；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6.&#x27;NetStream.Play.Transition&#x27;:转换指令；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;7.&#x27;NetStream.Play.TransitionComplete&#x27;:转换结束（通过onPlayStatus发送）；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;8.&#x27;NetStream.Play.UnpublishNotify&#x27;:发布者停止发布通知。
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;9.&#x27;NetStream.Play.Failed&#x27;:未知的失败；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;10.&#x27;NetStream.Play.FileStructureInvalid&#x27;:文件结构不可用；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;11.&#x27;NetStream.Play.NoSupportedTrackFound&#x27;:不支持的流格式；
+ *      &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;12.&#x27;NetStream.Play.InsufficientBW&#x27;:带宽不够。
+ * &lt;br&gt;形如：
+ *
+ *      stream.on(&#x27;onStatus&#x27;, function(cmd, event){
+ *          switch(event.code) {
+ *              case &quot;NetStream.Play.Failed&quot;:
+ *                  // &quot;error&quot;,An error has occurred in playback for a reason other than those 
+ *                  // listed elsewhere in this table, such as the subscriber not having read
+ *                  // access.
+ *                  break;
+ *              case &quot;NetStream.Play.FileStructureInvalid&quot;:
+ *                  // &quot;error&quot;,(AIR and Flash Player 9.0.115.0) The application detects an
+ *                  // invalid file structure and will not try to play this type of file.
+ *                  break;
+ *              case &quot;NetStream.Play.NoSupportedTrackFound&quot;:
+ *                  // &quot;error&quot;,(AIR and Flash Player 9.0.115.0) The application does not
+ *                  // detect any supported tracks (video, audio or data) and will not try to
+ *                  // play the file.
+ *                  break;
+ *              case &quot;NetStream.Play.StreamNotFound&quot;:
+ *                  // &quot;error&quot;,The file passed to the NetStream.play() method can&#x27;t be found.
+ *                  break;
+ *              case &quot;NetStream.Play.InsufficientBW&quot;:
+ *                  // &quot;warning&quot;,(Flash Media Server) The client does not have sufficient
+ *                  // bandwidth to play the data at normal speed.
+ *                  break;
+ *              case &quot;NetStream.Play.PublishNotify&quot;:
+ *                  // &quot;status&quot;,The initial publish to a stream is sent to all subscribers.
+ *                  break;
+ *              case &quot;NetStream.Play.Reset&quot;:
+ *                  // &quot;status&quot;,Caused by a play list reset.
+ *                  break;
+ *              case &quot;NetStream.Play.Start&quot;:
+ *                  // &quot;status&quot;,Playback has started.
+ *                  break;
+ *              case &quot;NetStream.Play.Stop&quot;:
+ *                  // &quot;status&quot;,Playback has stopped.
+ *                  break;
+ *              case &quot;NetStream.Play.Transition&quot;:
+ *                  // &quot;status&quot;,(Flash Media Server 3.5) The server
+ *                  // received the command to transition to another stream as a result of bitrate stream switching.
+ *                  // This code indicates a success status event for the NetStream.play2() call to initiate a stream
+ *                  // switch. If the switch does not succeed, the server sends a NetStream.Play.Failed event instead.
+ *                  // When the stream switch occurs, an onPlayStatus event with a code of
+ *                  // &quot;NetStream.Play.TransitionComplete&quot; is dispatched. For Flash Player 10 and later.
+ *                  break;
+ *              case &quot;NetStream.Play.UnpublishNotify&quot;:
+ *                  // &quot;status&quot;,An unpublish from a stream is sent to all subscribers.
+ *                  break;
+ *              case &quot;NetStream.Play.Complete&quot;:
+ *                  // &quot;status&quot;,Playback has completed.
+ *                  break;
+ *          }
+ *      });
+ *
+ * @method play
+ * @public
+ * @param streamName {String} 要播放的流的名称
+ * @param startPos {Number} 开始播放的起始时间戳。如果startPos &lt; -1 ,表示
+ *        如果存在同名的直播流，则优先放直播流，如果直播流不存在
+ *        而点播文件存在，则播放点播文件；如果startPos = -1，表
+ *        示只播放同名的直播流；如果startPos &gt;= 0则表示只播放点
+ *        播流)
+ **/
+ums.NetStream.prototype.play = function(streamName, startPos){
+    if (!streamName || typeof startPos != &#x27;number&#x27;) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    };
+    var args = [&#x27;play&#x27;, streamName.toString(), startPos];
+    streamName = streamName.toString();
+    for (var i = 2; i &lt; arguments.length; i++) {
+        args.push(arguments[i]);
+    };
+    this.call.apply(this, args);
+}
+
+/**
+ * 向服务端发送一个播放命令，并将接收到的音视频数据流发布到本地发布池.
+ * 该接口是一个复合操作，接口内部完成两个操作：1.向远端服务器发送一个
+ * &#x27;play&#x27;调用；2.将接收到的音视频数据以直播流的形式发布到创建
+ * RTMPConnector实例时指定的PublishPool实例中。要想捕获播放事件，请调
+ * 用NetStream.on接口订阅onStatus事件，形如：
+ *     NetStream.on(&#x27;onStatus&#x27;, function(cmd, event){});
+ * 并判断event.code值是否为下述状态之一：
+ * 1.&#x27;NetStream.Play.StreamNotFound&#x27;:表示流不存在；
+ * 2.&#x27;NetStream.Play.Reset&#x27;:表示播放重置；
+ * 3.&#x27;NetStream.Play.Start&#x27;:表示播放开始；
+ * 4.&#x27;NetStream.Play.Complete&#x27;:表示播放结束。
+ *
+ * @method edge
+ * @public
+ * @async
+ * @param remoteStreamName {String} 要拉取的流的名称
+ * @param localStreamName {String} [可选]，发布到本地的流的名称。如果
+ *        不设置该参数，则拉取的视频流将会以原有名字发布到本地
+ *        PublishPool实例中.
+ * @param callback {function} 异步操作结果回调函数，函数的第一个参数为
+ *        操作结果错误信息，如果出错，则该值不为null
+ *
+ **/
+ums.NetStream.prototype.edge = function(remoteStreamName, localStreamName, __args, callback) {
+    if (arguments.length &lt; 2) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    };
+    var self = this;
+    callback = arguments[arguments.length - 1];
+    localStreamName = (arguments.length &gt;= 3)?localStreamName:remoteStreamName;
+    if (!localStreamName || typeof callback != &#x27;function&#x27;) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    };
+    var args = [];
+    for (var i = 2; i &lt; arguments.length - 1; i++) {
+        args.push(arguments[i]);
+    };
+    localStreamName = localStreamName.toString();
+    remoteStreamName = remoteStreamName.toString();
+    this.connection.__edgeStream__(this.streamId, remoteStreamName, 
+        localStreamName, args, function(err, streamName, publishToken){
+            if (err) {
+                return callback(err);
+            } else {
+                self.isEdge = true;
+                self.publishName = streamName;
+                self.publishToken = publishToken;
+                return callback(null, streamName, publishToken);
+            }
+        }
+    );
+}
+
+/**
+ * 设置开启/关闭数据包冒泡功能.
+ * 如果设置开启数据包冒泡功能，则可以通过监听&#x27;data&#x27;事件来接收到
+ * Video/Audio/MetaData数据包。
+ * 异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，
+ * 则表明设置成功，否则，表明设置失败。
+ *
+ * 设置开启/关闭将Audio/Video数据转换成onMediaData包发送功能.
+ * 如果设置开启数据包冒泡功能，则可以通过监听&#x27;onMediaData&#x27;事件来
+ * 接收到Video/Audio数据包。
+ * 异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，
+ * 则表明设置成功，否则，表明设置失败。
+ * 
+ * @method setFlags
+ * @public
+ * @async
+ * @param flags {Number} 是否开启数据包冒泡功能
+ * @param callback {function} 异步设置完成回调函数
+ * @example
+ *     stream.setFlags(NSFLAG_BUBBLE | NSFLAG_MEDIADATA, function(err){
+ *         if (err) {
+ *             return console.dir(err);
+ *         }
+ *         stream.on(&#x27;data&#x27;, function(data){
+ *             console.dir(data);
+ *         });
+ *         stream.on(&#x27;bufferEvent&#x27;, function(type){
+ *             console.dir(type);
+ *         });
+ *     });
+ **/
+ums.NetStream.prototype.setFlags = function(flags, callback) {
+    if (arguments.length &lt; 2 || typeof flags != &#x27;number&#x27; ||
+        typeof callback != &#x27;function&#x27;) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    };
+    var self = this;
+    self.connection.__setStreamFlags__(this.streamId, flags, function(){
+        var args = [];
+        for (var i = 0; i &lt; arguments.length; i++) {
+            args.push(arguments[i]);
+        };
+        callback.apply(self, args);
+    });
+}
+
+/**
+ * 设置音视频同步延时.
+ * 
+ * @method setDelay
+ * @public
+ * @async
+ * @param msDelay {Number} 同步延时的时间，以毫秒为单位
+ * @param callback {function} 异步设置完成回调函数
+ * @example
+ *     stream.setDelay(msDelay, function(err){
+ *         if (err) {
+ *             return console.dir(err);
+ *         }
+ *     });
+ **/
+ums.NetStream.prototype.setDelay = function(msDelay, callback) {
+    if (arguments.length &lt; 2 || typeof msDelay != &#x27;number&#x27; ||
+        typeof callback != &#x27;function&#x27;) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    };
+    var self = this;
+    self.connection.__setStreamDelay__(this.streamId, msDelay, function(err){
+        var args = [];
+        for (var i = 0; i &lt; arguments.length; i++) {
+            args.push(arguments[i]);
+        };
+        if (!err) {
+            self.delay = msDelay;
+        };
+        callback.apply(self, args);
+    });
+}
+
+/**
+ * 预发布一个流到发布池中.
+ * 该接口是一个复合接口，调用此接口，创建一个Publisher，并注册到预
+ * 先指定的发布池中。
+ * 如果接口调用出错，err将不为null，stream不可用；反之，err为null,
+ * stream对象可用。
+ *
+ * @method createPublisher
+ * @public
+ * @async
+ * @param cmd {ums.RTMPCall} 远程调用对象实例
+ * @param autoEcho {Boolean} 是否自动回复
+ * @param callback {function} 回调函数
+ * @example
+ *     stream.on(&#x27;publish&#x27;, function(cmd){
+ *         stream.createPublisher(cmd, true, function(err, streamName){
+ *             if (err) {
+ *                 return console.log(&#x27;createPublisher :&#x27;, err);
+ *             }
+ *             console.log(&#x27;stream name :&#x27;, streamName);
+ *         });
+ *     });
+ **/
+ums.NetStream.prototype.createPublisher = function(cmd, autoEcho, callback){
+    var self = this;
+    if (typeof autoEcho == &#x27;function&#x27;) {
+        callback = autoEcho;
+        autoEcho = true;
+    };
+    if (!(cmd instanceof ums.RTMPCall) || typeof callback != &#x27;function&#x27;) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    this.connection.__createPublisher__(cmd, function(err, streamName, publishToken){
+        if (!err) {
+            self.publishName = streamName;
+            self.publishToken = publishToken;
+            self.type = &#x27;livePublisher&#x27;;
+        }
+        if (autoEcho) {
+            if (err) {
+                switch(err.message){
+                case &#x27;NOQUOTA&#x27;:
+                    self.call(&#x27;onStatus&#x27;, {
+                        level : &#x27;error&#x27;,
+                        code : &#x27;NetStream.Publish.NoQuota&#x27;,
+                        description : err.message
+                    });
+                    break;
+                default:
+                    self.call(&#x27;onStatus&#x27;, {
+                        level : &#x27;error&#x27;,
+                        code : &#x27;NetStream.Publish.BadName&#x27;,
+                        description : err.message
+                    });
+                    break;
+                }
+                return callback(err);
+            } else {
+                self.connection.sendUserCtrl(ums.CONST.MUCTRL_STREAM_BEGIN,
+                    self.streamId, function(err){
+                        if (err) {
+                            return callback(err);
+                        } else {
+                            self.call(&#x27;onStatus&#x27;, {
+                                level : &#x27;status&#x27;,
+                                code : &#x27;NetStream.Publish.Start&#x27;,
+                                description : &#x27;&quot;&#x27; + streamName + &#x27;&quot; is now published.&#x27;,
+                                clientid : self.connection.clientId
+                            });
+                            return callback(null, streamName, publishToken);
+                        }
+                });
+            }
+        } else{
+            return callback.call(self, err, streamName, publishToken);
+        };
+    });
+}
+
+/**
+ * 旁通play调用到底层.将远程调用对象透传到底层。
+ *
+ * @method createPlayer
+ * @public
+ * @param cmd {ums.RTMPCall} 远程调用对象实例
+ * @example
+ *     stream.on(&#x27;play&#x27;, function(cmd){
+ *         stream.createPlayer(cmd, function(err, streamName, bLive){});
+ *     });
+ **/
+ums.NetStream.prototype.createPlayer = function(cmd, callback) {
+    var self = this;
+    if (!(cmd instanceof ums.RTMPCall) || typeof callback != &#x27;function&#x27; ||
+        !cmd.args[0]) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    this.connection.__createPlayer__(cmd, function(err, streamName, bLive){
+        if (err) {
+            streamName = cmd.args[0].split(&#x27;?&#x27;)[0];
+            switch(err.message){
+            case &#x27;ENOTFOUND&#x27;:
+                self.call(&#x27;onStatus&#x27;, {
+                    level : &#x27;error&#x27;,
+                    code : &#x27;NetStream.Play.StreamNotFound&#x27;,
+                    description : &#x27;stream with name &quot;&#x27; + streamName + &#x27;&quot; was not found.&#x27;
+                });
+                break;
+            default:
+                break;
+            }
+        } else {
+            self.playName = cmd.args[0].split(&#x27;?&#x27;)[0];
+            self.type = bLive?&#x27;livePlayer&#x27;:&#x27;filePlayer&#x27;;   
+        }
+        return callback.call(self, err, streamName, bLive);
+    });
+}
+
+/**
+ * 主动关闭一个流。
+ *
+ * @method close
+ * @public
+ * @example
+ *     stream.on(&#x27;closeStream&#x27;, function(cmd){
+ *         stream.close(function(err){
+ *             if (err) { return console.log(err); }
+ *         });
+ *     });
+ **/
+ums.NetStream.prototype.close = function(callback) {
+    var self = this;
+    if (typeof callback != &#x27;function&#x27;) {
+        callback = null;
+    };
+    self.connection.closeStream(this.streamId, function(err){
+        if (callback) {
+            callback.call(self, err);
+        }
+    });
+}
+
+/**
+ * 旁通seek调用到底层.将远程调用对象透传到底层。
+ *
+ * @method seek
+ * @public
+ * @param cmd {ums.RTMPCall} 远程调用对象实例
+ * @example
+ *     stream.on(&#x27;seek&#x27;, function(cmd){
+ *         stream.seek(cmd);
+ *     });
+ **/
+ums.NetStream.prototype.seek = function(cmd) {
+    if (!cmd instanceof ums.RTMPCall) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    };
+    this.connection.__seek__(cmd);
+}
+
+/**
+ * 暂停一个本地流。
+ *
+ * @method localPause
+ * @public
+ * @param bPause {boolean} 设置暂停(true)或取消暂停(false)
+ * @param nTimestamp {Uint} 设置暂停时的时间戳，以毫秒为单位
+ * @param callback {Function} 异步完成回调
+ * @example
+ *     stream.on(&#x27;pause&#x27;, function(cmd, bPause, nTimestamp){
+ *         stream.localPause(bPause, nTimestamp, function(err){
+ *             if (err) {
+ *                 return console.dir(err);   
+ *             }
+ *         });
+ *     });
+ **/
+ums.NetStream.prototype.localPause = function(bPause, nTimestamp, callback) {
+    callback = arguments[arguments.length - 1];
+    nTimestamp = (arguments.length &gt;= 3)?nTimestamp:0;
+    if (typeof bPause != &#x27;boolean&#x27; || typeof callback != &#x27;function&#x27;) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    };
+    this.connection.__localPause__(this.streamId, bPause, nTimestamp, 
+        callback.bind(this));
+}
+
+/**
+ * 旁通pause调用到底层.将远程调用对象透传到底层。
+ *
+ * @method pause
+ * @public
+ * @param cmd {ums.RTMPCall} 远程调用对象实例
+ * @example
+ *     stream.on(&#x27;pause&#x27;, function(cmd){
+ *         stream.pause(cmd);
+ *     });
+ **/
+ums.NetStream.prototype.pause = function(cmd) {
+    if (!cmd instanceof ums.RTMPCall) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    };
+    this.connection.__pauseRAW__(cmd);
+}
+
+/**
+ * 旁通pauseRAW调用到底层.将远程调用对象透传到底层。
+ *
+ * @method pauseRAW
+ * @public
+ * @param cmd {ums.RTMPCall} 远程调用对象实例
+ * @example
+ *     stream.on(&#x27;pauseRAW&#x27;, function(cmd){
+ *         stream.pauseRAW(cmd);
+ *     });
+ **/
+ums.NetStream.prototype.pauseRAW = function(cmd) {
+    if (!cmd instanceof ums.RTMPCall) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    };
+    this.connection.__pauseRAW__(cmd);
+}
+
+//*******************************************************************************
+// Inherits
+//*******************************************************************************
+
+function inherits(target, source) {
+  for (var k in source.prototype)
+    target.prototype[k] = source.prototype[k];
+}
+
+inherits(ums.RTMPServer, EventEmitter);
+inherits(ums.RTMPClient, EventEmitter);
+inherits(ums.Application, EventEmitter);
+inherits(ums.RTMPConnector, EventEmitter);
+inherits(ums.NetConnection, EventEmitter);
+inherits(ums.NetStream, EventEmitter);
+inherits(ums.PublishPool, EventEmitter);
+inherits(ums.PublishPipe, EventEmitter);
+inherits(ums.RTSPConnector, EventEmitter);
+inherits(ums.RTSPConnection, EventEmitter);
+
+/*******************************************************************************
+* @class ums.RTMPServer
+*******************************************************************************/
+
+/**
+ * Called when a low level socket connect in.if &#x27;connection&#x27; event handler 
+ * is registered, we will emit a &#x27;connection&#x27; event to that handler, or we 
+ * accept the connection as default behavior.
+ *
+ * @method _internalCallback
+ * @private
+ **/
+ums.RTMPServer.prototype._internalCallback = function(type, __arg1, __arg2){
+    switch(type){
+        case &#x27;connect&#x27;:
+            {
+                if (EventEmitter.listenerCount(this, &#x27;connection&#x27;) &gt; 0) {
+                    this.emit(&#x27;connection&#x27;, __arg1);
+                } else {
+                    this.accept(__arg1, true);
+                }
+            }
+            break;
+        case &#x27;reject&#x27;:
+            {
+                this.emit(&#x27;reject&#x27;, __arg1, __arg2);
+            }
+            break;
+    }
+}
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持&#x27;connection/reject/error/close&#x27;事件。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数，事件处理函数的第一个参数是
+ *                                 新建立的TCP连接的基本信息，包括本端IP地址
+ *                                 和对端IP地址
+ * @example
+ *     server.on(&#x27;connection&#x27;, function(sockInfo){
+ *         console.dir(sockInfo);
+ *     });
+ **/
+
+/**
+ * 新连接事件及其事件监听处理程序.
+ * 当一个新的TCP连接建立时，&#x27;connection&#x27;事件将被抛出，如果事先注册
+ *           有该事件的监听处理函数，则会调用该处理函数；否则，该TCP连接将被
+ *           默认接受。
+ *
+ * @event connection
+ * @param sockInfo {Object} 新建立的TCP连接的IP信息
+ * @example
+ *     server.on(&#x27;connection&#x27;, function(sockInfo){
+ *         console.dir(sockInfo);
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ *
+ * @event error
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     server.on(&#x27;error&#x27;, function(err){
+ *         if (err) {
+ *             console.dir(err);
+ *         }
+ *     });
+ **/
+
+/**
+ * RTMPServer关闭事件及其事件监听处理程序.
+ * 如果添加&#x27;close&#x27;事件监听函数，则当RTMPServer关闭时回调函数将被调用。
+ *
+ * @event close
+ * @example
+ *     server.on(&#x27;close&#x27;, function(){
+ *         // Do some recycle work
+ *     });
+ **/
+
+/**
+ * 启动RTMPServer实例并使其开始接受新连接的接口.
+ * 调用该接口将开始运行一个RTMPServer实例以接受新的连接。回调函数被
+ * 执行时，表明启动工作结束，可以进行后续操作。
+ *
+ * @method start
+ * @public
+ * @async
+ * @param callback {function} RTMPServer开始运行的回调函数
+ * @example
+ *     server.start(function callback(err){
+ *         if (err) {
+ *             console.dir(err);
+ *         }
+ *     });
+ **/
+
+/**
+ * 注册一个服务端的应用到该RTMPServer实例.如果该RTMPServer实例中不存在
+ * 与要注册的应用同名的应用，则该应用会被成功注册；否则抛出应用重名异常。
+ * 
+ * @method register
+ * @public
+ * @param app_instance {ums.Application} 服务端应用程序实例
+ * @example
+ *     var app = new ums.Application(&#x27;live&#x27;);
+ *     server.register(app);
+ **/
+
+/**
+ * 通过客户端连接ID获取连接对象。
+ * 
+ * @method getClientById
+ * @public
+ * @param clientId {String} 客户端连接的ID
+ * @example
+ *     var client = server.getClientById(clientId);
+ **/
+
+/**
+ * 接受或拒绝一个刚建立的连到该RTMPServer的TCP连接.如果要拒绝一个刚建立
+ * 的连到该RTMPServer的TCP连接，isAccept应为true;反之，如果要拒绝一个TCP连接，
+ * isAccept应为false。
+ * 
+ * @method accept
+ * @public
+ * @param sockInfo {Object} 新建立的TCP连接信息，该参数必须由&#x27;connection&#x27;
+ *                       事件的监听回调函数传入
+ * @param isAccept {Boolean} 是否接受该TCP连接
+ * @example
+ *     server.accept(sockInfo, isAccept);
+ **/
+
+/**
+ * 关闭RTMPServer实例.
+ * 调用该接口将关闭一个RTMPServer实例，成功关闭后将触发&#x27;close&#x27;事件。
+ *
+ * @method close
+ * @public
+ * @example
+ *     server.close();
+ **/
+
+/**
+ * 获取RTMPServer实例上所有连接的流量统计信息.
+ * 调用该接口将获取当前RTMPServer实例上所有连接的接收/发送数据统计信息。
+ *
+ * @method stat
+ * @public
+ * @example
+ *     var stats = server.stat();
+ **/
+
+/**
+ * RTMPServer选项设置集合.
+ * 构造该RTMPServer实例时传入的选项集合实例。
+ * 
+ * @property options
+ * @type ums.RTMPOptions
+ * @public
+ *
+ **/
+
+/*******************************************************************************
+* @class ums.Application
+*******************************************************************************/
+
+/**
+ * Called when a application level command received. 
+ * 
+ * @method _internalCallback
+ * @private
+ **/
+ums.Application.prototype._internalCallback = function(type, __arg){
+    //console.dir(__arg);
+    switch(type){
+        case &#x27;command&#x27;:
+            {
+                var args;
+                if (__arg.name === &#x27;connect&#x27;) {
+                    __arg.client.connectedTime = new Date();
+                    args = [__arg.name, __arg, __arg.client];
+                } else{
+                    args = [__arg.name, __arg];
+                }
+                args = args.concat(__arg.args);
+                this.emit.apply(this, args);
+            }
+            break;
+    }
+}
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持&#x27;connect/error/close&#x27;事件. 当一个新的RTMP连接建立时，
+ * &#x27;connect&#x27;事件将被抛出，如果事先注册有该事件的监听处理程序，则
+ * 会调用该处理函数；否则，该RTMP连接将被默认拒绝。&#x27;connect&#x27;事件
+ * 处理函数的第一个参数是新建立的TCP连接的基本信息，包括本端IP地
+ * 址和对端IP地址。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数
+ * @example
+ *     application.on(&#x27;connect&#x27;, function(cmd, client){
+ *         console.dir(cmd);
+ *         // Accept new connection
+ *         application.accept(cmd, client, true);
+ *     });
+ **/
+
+/**
+ * 连接建立事件及其事件监听处理程序.
+ * 如果添加&#x27;connect&#x27;事件监听函数，则当有新连接建立时回调函数将被调用。
+ *
+ * @event connect
+ * @param cmd {ums.RTMPCall} 远程调用对象
+ * @param client {ums.RTMPClient} 新建立的客户端对象
+ * @param ... {Number/String/Boolean/Array/Object/Buffer} [可选],剩余参数
+ * @example
+ *     application.on(&#x27;connect&#x27;, function(cmd, client){
+ *         console.dir(cmd);
+ *         // Accept new connection
+ *         application.accept(cmd, client, true);
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ *
+ * @event error
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     application.on(&#x27;error&#x27;, function(err){
+ *         console.dir(err);
+ *     });
+ **/
+
+/**
+ * 应用关闭事件及其事件监听处理程序.
+ * 如果添加&#x27;close&#x27;事件监听函数，则当应用关闭时回调函数将被调用。
+ *
+ * @event close
+ * @example
+ *     application.on(&#x27;close&#x27;, function(){
+ *         // Do some recycle work
+ *     });
+ **/
+
+/**
+ * 接受或拒绝一个刚建立的连到该RTMPServer的RTMP连接.如果要拒绝一个刚建立的
+ * 连到该RTMPServer的RTMP连接，isAccept应为true;反之，如果要拒绝一个TCP连接，
+ * isAccept应为false。
+ *
+ * @method accept
+ * @public
+ * @param cmd {ums.RTMPCall} 远端发过来的RTMP RPC命令实例.
+ * @param client {ums.RTMPClient} 新建立的RTMP连接实例，该参数必须由
+ *                     &#x27;connect&#x27;事件的监听回调函数传入)
+ * @param isAccept {Boolean} 是否接受该RTMP连接.
+ * @example
+ *     application.accept(cmd, client, isAccept);
+ **/
+
+/**
+ * 枚举连接到本应用上的所有端的连接对象.
+ * 在处理大量连接时，使用该方法比较高效，如果要查找某一符合条件的连接对象，
+ * 建议使用该方法。注意：当client为null时，表明连接集合为空。
+ * 
+ * @method enumClients
+ * @public
+ * @param callback {function} 枚举结果回调函数
+ *  callback param client {ums.RTMPClient} 已建立连接的RTMPClient实例
+ *                 isEnd {Boolean} 是否是最后一个枚举值
+ *  callback return : isContinue {Boolean} 指示枚举是否继续
+ * @example
+ *     application.enumClients(function callback(client, isEnd){
+ *        var isContinue = true;
+ *        console.log(&quot;isEmpty :&quot;, !clit, &quot;;isEnd :&quot;, isEnd, &quot;;index :&quot;, nCount++);
+ *        nCount++;
+ *        if (isEnd) {
+ *            console.log(&#x27;Count of clients :&#x27;, nCount);
+ *        }
+ *        return isContinue;
+ *     });
+ *     
+ **/
+
+/**
+ * 以[array]的形式获取连接到该应用的所有客户端实例[ums.RTMPClient].返回连接到
+ * 该应用的所有的客户端连接，返回结果是array类型，数组元素类型为ums.RTMPClient
+ * 实例。如果要查找某一符合条件的连接对象，建议使用enumClients方法。
+ * 
+ * @property clients
+ * @public
+ * @type Array of ums.RTMPClient
+ * @example
+ *     var clients = application.clients;
+ *     for (var i = 0;i &lt; clients.length;i++) {
+ *         console.dir(clients[i]);
+ *     }
+ **/
+
+/*******************************************************************************
+* @class EventEmitterEx
+*******************************************************************************/
+
+function EventEmitterEx(){
+    //
+}
+
+inherits(EventEmitterEx, EventEmitter);
+
+EventEmitterEx.prototype.emitAndRemove = function(type){
+    if (!arguments.length) {
+        throw Error(&#x27;invalid arguments.&#x27;);
+    }
+    var args = [];
+    for (var i = 0; i &lt; arguments.length; i++) {
+        args.push(arguments[i]);
+    }
+    this.emit.apply(this, args);
+    this.removeAllListeners(type);
+};
+
+/*******************************************************************************
+* @class ums.PublishPipe
+*******************************************************************************/
+
+/**
+ * Called when a publish pipe level event received. 
+ * 
+ * @method _internalCallback
+ * @private
+ **/
+ums.PublishPipe.prototype._internalCallback = function(event){
+    // console.dir(arguments);
+    switch(event){
+        case &#x27;publishStart&#x27;:
+        case &#x27;publishStop&#x27;:
+        case &#x27;audioStart&#x27;:
+        case &#x27;videoStart&#x27;:
+            this.emit.call(this, event);
+            break;
+        case &#x27;metadata&#x27;:
+        case &#x27;aacSeqHeader&#x27;:
+        case &#x27;avcSeqHeader&#x27;:
+            this.emit.call(this, event, arguments[1]);
+            break;
+        case &#x27;peerChanged&#x27;:
+            this.emit.call(this, event, arguments[1], arguments[2]);
+            break;
+    }
+}
+
+/**
+ * 直播流名称属性.
+ *
+ * @property name
+ * @type String
+ * @public
+ * @example
+ *     console.log(publishPipe.name);
+ **/
+
+/**
+ * 管道所在的发布池实例.
+ *
+ * @property pool
+ * @type ums.PublishPool
+ * @public
+ * @example
+ *     console.log(publishPipe.pool);
+ **/
+
+/**
+ * 管道上的所有订阅流实例.
+ *
+ * @property subStreams
+ * @type Object
+ * @public
+ * @example
+ *     for (var subIndex in publishPipe.subStreams) {
+ *         console.log(publishPipe.subStreams[subIndex]);
+ *     }
+ **/
+
+/**
+ * 管道上的所有发布流实例.
+ *
+ * @property pubStreams
+ * @type Object
+ * @public
+ * @example
+ *     for (var pubIndex in publishPipe.pubStreams) {
+ *         console.log(publishPipe.pubStreams[pubIndex]);
+ *     }
+ **/
+
+/**
+ * 管道上当前允许数据通行的Publisher的口令值。
+ *
+ * @property publishToken
+ * @type Number
+ * @public
+ * @example
+ *     console.log(publishPipe.publishToken);
+ **/
+Object.defineProperty(ums.PublishPipe.prototype, &#x27;publishToken&#x27;, {
+    get: function() {
+        return this.getPublishToken(this.name);
+    },
+    enumerable : true
+});
+
+/**
+ * 管道上的发布者数量。
+ *
+ * @property publisherSize
+ * @type Number
+ * @public
+ * @example
+ *     console.log(publishPipe.publisherSize);
+ **/
+Object.defineProperty(ums.PublishPipe.prototype, &#x27;publisherSize&#x27;, {
+    get: function() {
+        return this.getPublisherSize(this.name);
+    },
+    enumerable : true
+});
+
+/**
+ * 管道上的订阅者数量。
+ *
+ * @property subscriberSize
+ * @type Number
+ * @public
+ * @example
+ *     console.log(publishPipe.subscriberSize);
+ **/
+Object.defineProperty(ums.PublishPipe.prototype, &#x27;subscriberSize&#x27;, {
+    get: function() {
+        return this.getSubscriberSize(this.name);
+    },
+    enumerable : true
+});
+
+/**
+ * 关闭直播管道.
+ *
+ * @method close
+ * @public
+ * @example
+ *     var isSucceed = publishPipe.close();
+ **/
+
+/**
+ * 发送一个数据包到订阅者发送队列，该数据包必须是metadata/video/audio三种数据
+ * 类型中的一种.
+ *
+ * @method feed
+ * @public
+ * @param packet {Object} 要切换的直播源的序号
+ * @example
+ *     publishPipe.feed({
+ *         type : 0x12, // metadata
+ *         size : 129,  // not used when type == metadata
+ *         timestamp : 0,
+ *         streamId : 0, // not used
+ *         data : buffer_data, // not used when type == metadata
+ *         metadata : {
+ *             width: 320,
+ *             height: 240,
+ *             videodatarate: 0,
+ *             framerate: 15,
+ *             videocodecid: 2,
+ *             audiosamplerate: 22050,
+ *             audiosamplesize: 16,
+ *             stereo: true,
+ *             audiocodecid: 2
+ *         }
+ *     });
+ *     publishPipe.feed({
+ *         type : 0x08, // audio data
+ *         size : 131,  // size of buffer_data
+ *         timestamp : 40, // milliseconds
+ *         streamId : 0, // not used
+ *         data : [buffer_data], // array of audio data buffer which total size is 131
+ *     });
+ **/
+ums.PublishPipe.prototype.feed = function(packet){
+    if (typeof packet != &#x27;object&#x27; || !packet.type || !packet.hasOwnProperty(&#x27;timestamp&#x27;)) {
+        throw Error(&#x27;Invalid arguments.&#x27;);
+    }
+    switch(packet.type){
+    case ums.CONST.PACKET_TYPE_METADATA:
+        if (!packet.hasOwnProperty(&#x27;metadata&#x27;) || typeof packet.metadata != &#x27;object&#x27;) {
+            throw Error(&#x27;Invalid metadata packet.&#x27;);
+        }
+        break;
+    case ums.CONST.PACKET_TYPE_AUDIO:
+    case ums.CONST.PACKET_TYPE_VIDEO:
+        if (!packet.hasOwnProperty(&#x27;data&#x27;) || !(packet.data instanceof Array)) {
+            throw Error(&#x27;Invalid audio/video packet[must has &#x60;data&#x60;].&#x27;);
+        } else {
+            var size = 0;
+            for (var i in packet.data) {
+                if (!(packet.data[i] instanceof Buffer)) {
+                    throw Error(&#x27;Invalid packet data element&#x27;);
+                } else {
+                    size += packet.data[i].length;
+                }
+            };
+            if (packet.size !== size) {
+                throw Error(&#x27;Invalid packet data size&#x27;);
+            }
+        }
+        break;
+    default:
+        throw Error(&#x27;Invalid packet type :&#x27; + packet.type);
+        break;
+    }
+    return this.__feed__(packet);
+}
+
+/**
+ * 向所有订阅者一个远程调用.
+ * 该接口不能指定返回结果的回调处理函数，也不能接受返回结果。
+ *
+ * @method broadcast
+ * @public
+ * @async
+ * @param proc_name {String} 要调用的远端函数的名称
+ * @param ... {Number/String/Boolean/Array/Object/Buffer} 要传递给远端函数的参数
+ * @example
+ *     publishPipe.broadcast(&#x27;foo&#x27;, &#x27;arg1&#x27;, &#x27;arg2&#x27;);
+ **/
+ums.PublishPipe.prototype.broadcast = function(){
+    var args = [];
+    for (var i = 0; i &lt; arguments.length; i++) {
+        if (typeof arguments[i] == &#x27;function&#x27;) {
+            throw Error(&#x27;Invalid arguments&#x27;);
+        };
+        args.push(arguments[i]);
+    };
+    var name = args[0] || null;
+    if (!name) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    var cmd = {};
+    cmd.name = args.shift();
+    cmd.args = args;
+    cmd.channelId = 3;
+    cmd.streamId = 0;
+    cmd.type = ums.CONST.PACKET_TYPE_COMMAND;
+    this.__feed__(cmd);
+}
+
+/**
+ * 切换直播流的某个直播源.
+ *
+ * @method switchPublisher
+ * @public
+ * @param publishToken {Number} 要切换的直播源的序号
+ * @example
+ *     var isSucceed = publishPipe.switchPublisher(2);
+ **/
+
+/**
+ * 关闭一个直播流的所有发布者.
+ *
+ * @method releasePublishers
+ * @public
+ * @example
+ *     var isSucceed = publishPipe.releasePublishers();
+ **/
+ums.PublishPipe.prototype.releasePublishers = function(){
+    return this.__releaseStream__(0x01);
+}
+
+/**
+ * 关闭一个直播流的所有订阅者.
+ *
+ * @method releaseSubscribers
+ * @public
+ * @example
+ *     var isSucceed = publishPipe.releaseSubscribers();
+ **/
+ums.PublishPipe.prototype.releaseSubscribers = function(){
+    return this.__releaseStream__(0x02);
+}
+
+/**
+ * 关闭一个直播流的所有发布者和订阅者.
+ *
+ * @method releaseStream
+ * @public
+ * @example
+ *     var isSucceed = publishPipe.releaseStream();
+ **/
+ums.PublishPipe.prototype.releaseStream = function(){
+    return this.__releaseStream__(0x03);
+}
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持&#x27;error/end/metadata/aacSeqHeader/
+ * avcSeqHeader/audioStart/videoStart&#x27;事件。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数
+ * @example
+ *     publishPipe.on(&#x27;end&#x27;, function(){
+ *         console.log(this.name, &#x27;has stopped publishing.&#x27;);
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ *
+ * @event error
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     publishPipe.on(&#x27;error&#x27;, function(error_msg){
+ *         console.dir(error_msg);
+ *     });
+ **/
+
+/**
+ * metadata事件及其事件监听处理程序.
+ * 如果添加&#x27;metadata&#x27;事件监听函数，则当收到onMetaData事件时回
+ * 调函数将被调用。
+ *
+ * @event metadata
+ * @param metadata {Object} meta数据对象
+ * @example
+ *     publishPipe.on(&#x27;metadata&#x27;, function(metadata){
+ *         console.dir(metadata);
+ *     });
+ **/
+
+/**
+ * aac序列头事件及其事件监听处理程序.
+ * 如果添加&#x27;aacSeqHeader&#x27;事件监听函数，则当收到aac序列头数据时回
+ * 调函数将被调用。
+ *
+ * @event aacSeqHeader
+ * @param data {Buffer} aac序列头数据
+ * @example
+ *     publishPipe.on(&#x27;aacSeqHeader&#x27;, function(data){
+ *         console.dir(data);
+ *     });
+ **/
+
+/**
+ * avc序列头事件及其事件监听处理程序.
+ * 如果添加&#x27;avcSeqHeader&#x27;事件监听函数，则当收到avc序列头数据时回
+ * 调函数将被调用。
+ *
+ * @event avcSeqHeader
+ * @param data {Buffer} avc序列头数据
+ * @example
+ *     publishPipe.on(&#x27;avcSeqHeader&#x27;, function(data){
+ *         console.dir(data);
+ *     });
+ **/
+
+/**
+ * 直播音频流开始发布事件及其事件监听处理程序.
+ * 如果添加&#x27;audioStart&#x27;事件监听函数，则当一个新的直播流中的音频流开始发布时回
+ * 调函数将被调用。
+ *
+ * @event audioStart
+ * @example
+ *     publishPipe.on(&#x27;audioStart&#x27;, function(streamName){
+ *         console.log(this.name, &#x27;\&#x27; audio is now publishing...&#x27;);
+ *     });
+ **/
+
+/**
+ * 直播视频流开始发布事件及其事件监听处理程序.
+ * 如果添加&#x27;videoStart&#x27;事件监听函数，则当一个新的直播流中的视频流开始发布时回
+ * 调函数将被调用。
+ *
+ * @event videoStart
+ * @example
+ *     publishPipe.on(&#x27;videoStart&#x27;, function(){
+ *         console.log(this.name, &#x27;\&#x27; video is now publishing...&#x27;);
+ *     });
+ **/
+
+/**
+ * 直播视频流发布者/订阅住数量变化事件及其事件监听处理程序.
+ * 如果添加&#x27;peerChanged&#x27;事件监听函数，则当一个发布者或订阅者数量发生变化时回
+ * 调函数将被调用。
+ *
+ * @event peerChanged
+ * @param peerCount {Number} 发布者或订阅者数量
+ * @param isPublisher {Boolean} 是否是发布者
+ * @example
+ *     publishPipe.on(&#x27;peerChanged&#x27;, function(size, isPublisher){
+ *         console.log(this.name, size, isPublisher);
+ *     });
+ **/
+
+/*******************************************************************************
+* @class ums.PublishPool
+*******************************************************************************/
+
+/**
+ * 发布池中所有的发布管道集合。
+ *
+ * @property pipes
+ * @type Object
+ * @public
+ * @example
+ *     for (var publishName in publishPool.pipes) {
+ *         console.log(publishPool.pipes[publishName]);
+ *     }
+ **/
+
+/**
+ * 连接器属性，为ums.PublishPool实例指定一个RTMPConnector实例属性.
+ * 该属性将在自动级联功能开启后用于创建连通直播源服务器的连接。
+ *
+ * @property connector
+ * @type ums.RTMPConnector
+ * @public
+ * @example
+ *     publishPool.connector = connector;
+ **/
+
+/**
+ * Called when a publish pool level event received. 
+ * 
+ * @method _internalCallback
+ * @private
+ **/
+ums.PublishPool.prototype._internalCallback = function(event, pipe){
+    // console.dir(arguments);
+    switch(event){
+        case &#x27;ready&#x27;:
+            {
+                var pool = this;
+                if (pool.options.cluster) {
+                    pool.redisClient = require(&#x27;redis&#x27;).createClient(
+                        pool.options.redisAddress.port, 
+                        pool.options.redisAddress.host);
+                    pool.redisClient.on(&#x27;ready&#x27;, function() {
+                        // console.log(&#x27;redis :[&#x27;, pool.redisClient.host, &#x27;:&#x27;, pool.redisClient.port, &#x27;]&#x27;);
+                    });
+                    pool.redisClient.on(&#x27;error&#x27;, function (err) {
+                        pool.emit.call(pool, &#x27;error&#x27;, err);
+                    });
+                };
+                pool.pendingQueue = new EventEmitterEx();
+                pool.pendingQueue.setMaxListeners(300000);
+                pool.edgeConnections = {};
+                pool.emit.call(this, event);
+            }
+            break;
+        case &#x27;publishStart&#x27;:
+            {
+                this.pipes[pipe.name] = pipe;
+                this.pendingQueue.emitAndRemove(this.options.subEx + pipe.name, null, pipe);
+                this.emit.call(this, &#x27;publish&#x27;, pipe);
+            }
+            break;
+        case &#x27;publishStop&#x27;:
+            {
+                var pipe = this.pipes[pipe.name];
+                if (pipe) {
+                    pipe.emit.call(pipe, &#x27;end&#x27;);
+                    delete this.pipes[pipe.name];
+                }
+            }
+            break;
+        default:
+            {
+                var args = [];
+                for (var i = 0;i &lt; arguments.length;i++) {
+                    args.push(arguments[i]);
+                }
+                this.emit.apply(this, args);
+            }
+            break;
+    }
+}
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持&#x27;error/ready/publish&#x27;事件。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数
+ * @example
+ *     publishPool.on(&#x27;publishStart&#x27;, function(streamName){
+ *         console.log(streamName);
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ *
+ * @event error
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     publishPool.on(&#x27;error&#x27;, function(error_msg){
+ *         console.dir(error_msg);
+ *     });
+ **/
+
+/**
+ * 发布池就绪.
+ * 如果添加&#x27;ready&#x27;事件监听函数，则当发布池就绪时回调函数将被调用。
+ *
+ * @event ready
+ * @example
+ *     publishPool.on(&#x27;ready&#x27;, function(){
+ *         // do some initial work
+ *     });
+ **/
+
+/**
+ * 直播流开始发布事件及其事件监听处理程序.
+ * 如果添加&#x27;publish&#x27;事件监听函数，则当一个新的直播流开始发布时回
+ * 调函数将被调用。
+ *
+ * @event publish
+ * @param pipe {ums.PublishPipe} 直播流发布管道
+ * @example
+ *     publishPool.on(&#x27;publish&#x27;, function(pipe){
+ *         console.log(pipe.name, &#x27;is now publishing...&#x27;);
+ *     });
+ **/
+
+/**
+ * 根据指定的名称，创建一个直播管道.
+ * 返回所创建的发布管道，返回结果是ums.PublishPipe类型。
+ *
+ * @method createPublishPipe
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @example
+ *     var pipe = publishPool.createPublishPipe(&#x27;livestream&#x27;);
+ **/
+
+/**
+ * 以[array]的形式获取该发布池中所有直播流的名称[string].
+ * 返回该发布池中所有直播流的名称，返回结果是array类型，数据元素类型为string。
+ *
+ * @method getStreamNames
+ * @public
+ * @example
+ *     var names = publishPool.getStreamNames();
+ *     for (var i = 0;i &lt; names.length;i++) {
+ *         console.log(names[i]);
+ *     }
+ **/
+
+/**
+ * 查询某个直播流名称是否存在于该发布池中.
+ * 如果同名的直播流存在，则返回true;否则返回false。
+ *
+ * @method exists
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @example
+ *     var isExists = publishPool.exists(streamName);
+ **/
+
+/**
+ * 切换直播流的某个直播源.
+ *
+ * @method switchPublisher
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @param publishToken {Number} 要切换的直播源的序号
+ * @example
+ *     var isSucceed = publishPool.switchPublisher(streamName, 2);
+ **/
+
+/**
+ * 关闭一个直播流的所有发布者.
+ *
+ * @method releasePublishers
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @example
+ *     var isSucceed = publishPool.releasePublishers(streamName);
+ **/
+ums.PublishPool.prototype.releasePublishers = function(streamName){
+    return this.__releaseStream__(streamName, 0x01);
+}
+
+/**
+ * 关闭一个直播流的所有订阅者.
+ *
+ * @method releaseSubscribers
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @example
+ *     var isSucceed = publishPool.releaseSubscribers(streamName);
+ **/
+ums.PublishPool.prototype.releaseSubscribers = function(streamName){
+    return this.__releaseStream__(streamName, 0x02);
+}
+
+/**
+ * 关闭一个直播流的所有发布者和订阅者.
+ *
+ * @method releaseStream
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @example
+ *     var isSucceed = publishPool.releaseStream(streamName);
+ **/
+ums.PublishPool.prototype.releaseStream = function(streamName){
+    return this.__releaseStream__(streamName, 0x03);
+}
+
+/**
+ * 获取发布池中某个流的发布者数量.
+ *
+ * @method getPublisherSize
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @example
+ *     var size = publishPool.getPublisherSize(streamName);
+ **/
+
+/**
+ * 获取发布池中某个流的订阅者数量.
+ *
+ * @method getSubscriberSize
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @example
+ *     var size = publishPool.getSubscriberSize(streamName);
+ **/
+
+/**
+ * 获取发布池中某个流的发布token.
+ *
+ * @method getPublishToken
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @example
+ *     var token = publishPool.getPublishToken(streamName);
+ **/
+
+/**
+ * 根据直播流名称获取发布管道.
+ *
+ * @method getPublishPipe
+ * @public
+ * @param streamName {String} 直播流的名称
+ * @example
+ *     var pipe = publishPool.getPublishPipe(streamName);
+ **/
+ums.PublishPool.prototype.getPublishPipe = function(streamName){
+    if(streamName.search(/.flv/) == -1){
+        streamName += &#x27;.flv&#x27;;
+    }
+    return this.pipes[streamName];
+}
+
+ums.PublishPool.prototype.subscribe = function(stream, cmd, callback){
+    if (!(stream instanceof ums.NetStream) || !(cmd instanceof ums.RTMPCall) ||
+        typeof callback != &#x27;function&#x27;) {
+        throw TypeError(&#x27;Invalid arguments.&#x27;);
+    }
+    var pool = this, streamName = cmd.args[0];
+    streamName = streamName.split(&#x27;?&#x27;)[0];
+    var pipe = this.getPublishPipe(streamName), subEvent = pool.options.subEx+streamName;
+    if(subEvent.search(/.flv/) == -1){
+        subEvent += &#x27;.flv&#x27;;
+    }
+    // console.log(&#x27;subscribe subEvent :&#x27;, subEvent);
+    if (pipe) {
+        stream.createPlayer(cmd, function(err){
+            callback.call(stream, err);
+        });
+    } else if (!pool.options.cluster) {
+        stream.call(&#x27;onStatus&#x27;, {
+            level : &#x27;error&#x27;,
+            code : &#x27;NetStream.Play.StreamNotFound&#x27;,
+            description : &#x27;stream with name &quot;&#x27; + streamName + &#x27;&quot; was not found.&#x27;
+        });
+        callback.call(stream, new Error(&#x27;ENOTEXISTS&#x27;));
+    } else {
+        pool.pendingQueue.on(subEvent, (function(stream, cmd, cb, err, pipe){
+            // if (err) {
+            //     return cb.call(stream, err);
+            // }
+            if (!stream.closed &amp;&amp; pipe) {
+                stream.createPlayer(cmd, function(err){
+                    if (err) {
+                        cb.call(stream, err);
+                    } else{
+                        if (typeof pipe.subIndex != &#x27;number&#x27;) {
+                            pipe.subIndex = 0;
+                        }
+                        stream.subIndex = ++pipe.subIndex;
+                        stream.publishPipe = pipe;
+                        pipe.subStreams[stream.subIndex] = stream;
+                        stream.on(&#x27;close&#x27;, function(){
+                            delete pipe.subStreams[stream.subIndex];
+                            delete stream.publishPipe;
+                            delete stream.subIndex;
+                        });
+                        cb.call(stream, null);
+                    }
+                });
+            } else if (!pipe) {
+                stream.call(&#x27;onStatus&#x27;, {
+                    level : &#x27;error&#x27;,
+                    code : &#x27;NetStream.Play.StreamNotFound&#x27;,
+                    description : &#x27;stream with name &quot;&#x27; + streamName + &#x27;&quot; was not found.&#x27;
+                });
+                cb.call(stream, new Error(&#x27;ENOTEXISTS&#x27;));
+            } else {
+                cb.call(stream, new Error(&#x27;ECLOSED&#x27;));
+            }
+        }).bind(pool.pendingQueue, stream, cmd, callback));
+        if (EventEmitter.listenerCount(pool.pendingQueue, subEvent) == 1) {
+            var key = pool.options.streamEx+streamName;
+            pool.redisClient.hgetall(key, function (err, originInfo) {
+                if (err || !originInfo) {
+                    return pool.pendingQueue.emitAndRemove(subEvent, err?err:new Error(&#x27;EREDISVALUE&#x27;));
+                } else {
+                    var conn = pool.connector.createConnection();
+                    pool.edgeConnections[conn.clientId] = conn;
+                    conn.on(&#x27;close&#x27;, function(){
+                        pool.releaseStream(streamName);
+                        pool.pendingQueue.emitAndRemove(subEvent, new Error(&#x27;ECLOSED&#x27;));
+                        delete pool.edgeConnections[conn.clientId];
+                    });
+                    var ip = originInfo[&#x27;ip&#x27;], port = originInfo[&#x27;port&#x27;], 
+                        appName = originInfo[&#x27;appName&#x27;],
+                        edgePort = stream.connection.sockAddress.port;
+                    if( !ip || !port || !appName){ 
+                        pool.pendingQueue.emitAndRemove(subEvent, new Error(&#x27;EREDISVALUE&#x27;));
+                        return conn.close();
+                    } else if ((isLocalAddress(ip) || &#x27;127.0.0.1&#x27; === ip) &amp;&amp; edgePort == port) {   
+                        // Disallow to edge from self
+                        pool.pendingQueue.emitAndRemove(subEvent, new Error(&#x27;EEDGEFROMSELF&#x27;));
+                        return conn.close();
+                    }
+                    var originURI = &#x27;rtmp://&#x27; + ip + &#x27;:&#x27; + port + &#x27;/&#x27; + appName;
+                    conn.connect(originURI,{flag:&#x27;serverEdge&#x27;}, function fnConnect(cmd, event){
+                        // console.dir(event);
+                        switch(event.code){
+                        case &#x27;NetConnection.Connect.Failed&#x27;:
+                            conn.close();
+                            break;
+                        case &#x27;NetConnection.Connect.Success&#x27;:
+                            conn.createStream(function(err, stream){
+                                if (err) {
+                                    pool.pendingQueue.emitAndRemove(subEvent, err);
+                                    return conn.close();
+                                }
+                                // 订阅流的onStatus事件
+                                stream.on(&#x27;onStatus&#x27;, function(cmd, event){
+                                    // console.dir(event);
+                                    switch(event.code){
+                                    case &#x27;NetStream.Play.StreamNotFound&#x27;:
+                                    case &#x27;NetStream.Play.Stop&#x27;:
+                                    case &#x27;NetStream.Play.Complete&#x27;:
+                                    case &#x27;NetStream.Play.UnpublishNotify&#x27;:
+                                        conn.close();
+                                        break;
+                                    }
+                                });
+                                stream.edge(streamName, function(err, publishName, publishToken){
+                                    if (err) {
+                                        pool.pendingQueue.emitAndRemove(subEvent, err);
+                                        return conn.close();
+                                    };
+                                    stream.on(&#x27;close&#x27;, function(){
+                                        pool.releaseStream(stream.publishName);
+                                    });
+                                    pool.switchPublisher(stream.publishName, stream.publishToken);
+                                });
+                            });
+                            break;
+                        }
+                    });//EOF else
+                }
+            }); // DB QUERY
+        }
+    }
+};
+
+ums.PublishPool.prototype.publish = function(stream, cmd, callback){
+    if (!(stream instanceof ums.NetStream) || !(cmd instanceof ums.RTMPCall) ||
+        typeof callback != &#x27;function&#x27;) {
+        throw TypeError(&#x27;invalid arguments.&#x27;);
+    }
+    var pool = this, streamName = cmd.args[0];
+    streamName = streamName.split(&#x27;?&#x27;)[0];
+    var pipe = this.getPublishPipe(streamName), subEvent = pool.options.subEx+streamName, 
+        key = pool.options.streamEx+streamName;
+    if(subEvent.search(/.flv/) == -1){
+        subEvent += &#x27;.flv&#x27;;
+    }
+    // console.log(&#x27;publish subEvent :&#x27;, subEvent);
+    function registerStream(stream, pipe){
+        if (!stream.closed &amp;&amp; pipe) {
+            if (typeof pipe.pubIndex != &#x27;number&#x27;) {
+                pipe.pubIndex = 0;
+            }
+            stream.pubIndex = ++pipe.pubIndex;
+            stream.publishPipe = pipe;
+            pipe.pubStreams[stream.pubIndex] = stream;
+            stream.on(&#x27;close&#x27;, function(){
+                delete pipe.pubStreams[stream.pubIndex];
+                delete stream.publishPipe;
+                var keyCount = 0;
+                for (var k in stream.pubStreams) {
+                    keyCount++;
+                }
+                if (!keyCount &amp;&amp; pool.options.cluster) {
+                    // console.log(&#x27;clean redis key :&#x27;, key);
+                    pool.redisClient.del(key, function(err, reply){
+                        if (err) {
+                            return callback.call(stream, err);
+                        }
+                    });
+                }
+            });
+        }
+    }
+    if (pipe) {
+        registerStream(stream, pipe);
+    } else {
+        pool.pendingQueue.on(subEvent, (function(stream, err, pipe){
+            if (err) {
+                return callback.call(stream, err);
+            }
+            registerStream(stream, pipe);
+        }).bind(pool.pendingQueue, stream));
+    }
+    // 调用底层接口完成实际操作
+    stream.createPublisher(cmd, true, function(err, streamName){
+        if (err) {
+            return callback.call(stream, err);
+        };
+        stream.on(&#x27;close&#x27;, function(){
+            pool.releaseSubscribers(stream.publishName);
+        });
+        var result = pool.switchPublisher(stream.publishName, stream.publishToken);
+        if (result) {
+            // console.log(&quot;current publishToken :&quot;, stream.publishToken);
+        }
+        if (pool.options.cluster) {
+            var originIP = stream.connection.sockAddress.address,
+                originPort = stream.connection.sockAddress.port;
+            if (pool.options.rtmpAddress &amp;&amp; pool.options.rtmpAddress.host) {
+                originIP = pool.options.rtmpAddress.host;
+            };
+            if (pool.options.rtmpAddress &amp;&amp; pool.options.rtmpAddress.port) {
+                originPort = pool.options.rtmpAddress.port;
+            };
+            var value = {
+                ip : originIP,
+                port : originPort,
+                appName : pool.options.appName
+            };
+            pool.redisClient.hmset(key, value, function (err, reply) {
+                if (err) {
+                    return callback.call(stream, err);
+                } else{
+                    return callback.call(stream);
+                }
+            });
+        } else {
+            return callback.call(stream);
+        }
+    });
+};
+
+/*******************************************************************************
+* @class ums.RTMPClient
+*******************************************************************************/
+
+/**
+ * @method _internalCallback
+ * @private
+ *  
+ * 
+ **/
+ums.RTMPClient.prototype._internalCallback = function(type, __arg){
+    switch(type){
+        case &#x27;command&#x27;:
+            {
+                var cmd = __arg;
+                var args = [cmd.name, cmd];
+                args = args.concat(cmd.args);
+                if (cmd.streamId &amp;&amp; this.streams[cmd.streamId]) {
+                    var stream = this.streams[cmd.streamId];
+                    if (EventEmitter.listenerCount(stream, cmd.name) &gt; 0) {
+                        ums.NetStream.prototype.emit.apply(this.streams[cmd.streamId], args);
+                    } else{
+                        switch(cmd.name){
+                        case &#x27;play&#x27;:
+                            stream.createPlayer(cmd, function(err, streamName, bLive){});
+                            break;
+                        case &#x27;seek&#x27;:
+                            this.__seek__(cmd);
+                            break;
+                        case &#x27;pause&#x27;:
+                            this.__localPause__(cmd.streamId, cmd.args[0], cmd.args[1], function(){});
+                            break;
+                        case &#x27;pauseRAW&#x27;:
+                            this.__pauseRAW__(cmd);
+                            break
+                        case &#x27;closeStream&#x27;:
+                            this.closeStream(cmd.streamId, function(){});
+                            break;
+                        case &#x27;unpublish&#x27;:
+                            this.unpublish(cmd);
+                            break;
+                        }
+                    };
+                } else {
+                    if (EventEmitter.listenerCount(this, cmd.name) &gt; 0) {
+                        this.emit.apply(this, args);
+                    } else{
+                        switch(cmd.name){
+                        case &#x27;releaseStream&#x27;:
+                            this.releaseStream(cmd);
+                            break;
+                        case &#x27;deleteStream&#x27;:
+                            this.deleteStream(cmd);
+                            break;
+                        case &#x27;getStreamLength&#x27;:
+                            this.getStreamLength(cmd);
+                            break;
+                        case &#x27;FCPublish&#x27;:
+                            this.FCPublish(cmd);
+                            break;
+                        case &#x27;FCUnpublish&#x27;:
+                            this.FCUnpublish(cmd);
+                            break;
+                        }
+                    }
+                }
+            }
+            break;
+        case &#x27;cmdSentDone&#x27;:
+            // __arg is cmd
+            this.emit(&#x27;cmdSentDone&#x27;, __arg);
+            break;
+        case &#x27;data&#x27;:
+            {
+                var args = [&#x27;data&#x27;, __arg];
+                if (__arg.streamId &amp;&amp; this.streams[__arg.streamId]) {
+                    ums.NetStream.prototype.emit.apply(this.streams[__arg.streamId], args);
+                } else {
+                    this.emit.apply(this, args);
+                }
+            }
+            break;
+        case &#x27;dataSentDone&#x27;:
+            // __arg is cmd
+            this.emit(&#x27;dataSentDone&#x27;, __arg);
+            break;
+        case &#x27;recvRawdata&#x27;:
+            // __arg is data buffer array
+            this.emit(&#x27;recvRawdata&#x27;, __arg);
+            break;
+        case &#x27;activeCheck&#x27;:
+            // __arg is data active check event type
+            this.emit(&#x27;activeCheck&#x27;, __arg);
+            break;
+        case &#x27;bufferEvent&#x27;:
+            {
+                var args = [&#x27;bufferEvent&#x27;, __arg];
+                var streamId = arguments[2];
+                if (streamId &amp;&amp; this.streams[streamId]) {
+                    ums.NetStream.prototype.emit.apply(this.streams[streamId], args);
+                } else {
+                    this.emit.apply(this, args);
+                }
+            }
+            break;
+        case &#x27;close&#x27;:
+            // __arg is streamId
+            if (__arg &amp;&amp; this.streams[__arg]) {
+                this.streams[__arg].closed = true;
+                this.streams[__arg].emit(&#x27;close&#x27;);
+                delete this.streams[__arg];
+            } else {
+                var args = [&#x27;close&#x27;];
+                for (var i = 2; i &lt; arguments.length; i++) {
+                    args.push(arguments[i]);
+                };
+                this.emit.apply(this, args);
+                delete this.streams;
+            }
+            break;
+    }
+}
+
+function call_cb(callback, cmd){
+    if (cmd) {
+        var args = [cmd];
+        args = args.concat(cmd.args);
+        callback.apply(this, args);
+    } else {
+        callback();
+    }
+}
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持除&#x27;_error/_result/onStatus/connect/error/close&#x27;等事件之外的
+ * 任何自定义事件.上述事件为内部保留事件，用户不应定义与这些事件同名的
+ * 远程调用函数名。与用户自定义事件相对应的事件处理函数的参数列表与远端
+ * 调用时传入的参数列表一致。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数
+ *
+ *     client.on(&#x27;connect&#x27;, function(cmd, client){
+ *         console.dir(cmd);
+ *         // 接受新连接
+ *         app.accept(cmd, client, true);
+ *     });
+ **/
+
+/**
+ * 连接关闭事件及其事件监听处理程序.
+ *
+ * @event close
+ * @param result {Object} 连接关闭信息。信息含有三个属性:
+ *                        result.code是底层错误码，
+ *                        result.message是底层错误码对应的解释，
+ *                        result.userCode是用户自定义错误代码，
+ *                        如果code不为0，说明关闭事件是由底层
+ *                        错误引起，此时userCode为0；如果关闭
+ *                        动作是由上层js业务逻辑主动出发，此时
+ *                        设置的userCode才会被带出.
+ * @example
+ *     client.on(&#x27;close&#x27;, function(result){
+ *         console.log(result); // { message: &#x27;success&#x27;, code: 0, line: 639, userCode: 100 }
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ *
+ * @event error
+ * @param error_msg {Error} 错误信息
+ *
+ *     client.on(&#x27;error&#x27;, function(error_msg){
+ *         console.log(error_msg);
+ *     });
+ **/
+
+/**
+ * RTMP网络状态事件及其事件监听处理程序.
+ * 如果添加&#x27;onStatus&#x27;事件监听函数，则当出现网络状态事件时回调函数将
+ * 被调用。&#x27;onStatus&#x27;事件发送自网络对端，是一种不需要回复的远程调用，
+ * 用于通知网络对端特定的状态信息，包括连接状态等。
+ *
+ * @event onStatus
+ * @param event {Object} 状态信息
+ * @example
+ *     client.on(&#x27;onStatus&#x27;, function(event){
+ *         console.dir(event);
+ *     });
+ **/
+
+/**
+ * 调用一个远端处理函数.
+ * 如果指定返回结果的回调处理函数，则远端理论上应该返回结果，该结果由
+ * 该回调函数处理，否则，不返回结果。回调函数的第一个参数为远端返回的
+ * 调用对象（ums.RTMPCall实例）。理论上，返回结果也是一个远程调用，只
+ * 不过是针对特定函数_result和_error函数的特定调用。返回_result表示远
+ * 端函数正确执行；返回_error则表示远端函数执行出错。
+ *
+ * @method call
+ * @public
+ * @async
+ * @param proc_name {String} 要调用的远端函数的名称)
+ * @param ... {Number/String/Boolean/Array/Object/Buffer} [可选],要
+ *                          传递给远端函数的参数
+ * @param callback {function} [可选], 远端函数返回结果的处理函数
+ * @example
+ *     client.call(&#x27;foo&#x27;, &#x27;arg1&#x27;, &#x27;arg2&#x27;, function(cmd){
+ *         console.dir(cmd);
+ *     });
+ **/
+ums.RTMPClient.prototype.call = function(){
+    var args = [];
+    for (var i = 0; i &lt; arguments.length; i++) {
+        if (i + 1 &lt; arguments.length &amp;&amp; typeof arguments[i] == &#x27;function&#x27;) {
+            throw Error(&#x27;Invalid arguments&#x27;);
+        };
+        args.push(arguments[i]);
+    };
+    var name = args[0] || null;
+    if (!name) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    var cmd = {};
+    cmd.name = args.shift();
+    if (args.length &gt; 0 &amp;&amp; typeof args[args.length - 1] == &#x27;function&#x27;) {
+        cmd.callback = call_cb.bind(this, args.pop());
+    }
+    cmd.args = args;
+    cmd.channelId = 3;
+    cmd.streamId = 0;
+    this.__call__(cmd);
+}
+
+/**
+ * 在本地创建一个新流.
+ * 该接口是一个复合接口，调用此接口，正常情况下会完成如下操作：
+ * 1.在本地创建一个流，得到流的的streamId，然后在内部会创建一个
+ * NetStream类型的对象，将得到的streamId赋予该NetStream实例，最
+ * 后将接口调用错误信息和NetStream实例通过回调函数返回。
+ * 如果接口调用出错，err将不为null，stream不可用；反之，err为null,
+ * stream对象可用。
+ *
+ * @method createStream
+ * @public
+ * @async
+ * @param cmd {ums.RTMPCall} 远程调用对象
+ * @param callback {function}, 返回结果的处理函数
+ * @example
+ *     client.on(&#x27;createStream&#x27;, function(cmd){
+ *         this.createStream(cmd, function(err, stream){
+ *             if (err) {
+ *                 return console.dir(err);
+ *             } else {
+ *                 // do some thing with stream
+ *             }
+ *         });
+ *     });
+ **/
+ums.RTMPClient.prototype.createStream = function(cmd, callback){
+    var self = this;
+    if (!(cmd instanceof ums.RTMPCall) || typeof callback != &#x27;function&#x27;) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    self.__createStream__(function(err, streamId){
+        if (err) {
+            cmd.echoError({
+                level : &#x27;error&#x27;,
+                code : &#x27;NetStream.CreateStream.Failed&#x27;
+            });
+            return callback(err);
+        } else {
+            cmd.echoResult(streamId);
+            var stream = new ums.NetStream(self, streamId);
+            return callback(null, stream);
+        }
+    });
+}
+
+/**
+ * 关闭一个指定的流.
+ *
+ * @method closeStream
+ * @public
+ * @async
+ * @param stream_id {Number} 要关闭的流的id
+ * @param callback {function}, 返回结果的处理函数
+ * @example
+ *     client.closeStream(streamId, function(err){
+ *         if (err) {
+ *             return console.dir(err);
+ *         } else {
+ *             // do some thing
+ *         }
+ *     });
+ **/
+ums.RTMPClient.prototype.closeStream = function(streamId, callback) {
+    var self = this;
+    var stream = self.streams[streamId];
+    if (typeof callback != &#x27;function&#x27; || !stream instanceof ums.NetStream) {
+        throw TypeError(&#x27;Invalid arguments&#x27;);
+    }
+    if (!stream.closed) {
+        stream.call(&#x27;onStatus&#x27;, {
+            level : &#x27;status&#x27;,
+            code : &#x27;NetStream.Play.Stop&#x27;
+        });
+        self.__closeStream__(streamId, function(err){
+            stream.closed = true;
+            callback.call(self, err);
+        });
+    }
+}
+
+/**
+ * 关闭底层RTMP连接.该接口在关闭连接之前会向远端发送关闭连接通知
+ * （onStatus:NetConnection.Connect.Closed）。
+ *
+ * @method close
+ * @public
+ * @param userCode {Number} 用户自定义连接关闭码，将在close事件回调中被带出。
+ * @example
+ *     client.close(userCode);
+ **/
+
+/**
+ * 异步获取数据包及字节数发送统计.
+ * 调用该接口将异步获取底层网络数据收发统计。
+ *
+ * @method stat
+ * @public
+ * @param callback {function} 异步结果回调函数
+ * @example
+ *     client.stat(function(err, stats){
+ *         if (err) {
+ *             return console.dir(err);
+ *         }
+ *         console.dir(stats);
+ *     })
+ **/
+
+/**
+ * 设置开启/关闭命令发送完成通知(该接口主要用于开发调试，建议生产环境
+ * 中关闭命令发送完成通知功能以提高运行效率).
+ * 如果设置命令发送完成通知功能，则每一个RTMP RPC命令在成功发送完成
+ * 后，都可以通过监听&#x27;cmdSentDone&#x27;事件来捕获发出去的命令包的拷贝。
+ * 异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，
+ * 则表明设置成功，否则，表明设置失败。
+ *
+ * @method openNotify
+ * @public
+ * @param eNotifyType {enum of mask} 是否开启相应的事件通知,可以是下列
+ *        值之一,或是其中几项的组合(通过|组合):
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_AUDIO_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_VIDEO_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_META_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_CMD_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_ALL_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_ACTIVECHECK
+ * @param callback {function} 异步设置完成回调函数
+ * @example
+ *     client.openNotify(ums.CONST.NOTIFY_CMD_SENTDONE|NOTIFY_ACTIVECHECK,
+ *         function(err){
+ *             if (err) {
+ *                 console.dir(err);
+ *             }
+ *     });
+ **/
+
+/**
+ * 旁通接口，释放一个流.
+ * 该接口是旁通接口，用于执行实际的releaseStream操作，当监听到远端发
+ * 起的releaseStream事件时调用，参数为事件监听函数接收到的命令对象。
+ *
+ * @method releaseStream
+ * @public
+ * @example
+ *     client.on(&#x27;releaseStream&#x27;, function(cmd){
+ *         client.releaseStream(cmd);
+ *     });
+ **/
+
+/**
+ * 旁通接口，删除一个流.
+ * 该接口是旁通接口，用于执行实际的deleteStream操作，当监听到远端发
+ * 起的deleteStream事件时调用，参数为事件监听函数接收到的命令对象。
+ *
+ * @method deleteStream
+ * @public
+ * @example
+ *     client.on(&#x27;deleteStream&#x27;, function(cmd){
+ *         client.deleteStream(cmd);
+ *     });
+ **/
+
+/**
+ * 旁通接口，发布一个流.
+ * 该接口是旁通接口，用于执行实际的FCPublish操作，当监听到远端发
+ * 起的FCPublish事件时调用，参数为事件监听函数接收到的命令对象。
+ *
+ * @method FCPublish
+ * @public
+ * @example
+ *     client.on(&#x27;FCPublish&#x27;, function(cmd){
+ *         client.FCPublish(cmd);
+ *     });
+ **/
+
+/**
+ * 旁通接口，发布一个流.
+ * 该接口是旁通接口，用于执行实际的FCUnpublish操作，当监听到远端发
+ * 起的FCUnpublish事件时调用，参数为事件监听函数接收到的命令对象。
+ *
+ * @method FCUnpublish
+ * @public
+ * @example
+ *     client.on(&#x27;FCUnpublish&#x27;, function(cmd){
+ *         client.FCUnpublish(cmd);
+ *     });
+ **/
+
+/**
+ * RTMPClient之上的所有NetStream实例数组.
+ * 通过streamId为索引访问相应的NetStream实例。
+ *
+ * @property streams
+ * @type Array of NetStream
+ * @public
+ * @example
+ *     var streams = client.streams;
+ *     for (var i = 0;i &lt; streams.length;i++) {
+ *         console.dir(streams[i]);
+ *     }
+ **/
+
+/**
+ * 唯一标识一个连接的标志.
+ * 同一个RTMPServer管理的RTMPClient实例具有不重复的ID。
+ *
+ * @property clientId
+ * @type String
+ * @public
+ *
+ *     console.log(client.clientId);
+ **/
+
+/*******************************************************************************
+* @class ums.RTMPConnector
+*******************************************************************************/
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持&#x27;error/close&#x27;事件。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数，事件处理函数的第一个参数是
+ *                                 新建立的TCP连接的基本信息，包括本端IP地址
+ *                                 和对端IP地址
+ * @example
+ *     connector.on(&#x27;error&#x27;, function(err){
+ *         console.dir(err);
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ *
+ * @event error
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     connector.on(&#x27;error&#x27;, function(err){
+ *         console.dir(err);
+ *     });
+ **/
+
+/**
+ * 关闭事件及其事件监听处理程序.
+ * 如果添加&#x27;close&#x27;事件监听函数，则当RTMPConnector关闭时回调函数将被调用。
+ *
+ * @event close
+ * @example
+ *     connector.on(&#x27;close&#x27;, function(){
+ *         // Do some recycle work
+ *     });
+ **/
+
+/**
+ * 启动RTMPConnector实例并开始接受新连接的接口.
+ * 调用该接口将开始运行一个RTMPConnector实例以创建NetConnection实例。
+ * 回调函数被执行时，表明启动工作结束，可以进行后续操作。
+ *
+ * @method start
+ * @public
+ * @async
+ * @param callback {function} RTMPConnector开始运行的回调函数
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     connector.start(function(err){
+ *         if (err) {
+ *             console.dir(err);
+ *         }
+ *     });
+ **/
+
+/**
+ * 创建一个新的NetConnection实例。
+ * 该接口创建一个向外的连接对象NetConnection的实例，用于建立向外的连接。
+ * 
+ * @method createConnection
+ * @public
+ * @return {ums.NetConnection} 新的NetConnection实例。
+ *
+ *     var conn = connector.createConnection();
+ **/
+
+/**
+ * 枚举向外建立的所有连接对象.
+ * 在处理大量连接时，使用该方法比较高效，如果要查找某一符合条件的连接对象，
+ * 建议使用该方法。注意：当connection为null时，表明连接集合为空。
+ * 
+ * @method enumConnections
+ * @public
+ * @param callback {function} 枚举结果回调函数
+ *  callback param conn {ums.NetConnection} NetConnection实例
+ *                 isEnd {Boolean} 是否是最后一个枚举值
+ *  callback return : isContinue {Boolean} 指示枚举是否继续
+ * @example
+ *     connector.enumConnections(function callback(conn, isEnd){
+ *        var isContinue = true;
+ *        console.log(&quot;isEmpty :&quot;, !conn, &quot;;isEnd :&quot;, isEnd, &quot;;index :&quot;, nCount++);
+ *        nCount++;
+ *        if (isEnd) {
+ *            console.log(&#x27;Count of connections :&#x27;, nCount);
+ *        }
+ *        return isContinue;
+ *     });
+ *     
+ **/
+
+/**
+ * 关闭RTMPConnector实例.
+ * 调用该接口将关闭一个RTMPConnector实例，成功关闭后将触发&#x27;close&#x27;事件。
+ *
+ * @method close
+ * @public
+ *
+ *     connector.close();
+ **/
+
+/**
+ * RTMPConnector选项设置集合.
+ * 构造该RTMPConnector实例时传入的选项集合实例。
+ *
+ * @property options
+ * @type ums.RTMPOptions
+ * @public
+ *
+ *     if (connector.options) {
+ *         console.dir(options);
+ *     }
+ **/
+
+/*******************************************************************************
+* @class ums.NetConnection
+*******************************************************************************/
+
+/**
+ * @method _internalCallback
+ * @private
+ * 
+ * 
+ **/
+ums.NetConnection.prototype._internalCallback = function(type, __arg){
+    switch(type){
+        case &#x27;command&#x27;:
+            {
+                var args = [__arg.name, __arg];
+                args = args.concat(__arg.args);
+                if (__arg.streamId &amp;&amp; this.streams[__arg.streamId]) {
+                    ums.NetStream.prototype.emit.apply(this.streams[__arg.streamId], args);
+                } else {
+                    this.emit.apply(this, args);
+                }
+            }
+            break;
+        case &#x27;cmdSentDone&#x27;:
+            // __arg is cmd
+            this.emit(&#x27;cmdSentDone&#x27;, __arg);
+            break;
+        case &#x27;data&#x27;:
+            {
+                var args = [&#x27;data&#x27;, __arg];
+                if (__arg.streamId &amp;&amp; this.streams[__arg.streamId]) {
+                    ums.NetStream.prototype.emit.apply(this.streams[__arg.streamId], args);
+                } else {
+                    this.emit.apply(this, args);
+                }
+            }
+            break;
+        case &#x27;dataSentDone&#x27;:
+            // __arg is cmd
+            this.emit(&#x27;dataSentDone&#x27;, __arg);
+            break;
+        case &#x27;recvRawdata&#x27;:
+            // __arg is data buffer array
+            this.emit(&#x27;recvRawdata&#x27;, __arg);
+            break;
+        case &#x27;activeCheck&#x27;:
+            // __arg is data active check event type
+            this.emit(&#x27;activeCheck&#x27;, __arg);
+            break;
+        case &#x27;close&#x27;:
+            // __arg is streamId
+            if (__arg &amp;&amp; this.streams[__arg]) {
+                this.streams[__arg].closed = true;
+                this.streams[__arg].emit(&#x27;close&#x27;);
+                delete this.streams[__arg];
+            } else {
+                var args = [&#x27;close&#x27;];
+                for (var i = 2; i &lt; arguments.length; i++) {
+                    args.push(arguments[i]);
+                };
+                this.emit.apply(this, args);
+                delete this.streams;
+            }
+            break;
+    }
+}
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持除&#x27;_error/_result/onStatus/error/close&#x27;等事件之外的 
+ * 任何自定义事件.上述事件为内部保留事件，用户不应定义与这些事件同名的
+ * 远程调用函数名。与用户自定义事件相对应的事件处理函数的参数列表与远端
+ * 调用时传入的参数列表一致。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数
+ * @example
+ *     connection.on(&#x27;error&#x27;, function(err){
+ *         if (err) {
+ *             console.dir(err);
+ *         }
+ *     });
+ **/
+
+/**
+ * 连接关闭事件及其事件监听处理程序.
+ *
+ * @event close
+ * @param result {Object} 连接关闭信息。信息含有三个属性:
+ *                        result.code是底层错误码，
+ *                        result.message是底层错误码对应的解释，
+ *                        result.userCode是用户自定义错误代码，
+ *                        如果code不为0，说明关闭事件是由底层
+ *                        错误引起，此时userCode为0；如果关闭
+ *                        动作是由上层js业务逻辑主动出发，此时
+ *                        设置的userCode才会被带出.
+ * @example
+ *     connection.on(&#x27;close&#x27;, function(result){
+ *         console.log(result); // { message: &#x27;success&#x27;, code: 0, line: 639, userCode: 100 }
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ *
+ * @event error
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     connection.on(&#x27;error&#x27;, function(err){
+ *         if (err) {
+ *             console.dir(err);
+ *         }
+ *     });
+ **/
+
+/**
+ * RTMP网络状态事件及其事件监听处理程序.
+ * 如果添加&#x27;onStatus&#x27;事件监听函数，则当出现网络状态事件时回调函数将
+ * 被调用。&#x27;onStatus&#x27;事件发送自网络对端，是一种不需要回复的远程调用，
+ * 用于通知网络对端特定的状态信息，包括连接状态等。
+ *
+ * @event onStatus
+ * @param event {Object} 状态信息
+ * @example
+ *     connection.on(&#x27;onStatus&#x27;, function(event){
+ *         console.dir(event);
+ *     });
+ **/
+
+/**
+ * 关闭底层RTMP连接.该接口在关闭连接之前会向远端发送关闭连接通知
+ * （onStatus:NetConnection.Connect.Closed）。
+ * 
+ * @method close
+ * @public
+ * @param userCode {Number} 用户自定义连接关闭码，将在close事件回调中被带出。
+ * @example
+ *     connection.close(userCode);
+ **/
+
+/**
+ * 异步获取数据包及字节数发送统计.
+ * 调用该接口将异步获取底层网络数据收发统计。
+ *
+ * @method stat
+ * @public
+ * @param callback {function} 异步结果回调函数
+ * @example
+ *     connection.stat(function(err, stats){
+ *         if (err) {
+ *             return console.dir(err);
+ *         }
+ *         console.dir(stats);
+ *     })
+ **/
+
+ /**
+ * 设置开启/关闭命令发送完成通知(该接口主要用于开发调试，建议生产环境
+ * 中关闭命令发送完成通知功能以提高运行效率).
+ * 如果设置命令发送完成通知功能，则每一个RTMP RPC命令在成功发送完成
+ * 后，都可以通过监听&#x27;cmdSentDone&#x27;事件来捕获发出去的命令包的拷贝。
+ * 异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，
+ * 则表明设置成功，否则，表明设置失败。
+ *
+ * @method openNotify
+ * @public
+ * @param eNotifyType {enum of mask} 是否开启相应的事件通知,可以是下列
+ *        值之一,或是其中几项的组合(通过|组合):
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_AUDIO_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_VIDEO_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_META_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_CMD_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_ALL_SENTDONE,
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_ACTIVECHECK
+ * @param callback {function} 异步设置完成回调函数
+ * @example
+ *     connection.openNotify(ums.CONST.NOTIFY_CMD_SENTDONE|ums.CONST.NOTIFY_ACTIVECHECK,
+ *         function(err){
+ *             if (err) {
+ *                 console.dir(err);
+ *             }
+ *     });
+ **/
+
+/**
+ * 向远端RTMP服务器发起一个连接建立操作。
+ * 该接口是一个复合接口，正常情况下将完成三部操作：
+ *     &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.向远端服务器发起一个TCP连接；
+ *     &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.TCP连接建立后，将和RTMP服务器完成RTMP握手操作；
+ *     &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3.握手成功后，将发送connect命令到相应的服务端应用（server-side 
+ * application）。
+ * &lt;br&gt;调用该接口必须指定&#x27;onStatus&#x27;事件回调函数以捕获连接事件，回调函数形如：
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;function(cmd, event[, arg1, ..., argN]){}
+ * &lt;br&gt;判断event.code值是否为下述状态之一，以获得连接结果：
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.&quot;NetConnection.Connect.AppShutdown&quot;：服务端应用已关闭.
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.&quot;NetConnection.Connect.Closed&quot;：连接关闭成功.
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3.&quot;NetConnection.Connect.Failed&quot;：连接尝试失败.
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;4.&quot;NetConnection.Connect.IdleTimeout&quot;：连接空闲超时.
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;5.&quot;NetConnection.Connect.InvalidApp&quot;：服务端应用名不可用.
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;6.&quot;NetConnection.Connect.Rejected&quot;：服务端应用拒绝访问.
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;7.&quot;NetConnection.Connect.Success&quot;：连接成功.
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;8.&quot;NetConnection.Connect.TokenExpired&quot;：token过期.
+ *
+ * @method connect
+ * @public
+ * @async
+ * @param url {String} 要连接的RTMP服务器的地址，地址形式：
+ *                  rtmp://ip:port/app_name
+ * @param properties {Object} [可选],命令属性扩展
+ * @param ... {Number/String/Boolean/Array/Object/Buffer} [可选],扩展参数项
+ * @param callback {function} 异步调用完成回调函数
+ * @example
+ *     conn.connect(&#x27;rtmp://127.0.0.1:1935/vod&#x27;, {key:&#x27;value&#x27;}, &#x27;abc&#x27;, function(cmd, event){
+ *         console.dir(event);
+ *         switch(event.code){
+ *         case &#x27;NetConnection.Connect.Success&#x27;:
+ *             // Do continue work
+ *             break;
+ *         case &#x27;NetConnection.Connect.Failed&#x27;:
+ *             conn.close();
+ *             break;
+ *         }
+ *     });
+ **/
+ums.NetConnection.prototype.connect = function(url, properties, callback){
+    if (arguments.length &lt; 2 ||
+        typeof url != &#x27;string&#x27; || 
+        typeof arguments[arguments.length - 1] != &#x27;function&#x27;) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    var args = [];
+    if (arguments.length == 2) {
+        properties = null;
+    } else if (arguments.length &gt;= 3) {
+        for (var i = 2; i &lt; arguments.length - 1; i++) {
+            args.push(arguments[i]);
+        };
+    };
+    callback = arguments[arguments.length - 1];
+    this.__connect__(url, properties, args, function(callback, cmd, err){
+        if (err) {
+            var evt = {
+                level : &#x27;error&#x27;
+            };
+            switch(err.message){
+            case &#x27;ECONNECT&#x27;:
+                evt.code = &#x27;NetConnection.Connect.Failed&#x27;;
+                break;
+            }
+            return callback.call(this, null, evt);
+        }
+        if (cmd &amp;&amp; cmd.args.length &gt; 0 &amp;&amp; typeof cmd.args[0] == &#x27;object&#x27;) {
+            var evt = cmd.args[0];
+            this.connectedTime = new Date();
+            if (evt.level == &#x27;status&#x27; || evt.level == &#x27;error&#x27;) {
+                var args = [cmd];
+                args = args.concat(cmd.args);
+                callback.apply(this, args);
+            } else {
+                callback.call(this, cmd, {
+                    level : &#x27;error&#x27;,
+                    code : &#x27;NetConnection.Connect.Failed&#x27;
+                });
+            }
+        } else {
+            callback.call(this, cmd, {
+                level : &#x27;error&#x27;,
+                code : &#x27;NetConnection.Connect.Failed&#x27;
+            });
+        }
+    }.bind(this, callback));
+}
+
+
+/**
+ * 发送创建一个新流的命令.
+ * 该接口是一个复合接口，调用此接口，正常情况下会完成如下操作：
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;1.向远端服务器发送一个&#x27;createStream&#x27;
+ * 远程调用；
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;2.如果调用成功，将得到服务端返回的
+ * streamId，然后在内部会创建一个NetStream类型的对象，将服务端返
+ * 回的streamId赋予该NetStream实例；
+ * &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;3.将接口调用错误信息和NetStream实
+ * 例通过回调函数返回。
+ * &lt;br&gt;如果接口调用出错，err将不为null，stream不可用；反之，err
+ * 为null,stream对象可用。
+ *
+ * @method createStream
+ * @public
+ * @example
+ *     conn.createStream(function(err, stream){
+ *         console.dir(arguments);
+ *         if (err) {
+ *             return console.log(err);
+ *         }
+ *         // Do continue work
+ *     });
+ **/
+ums.NetConnection.prototype.createStream = function(callback){
+    var self = this;
+    if (typeof callback != &#x27;function&#x27;) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    self.call(&#x27;createStream&#x27;, function(cmd, streamId){
+        if (typeof streamId != &#x27;number&#x27;) {
+            callback(new Error(&#x27;Failed to call createStream.&#x27;));
+        };
+        self.__createStream__(streamId, function(errCode){
+            if (errCode) {
+                return callback(new Error(&#x27;Failed to create stream.&#x27;));
+            };
+            var stream = new ums.NetStream(self, streamId);
+            callback(null, stream);
+        });
+    });
+}
+
+/**
+ * 调用一个远端处理函数.
+ * 如果指定返回结果的回调处理函数，则远端理论上应该返回结果，该结果由
+ * 该回调函数处理，否则，不返回结果。回调函数的第一个参数为远端返回的
+ * 调用对象（ums.RTMPCall实例）。理论上，返回结果也是一个远程调用，只
+ * 不过是针对特定函数_result和_error函数的特定调用。返回_result表示远
+ * 端函数正确执行；返回_error则表示远端函数执行出错。
+ *
+ * @method call
+ * @public
+ * @async
+ * @param proc_name {String} 要调用的远端函数的名称
+ * @param ... {Number/String/Boolean/Array/Object/Buffer} [可选], 要
+ *                          传递给远端函数的参数
+ * @param callback {function} [可选], 远端函数返回结果的处理函数
+ * @example
+ *     connection.call(&#x27;foo&#x27;, &#x27;arg1&#x27;, &#x27;arg2&#x27;, function(cmd){
+ *         console.dir(cmd);
+ *     });
+ **/
+ums.NetConnection.prototype.call = function(){
+    var args = [];
+    for (var i = 0; i &lt; arguments.length; i++) {
+        if (i + 1 &lt; arguments.length &amp;&amp; typeof arguments[i] == &#x27;function&#x27;) {
+            throw Error(&#x27;Invalid arguments&#x27;);
+        };
+        args.push(arguments[i]);
+    };
+    var name = args[0] || null;
+    if (!name) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    var cmd = {};
+    cmd.name = args.shift();
+    if (args.length &gt; 0 &amp;&amp; typeof args[args.length - 1] == &#x27;function&#x27;) {
+        cmd.callback = call_cb.bind(this, args.pop());
+    }
+    cmd.args = args;
+    cmd.channelId = 3;
+    cmd.streamId = 0;
+    this.__call__(cmd);
+}
+
+/**
+ * 关闭一个指定的流.
+ *
+ * @method closeStream
+ * @public
+ * @async
+ * @param stream_id {Number} 要关闭的流的id
+ * @param callback {function}, 返回结果的处理函数
+ * @example
+ *     client.closeStream(streamId, function(err){
+ *         if (err) {
+ *             return console.dir(err);
+ *         } else {
+ *             // do some thing
+ *         }
+ *     });
+ **/
+ums.NetConnection.prototype.closeStream = function(streamId, callback) {
+    var self = this;
+    var stream = self.streams[streamId];
+    if (typeof callback != &#x27;function&#x27; || !stream instanceof ums.NetStream) {
+        throw TypeError(&#x27;Invalid arguments&#x27;);
+    }
+    if (!stream.closed) {
+        stream.call(&#x27;closeStream&#x27;);
+        self.__closeStream__(streamId, function(err){
+            stream.closed = true;
+            callback.call(self, err);
+        });
+    }
+}
+
+/**
+ * NetConnection之上的所有NetStream实例数组.
+ * 通过streamId为索引访问相应的NetStream实例。
+ *
+ * @property streams
+ * @type Array of NetStream
+ * @public
+ * @example
+ *     var streams = conn.streams;
+ *     for (var i = 0;i &lt; streams.length;i++) {
+ *         console.dir(streams[i]);
+ *     }
+ **/
+
+/**
+ * 唯一标识一个连接的标志.
+ * 同一个RTMPConnector管理的NetConnection实例具有不重复的ID。
+ *
+ * @property clientId
+ * @type String
+ * @public
+ *
+ *     console.log(connection.clientId);
+ **/
+
+/*******************************************************************************
+* @class ums.RTSPConnector
+*******************************************************************************/
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持&#x27;error/close&#x27;事件。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数，事件处理函数的第一个参数是
+ *                                 新建立的TCP连接的基本信息，包括本端IP地址
+ *                                 和对端IP地址
+ * @example
+ *     connector.on(&#x27;error&#x27;, function(err){
+ *         console.dir(err);
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ *
+ * @event error
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     connector.on(&#x27;error&#x27;, function(err){
+ *         console.dir(err);
+ *     });
+ **/
+
+/**
+ * 关闭事件及其事件监听处理程序.
+ * 如果添加&#x27;close&#x27;事件监听函数，则当RTSPConnector关闭时回调函数将被调用。
+ *
+ * @event close
+ * @example
+ *     connector.on(&#x27;close&#x27;, function(){
+ *         // Do some recycle work
+ *     });
+ **/
+
+/**
+ * 启动RTSPConnector实例并开始接受新连接的接口.
+ * 调用该接口将开始运行一个RTSPConnector实例以创建NetConnection实例。
+ * 回调函数被执行时，表明启动工作结束，可以进行后续操作。
+ *
+ * @method start
+ * @public
+ * @async
+ * @param callback {function} RTSPConnector开始运行的回调函数
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     connector.start(function(err){
+ *         if (err) {
+ *             console.dir(err);
+ *         }
+ *     });
+ **/
+
+/**
+ * 创建一个新的RTSPConnection实例。
+ * 该接口创建一个向外的连接对象RTSPConnection的实例，用于建立向外的连接。
+ * 
+ * @method createConnection
+ * @public
+ * @return {ums.RTSPConnection} 新的RTSPConnection实例。
+ *
+ *     var conn = connector.createConnection();
+ **/
+
+/**
+ * 枚举向外建立的所有连接对象.
+ * 在处理大量连接时，使用该方法比较高效，如果要查找某一符合条件的连接对象，
+ * 建议使用该方法。注意：当connection为null时，表明连接集合为空。
+ * 
+ * @method enumConnections
+ * @public
+ * @param callback {function} 枚举结果回调函数
+ *  callback param conn {ums.RTSPConnection} RTSPConnection
+ *                 isEnd {Boolean} 是否是最后一个枚举值
+ *  callback return : isContinue {Boolean} 指示枚举是否继续
+ * @example
+ *     connector.enumConnections(function callback(conn, isEnd){
+ *        var isContinue = true;
+ *        console.log(&quot;isEmpty :&quot;, !conn, &quot;;isEnd :&quot;, isEnd, &quot;;index :&quot;, nCount++);
+ *        nCount++;
+ *        if (isEnd) {
+ *            console.log(&#x27;Count of connections :&#x27;, nCount);
+ *        }
+ *        return isContinue;
+ *     });
+ *     
+ **/
+
+/**
+ * 关闭RTSPConnector实例.
+ * 调用该接口将关闭一个RTSPConnector实例，成功关闭后将触发&#x27;close&#x27;事件。
+ *
+ * @method close
+ * @public
+ *
+ *     connector.close();
+ **/
+
+/*******************************************************************************
+* @class ums.RTSPConnection
+*******************************************************************************/
+
+/**
+ * @method _internalCallback
+ * @private
+ * 
+ * 
+ **/
+ums.RTSPConnection.prototype._internalCallback = function(type, __arg){
+    switch(type){
+        case &#x27;activeCheck&#x27;:
+            // __arg is data active check event type
+            this.emit(&#x27;activeCheck&#x27;, __arg);
+            break;
+        case &#x27;close&#x27;:
+            // __arg is streamId
+            if (__arg &amp;&amp; this.streams[__arg]) {
+                this.streams[__arg].closed = true;
+                this.streams[__arg].emit(&#x27;close&#x27;);
+                delete this.streams[__arg];
+            } else {
+                var args = [&#x27;close&#x27;];
+                for (var i = 2; i &lt; arguments.length; i++) {
+                    args.push(arguments[i]);
+                };
+                this.emit.apply(this, args);
+                delete this.streams;
+            }
+            break;
+        case &#x27;recvSDP&#x27;:
+            // __arg is data buffer array
+            this.emit(type, __arg);
+            break;
+        case &#x27;data&#x27;:
+            // __arg is data buffer array
+            this.emit(type, __arg);
+            break;
+    }
+}
+
+/**
+ * 为特定事件添加一个监听处理程序.
+ * 当前支持除&#x27;_error/_result/onStatus/error/close&#x27;等事件之外的 
+ * 任何自定义事件.上述事件为内部保留事件，用户不应定义与这些事件同名的
+ * 远程调用函数名。与用户自定义事件相对应的事件处理函数的参数列表与远端
+ * 调用时传入的参数列表一致。
+ *
+ * @method on
+ * @public
+ * @async
+ * @param event_name {String} 要订阅的事件名称
+ * @param callback {function} 事件处理函数
+ * @example
+ *     connection.on(&#x27;error&#x27;, function(err){
+ *         if (err) {
+ *             console.dir(err);
+ *         }
+ *     });
+ **/
+
+/**
+ * 连接关闭事件及其事件监听处理程序.
+ * 表示RTMP连接关闭事件。
+ *
+ * @event close
+ * @example
+ *     connection.on(&#x27;close&#x27;, function(){
+ *         // Do some recycle work
+ *     });
+ **/
+
+/**
+ * 错误事件及其事件监听处理程序.
+ * 如果添加&#x27;error&#x27;事件监听函数，则当出现内部错误时回调函数将被调用。
+ *
+ * @event error
+ * @param error_msg {Error} 错误信息
+ * @example
+ *     connection.on(&#x27;error&#x27;, function(err){
+ *         if (err) {
+ *             console.dir(err);
+ *         }
+ *     });
+ **/
+
+/**
+ * 关闭底层RTSP连接.
+ * 
+ * @method close
+ * @public
+ * @example
+ *     connection.close();
+ **/
+
+/**
+ * 异步获取数据包及字节数发送统计.
+ * 调用该接口将异步获取底层网络数据收发统计。
+ *
+ * @method stat
+ * @public
+ * @param callback {function} 异步结果回调函数
+ * @example
+ *     connection.stat(function(err, stats){
+ *         if (err) {
+ *             return console.dir(err);
+ *         }
+ *         console.dir(stats);
+ *     })
+ **/
+
+ /**
+ * 设置开启/关闭命令发送完成通知(该接口主要用于开发调试，建议生产环境
+ * 中关闭命令发送完成通知功能以提高运行效率).
+ * 如果设置命令发送完成通知功能，则每一个RTMP RPC命令在成功发送完成
+ * 后，都可以通过监听&#x27;cmdSentDone&#x27;事件来捕获发出去的命令包的拷贝。
+ * 异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，
+ * 则表明设置成功，否则，表明设置失败。
+ *
+ * @method openNotify
+ * @public
+ * @param eNotifyType {enum of mask} 是否开启相应的事件通知,可以是下列
+ *        值之一,或是其中几项的组合(通过|组合):
+ *        &lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ums.CONST.NOTIFY_ACTIVECHECK
+ * @param callback {function} 异步设置完成回调函数
+ * @example
+ *     connection.openNotify(ums.CONST.NOTIFY_ACTIVECHECK,
+ *         function(err){
+ *             if (err) {
+ *                 console.dir(err);
+ *             }
+ *     });
+ **/
+
+/**
+ * 向远端RTSP服务器发起一个连接建立操作。
+ *
+ * @method connect
+ * @public
+ * @async
+ * @param url {String} 要连接的RTSP服务器的地址，地址形式：
+ *                  rtsp://ip:port/stream_name
+ * @param properties {Object} 连接参数集合，需含有发布到本地的流名称参数，形如：
+ *                  { streamName : &#x27;livestream&#x27; }
+ * @param callback {function} 异步调用完成回调函数
+ * @example
+ *     var props = { streamName : &#x27;livestream&#x27; };
+ *     conn.connect(&#x27;rtsp://127.0.0.1:554/stream&#x27;, props, function(event){
+ *         console.dir(event);
+ *         switch(event.code){
+ *         case &#x27;RTSPConnection.Connect.Success&#x27;:
+ *             // Do continue work
+ *             break;
+ *         case &#x27;RTSPConnection.Connect.Failed&#x27;:
+ *             conn.close();
+ *             break;
+ *         }
+ *     });
+ **/
+ums.RTSPConnection.prototype.connect = function(url, properties, callback){
+    if (arguments.length &lt; 3 || typeof url != &#x27;string&#x27; || 
+        typeof properties != &#x27;object&#x27; ||
+        typeof arguments[arguments.length - 1] != &#x27;function&#x27;) {
+        throw Error(&#x27;Invalid arguments&#x27;);
+    };
+    if (!properties.streamName) {
+        throw Error(&#x27;Bad arguments[property set has no &#x60;streamName&#x60; attribute].&#x27;);
+    };
+    properties.streamName = properties.streamName.toString();
+    callback = arguments[arguments.length - 1];
+    this.__connect__(url, properties, function(callback, err, publishToken, publishName){
+        if (err) {
+            var evt = {
+                level : &#x27;error&#x27;
+            };
+            switch(err.message){
+            case &#x27;ECONNECT&#x27;:
+                evt.code = &#x27;RTSPConnection.Connect.Failed&#x27;;
+                break;
+            }
+            return callback.call(this, evt);
+        } else {
+            this.connectedTime = new Date();
+            this.publishToken = publishToken;
+            this.publishName = publishName;
+            return callback.call(this, {
+                level : &#x27;status&#x27;,
+                code : &#x27;RTSPConnection.Connect.Success&#x27;
+            });
+        }
+    }.bind(this, callback));
+}
+
+/**
+ * 唯一标识一个RTSPConnection连接的标志.
+ * 同一个RTSPConnector管理的RTSPConnection实例具有不重复的ID。
+ *
+ * @property clientId
+ * @type String
+ * @public
+ *
+ *     console.log(connection.clientId);
+ **/
+
+/*******************************************************************************
+* @class ums
+*******************************************************************************/
+
+/**
+ * 创建一个ums.RTMPOptions实例.
+ *
+ * @method createRTMPOptions
+ * @public
+ * @param is_server_type {Boolean} 指定参数集对象是否为server类型
+ * @example
+ *     // 创建一个RTMPServer选项集合，构造参数指定为服务器选项集合类型
+ *     var serverOpt = ums.createRTMPOptions(true);
+ *     // 创建RTMPConnector选项集合，构造参数指定为连接器选项集合类型
+ *     var server = ums.createRTMPOptions(false);
+ **/
+
+/**
+ * 创建一个ums.RTMPServer实例.
+ *
+ * @method createRTMPServer
+ * @public
+ * @param serverOpt {ums.RTMPOptions} 参数集对象，创建时须指定为server类型
+ * @example
+ *     // 创建一个RTMPServer选项集合，构造参数指定为服务器选项集合
+ *     var serverOpt = ums.createRTMPOptions(true);
+ *     // 创建RTMPServer实例
+ *     var server = ums.createRTMPServer(serverOpt);
+ **/
+
+/**
+ * 创建一个ums.RTMPConnector实例.
+ *
+ * @method createRTMPConnector
+ * @public
+ * @param connectorOpt {ums.RTMPOptions} 参数集对象，创建时须指定为非server类型
+ * @example
+ *     // 创建一个非RTMPServer选项集合，构造参数指定为非服务器选项集合
+ *     var connectorOpt = ums.createRTMPOptions(false);
+ *     // 创建RTMPConnector实例
+ *     var connector = ums.createRTMPConnector(connectorOpt);
+ **/
+
+/**
+ * 创建一个ums.Application实例.
+ *
+ * @method createApplication
+ * @public
+ * @param app_name {String} 应用的名称
+ * @example
+ *     var app = ums.createApplication(&#x27;live&#x27;);
+ **/
+
+/**
+ * 创建一个ums.PublishPool实例.
+ *
+ * @method createPublishPool
+ * @public
+ * @param is_use_default {Boolean} 是否使用缺省的实例，而不创建新的PublishPool实例
+ * @param poolOpt {Object} 参数集对象，包含级联配置信息，如下
+ *                poolOpt.appName {String} 应用名称;
+ *                poolOpt.rtmpAddress {Object} 含有host或port属性的对象，要注册到redis中的本机对外提供直播服务的主机地址和端口;
+ *                poolOpt.subEx {String} 为避免混淆而在以流名称为事件名时所添加的前缀;
+ *                poolOpt.streamEx {String} 为避免混淆而在以流名称为索引查询redis时所添加的前缀;
+ *                poolOpt.redisAddress {Object} 含有host和port属性的对象，用于指定redis服务器;
+ *                poolOpt.cluster {Boolean} 指定是否开启自动级联相关接口及功能，当poolOpt.cluster
+ *                                          为false时，PublishPool.publish和PublishPool.subscribe
+ *                                          接口仅能在本地发布/订阅直播流。
+ * @example
+ *     var poolOpt = {
+ *         cluster : true,
+ *         appName : &#x27;live&#x27;,
+ *         rtmpAddress : {host : &#x27;127.0.0.1&#x27;, port : 1935},
+ *         subEx : &#x27;__sub_ex__&#x27;,
+ *         streamEx : &#x27;__livestream_ex__&#x27;,
+ *         redisAddress : {host:&#x27;127.0.0.1&#x27;, port:6379}
+ *     };
+ *     // 创建一个直播流发布池
+ *     var publishPool = ums.createPublishPool(false, poolOpt);
+ **/
+
+/**
+ * 创建一个ums.RTSPConnector实例.
+ *
+ * @method createRTSPConnector
+ * @public
+ * @param connectorOpt {Object} 参数集对象
+ * @example
+ *     // 声明一个非RTSPConnector选项集合
+ *     var connectorOpt = {
+ *         activeCheckInterval : 30,
+ *         activeConnTimeout : 360000,
+ *         deadConnTimeout : 3600,
+ *         numOfThreads : 4,
+ *         publishId : publishPool.publishId // 一个已经创建好的PublishPool实例的id
+ *                                           // 用于接收RTSP实时流
+ *     };
+ *     // 创建RTSPConector实例
+ *     var connector = ums.createRTSPConnector(connectorOpt);
+ **/
+
+//*******************************************************************************
+// Exports : 
+//*******************************************************************************
+
+module.exports = ums;
+
+//*******************************************************************************
+// End of file : ums.js
+//*******************************************************************************
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

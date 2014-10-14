@@ -1,0 +1,2464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ums.NetStream</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/EventEmitterEx.html">EventEmitterEx</a></li>
+            
+                <li><a href="../classes/ums.html">ums</a></li>
+            
+                <li><a href="../classes/ums.Application.html">ums.Application</a></li>
+            
+                <li><a href="../classes/ums.NetConnection.html">ums.NetConnection</a></li>
+            
+                <li><a href="../classes/ums.NetStream.html">ums.NetStream</a></li>
+            
+                <li><a href="../classes/ums.PublishPipe.html">ums.PublishPipe</a></li>
+            
+                <li><a href="../classes/ums.PublishPool.html">ums.PublishPool</a></li>
+            
+                <li><a href="../classes/ums.RTMPCall.html">ums.RTMPCall</a></li>
+            
+                <li><a href="../classes/ums.RTMPClient.html">ums.RTMPClient</a></li>
+            
+                <li><a href="../classes/ums.RTMPConnector.html">ums.RTMPConnector</a></li>
+            
+                <li><a href="../classes/ums.RTMPOptions.html">ums.RTMPOptions</a></li>
+            
+                <li><a href="../classes/ums.RTMPServer.html">ums.RTMPServer</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnection.html">ums.RTSPConnection</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnector.html">ums.RTSPConnector</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/ums.js.html">ums.js</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>ums.NetStream Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/ums.js.html#l330"><code>ums.js:330</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/ums.js.html">ums.js</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>Javascript version of NetStream in actionscript3. Both client-side and 
+server-side could use this class to manipulate streams over RTMPClient
+or NetConnection.</p>
+
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+        
+        
+            <li class="api-class-tab events"><a href="#events">Events</a></li>
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method public">
+                                <a href="#method_call">call</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_close">close</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_createPlayer">createPlayer</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_createPublisher">createPublisher</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_edge">edge</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_localPause">localPause</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_on">on</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_pause">pause</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_pauseRAW">pauseRAW</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_play">play</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_seek">seek</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_setDelay">setDelay</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_setFlags">setFlags</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+
+            
+                <div class="index-section events">
+                    <h3>Events</h3>
+
+                    <ul class="index-list events">
+                        
+                            <li class="index-item event">
+                                <a href="#event_close">close</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_closeStream">closeStream</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_data">data</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_error">error</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_onMetaData">onMetaData</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_onStatus">onStatus</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method_call" class="method item public">
+    <h3 class="name"><code>call</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>proc_name</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>...</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l437"><code>ums.js:437</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>调用一个远端处理函数.
+如果指定返回结果的回调处理函数，则远端理论上应该返回结果，该结果
+由该回调函数处理，否则，不返回结果。回调函数的第一个参数为远端返
+回的调用对象（ums.RTMPCall实例）。理论上，返回结果也是一个远程调
+用，只不过是针对特定函数_result和_error函数的特定调用。返回
+_result表示远端函数正确执行；返回_error则表示远端函数执行出错。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">proc_name</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要调用的远端函数的名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">...</code>
+                        <span class="type">Number/String/Boolean/Array/Object/Buffer</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要传递给远端函数的参数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>[可选], 远端函数返回结果的处理函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.call(&#39;foo&#39;, &#39;arg1&#39;, &#39;arg2&#39;, function(cmd){
+    console.dir(cmd);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_close" class="method item public">
+    <h3 class="name"><code>close</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l821"><code>ums.js:821</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>主动关闭一个流。</p>
+
+    </div>
+
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;closeStream&#39;, function(cmd){
+    stream.close(function(err){
+        if (err) { return console.log(err); }
+    });
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_createPlayer" class="method item public">
+    <h3 class="name"><code>createPlayer</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>cmd</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l782"><code>ums.js:782</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>旁通play调用到底层.将远程调用对象透传到底层。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">cmd</code>
+                        <span class="type"><a href="..\classes\ums.RTMPCall.html" class="crosslink">ums.RTMPCall</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>远程调用对象实例</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;play&#39;, function(cmd){
+    stream.createPlayer(cmd, function(err, streamName, bLive){});
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_createPublisher" class="method item public">
+    <h3 class="name"><code>createPublisher</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>cmd</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>autoEcho</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l703"><code>ums.js:703</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>预发布一个流到发布池中.
+该接口是一个复合接口，调用此接口，创建一个Publisher，并注册到预
+先指定的发布池中。
+如果接口调用出错，err将不为null，stream不可用；反之，err为null,
+stream对象可用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">cmd</code>
+                        <span class="type"><a href="..\classes\ums.RTMPCall.html" class="crosslink">ums.RTMPCall</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>远程调用对象实例</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">autoEcho</code>
+                        <span class="type">Boolean</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>是否自动回复</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>回调函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;publish&#39;, function(cmd){
+    stream.createPublisher(cmd, true, function(err, streamName){
+        if (err) {
+            return console.log(&#39;createPublisher :&#39;, err);
+        }
+        console.log(&#39;stream name :&#39;, streamName);
+    });
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_edge" class="method item public">
+    <h3 class="name"><code>edge</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>remoteStreamName</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>localStreamName</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l570"><code>ums.js:570</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>向服务端发送一个播放命令，并将接收到的音视频数据流发布到本地发布池.
+该接口是一个复合操作，接口内部完成两个操作：1.向远端服务器发送一个
+&#39;play&#39;调用；2.将接收到的音视频数据以直播流的形式发布到创建
+RTMPConnector实例时指定的PublishPool实例中。要想捕获播放事件，请调
+用NetStream.on接口订阅onStatus事件，形如：
+    NetStream.on(&#39;onStatus&#39;, function(cmd, event){});
+并判断event.code值是否为下述状态之一：
+1.&#39;NetStream.Play.StreamNotFound&#39;:表示流不存在；
+2.&#39;NetStream.Play.Reset&#39;:表示播放重置；
+3.&#39;NetStream.Play.Start&#39;:表示播放开始；
+4.&#39;NetStream.Play.Complete&#39;:表示播放结束。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">remoteStreamName</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要拉取的流的名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">localStreamName</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>[可选]，发布到本地的流的名称。如果
+       不设置该参数，则拉取的视频流将会以原有名字发布到本地
+       PublishPool实例中.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>异步操作结果回调函数，函数的第一个参数为
+       操作结果错误信息，如果出错，则该值不为null</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_localPause" class="method item public">
+    <h3 class="name"><code>localPause</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>bPause</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>nTimestamp</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l863"><code>ums.js:863</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>暂停一个本地流。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">bPause</code>
+                        <span class="type">Boolean</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>设置暂停(true)或取消暂停(false)</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">nTimestamp</code>
+                        <span class="type">Uint</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>设置暂停时的时间戳，以毫秒为单位</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>异步完成回调</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;pause&#39;, function(cmd, bPause, nTimestamp){
+    stream.localPause(bPause, nTimestamp, function(err){
+        if (err) {
+            return console.dir(err);   
+        }
+    });
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_on" class="method item public">
+    <h3 class="name"><code>on</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>event_name</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l346"><code>ums.js:346</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>为特定事件添加一个监听处理程序.
+当前支持除&#39;_error/_result/onStatus/connect/error/close&#39;等事件之
+外的任何自定义事件.上述事件为内部保留事件，用户不应定义与这些事
+件同名的事件处理函数。与用户自定义事件相对应的事件处理函数的参
+数列表与远端调用时传入的参数列表一致。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">event_name</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要订阅的事件名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>事件处理函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(event_name, function(){});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_pause" class="method item public">
+    <h3 class="name"><code>pause</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>cmd</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l890"><code>ums.js:890</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>旁通pause调用到底层.将远程调用对象透传到底层。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">cmd</code>
+                        <span class="type"><a href="..\classes\ums.RTMPCall.html" class="crosslink">ums.RTMPCall</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>远程调用对象实例</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;pause&#39;, function(cmd){
+    stream.pause(cmd);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_pauseRAW" class="method item public">
+    <h3 class="name"><code>pauseRAW</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>cmd</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l908"><code>ums.js:908</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>旁通pauseRAW调用到底层.将远程调用对象透传到底层。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">cmd</code>
+                        <span class="type"><a href="..\classes\ums.RTMPCall.html" class="crosslink">ums.RTMPCall</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>远程调用对象实例</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;pauseRAW&#39;, function(cmd){
+    stream.pauseRAW(cmd);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_play" class="method item public">
+    <h3 class="name"><code>play</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>streamName</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>startPos</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l479"><code>ums.js:479</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>向服务端发送一个播放命令.
+调用该接口并不会返回_result或_error结果，要想捕获播放事件，请调用
+ums.NetStream.on接口订阅onStatus事件，并判断event.code值是否为下述状态之一：
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;1.&#39;NetStream.Play.StreamNotFound&#39;:表示流不存在；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;2.&#39;NetStream.Play.Reset&#39;:表示播放重置；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;3.&#39;NetStream.Play.Start&#39;:表示播放开始；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;4.&#39;NetStream.Play.Stop&#39;:表示播放停止；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;5.&#39;NetStream.Play.Complete&#39;:表示播放结束；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;6.&#39;NetStream.Play.Transition&#39;:转换指令；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;7.&#39;NetStream.Play.TransitionComplete&#39;:转换结束（通过onPlayStatus发送）；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;8.&#39;NetStream.Play.UnpublishNotify&#39;:发布者停止发布通知。
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;9.&#39;NetStream.Play.Failed&#39;:未知的失败；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;10.&#39;NetStream.Play.FileStructureInvalid&#39;:文件结构不可用；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;11.&#39;NetStream.Play.NoSupportedTrackFound&#39;:不支持的流格式；
+     <br>&nbsp;&nbsp;&nbsp;&nbsp;12.&#39;NetStream.Play.InsufficientBW&#39;:带宽不够。
+<br>形如：</p>
+<pre class="code prettyprint"><code> stream.on(&#39;onStatus&#39;, function(cmd, event){
+     switch(event.code) {
+         case &quot;NetStream.Play.Failed&quot;:
+             // &quot;error&quot;,An error has occurred in playback for a reason other than those 
+             // listed elsewhere in this table, such as the subscriber not having read
+             // access.
+             break;
+         case &quot;NetStream.Play.FileStructureInvalid&quot;:
+             // &quot;error&quot;,(AIR and Flash Player 9.0.115.0) The application detects an
+             // invalid file structure and will not try to play this type of file.
+             break;
+         case &quot;NetStream.Play.NoSupportedTrackFound&quot;:
+             // &quot;error&quot;,(AIR and Flash Player 9.0.115.0) The application does not
+             // detect any supported tracks (video, audio or data) and will not try to
+             // play the file.
+             break;
+         case &quot;NetStream.Play.StreamNotFound&quot;:
+             // &quot;error&quot;,The file passed to the NetStream.play() method can&#39;t be found.
+             break;
+         case &quot;NetStream.Play.InsufficientBW&quot;:
+             // &quot;warning&quot;,(Flash Media Server) The client does not have sufficient
+             // bandwidth to play the data at normal speed.
+             break;
+         case &quot;NetStream.Play.PublishNotify&quot;:
+             // &quot;status&quot;,The initial publish to a stream is sent to all subscribers.
+             break;
+         case &quot;NetStream.Play.Reset&quot;:
+             // &quot;status&quot;,Caused by a play list reset.
+             break;
+         case &quot;NetStream.Play.Start&quot;:
+             // &quot;status&quot;,Playback has started.
+             break;
+         case &quot;NetStream.Play.Stop&quot;:
+             // &quot;status&quot;,Playback has stopped.
+             break;
+         case &quot;NetStream.Play.Transition&quot;:
+             // &quot;status&quot;,(Flash Media Server 3.5) The server
+             // received the command to transition to another stream as a result of bitrate stream switching.
+             // This code indicates a success status event for the NetStream.play2() call to initiate a stream
+             // switch. If the switch does not succeed, the server sends a NetStream.Play.Failed event instead.
+             // When the stream switch occurs, an onPlayStatus event with a code of
+             // &quot;NetStream.Play.TransitionComplete&quot; is dispatched. For Flash Player 10 and later.
+             break;
+         case &quot;NetStream.Play.UnpublishNotify&quot;:
+             // &quot;status&quot;,An unpublish from a stream is sent to all subscribers.
+             break;
+         case &quot;NetStream.Play.Complete&quot;:
+             // &quot;status&quot;,Playback has completed.
+             break;
+     }
+ });</code></pre>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">streamName</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要播放的流的名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">startPos</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>开始播放的起始时间戳。如果startPos &lt; -1 ,表示
+       如果存在同名的直播流，则优先放直播流，如果直播流不存在
+       而点播文件存在，则播放点播文件；如果startPos = -1，表
+       示只播放同名的直播流；如果startPos &gt;= 0则表示只播放点
+       播流)</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_seek" class="method item public">
+    <h3 class="name"><code>seek</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>cmd</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l845"><code>ums.js:845</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>旁通seek调用到底层.将远程调用对象透传到底层。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">cmd</code>
+                        <span class="type"><a href="..\classes\ums.RTMPCall.html" class="crosslink">ums.RTMPCall</a></span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>远程调用对象实例</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;seek&#39;, function(cmd){
+    stream.seek(cmd);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_setDelay" class="method item public">
+    <h3 class="name"><code>setDelay</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>msDelay</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l670"><code>ums.js:670</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>设置音视频同步延时.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">msDelay</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>同步延时的时间，以毫秒为单位</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>异步设置完成回调函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.setDelay(msDelay, function(err){
+    if (err) {
+        return console.dir(err);
+    }
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_setFlags" class="method item public">
+    <h3 class="name"><code>setFlags</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>flags</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l624"><code>ums.js:624</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>设置开启/关闭数据包冒泡功能.
+如果设置开启数据包冒泡功能，则可以通过监听&#39;data&#39;事件来接收到
+Video/Audio/MetaData数据包。
+异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，
+则表明设置成功，否则，表明设置失败。</p>
+<p>设置开启/关闭将Audio/Video数据转换成onMediaData包发送功能.
+如果设置开启数据包冒泡功能，则可以通过监听&#39;onMediaData&#39;事件来
+接收到Video/Audio数据包。
+异步设置完成回调函数的第一个参数为出错信息，如果出错信息为null，
+则表明设置成功，否则，表明设置失败。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">flags</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>是否开启数据包冒泡功能</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>异步设置完成回调函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.setFlags(NSFLAG_BUBBLE | NSFLAG_MEDIADATA, function(err){
+    if (err) {
+        return console.dir(err);
+    }
+    stream.on(&#39;data&#39;, function(data){
+        console.dir(data);
+    });
+    stream.on(&#39;bufferEvent&#39;, function(type){
+        console.dir(type);
+    });
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+
+        
+            <div id="events" class="api-class-tabpanel">
+                <h2 class="off-left">Events</h2>
+
+                
+                    <div id="event_close" class="events item">
+    <h3 class="name"><code>close</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l363"><code>ums.js:363</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>流关闭事件及其事件监听处理程序.
+该关闭事件仅表明当前流被关闭，并不意味着RTMP连接被关闭。</p>
+
+    </div>
+
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;close&#39;, function(){
+    // Do some recycle work
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_closeStream" class="events item">
+    <h3 class="name"><code>closeStream</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l374"><code>ums.js:374</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>对端发过来的流关闭事件及其事件监听处理程序.
+该关闭事件由对端发出，用以关闭当前流。</p>
+
+    </div>
+
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;closeStream&#39;, function(cmd){
+    stream.close();
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_data" class="events item">
+    <h3 class="name"><code>data</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l411"><code>ums.js:411</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Audio/Video数据及其数据监听处理程序.
+如果添加&#39;data&#39;事件监听函数，则当出现Audio/Video数据包时回调函数将
+被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">data</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Audio/Video数据</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;data&#39;, function(data){
+    console.dir(data);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_error" class="events item">
+    <h3 class="name"><code>error</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l385"><code>ums.js:385</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>错误事件及其事件监听处理程序.
+如果添加&#39;error&#39;事件监听函数，则当出现内部错误时回调函数将被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">error_msg</code>
+                        <span class="type">Error</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>错误信息</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;error&#39;, function(err){
+    console.dir(err);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_onMetaData" class="events item">
+    <h3 class="name"><code>onMetaData</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l424"><code>ums.js:424</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>metadata数据及其数据监听处理程序.
+如果添加&#39;onMetaData&#39;事件监听函数，则当出现metadata数据包时回调函
+数将被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">data</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>metadata数据</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;onMetaData&#39;, function(data){
+    console.dir(data);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_onStatus" class="events item">
+    <h3 class="name"><code>onStatus</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l397"><code>ums.js:397</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMP网络流状态事件及其事件监听处理程序.
+如果添加&#39;onStatus&#39;事件监听函数，则当出现网络状态事件时回调函数将
+被调用。&#39;onStatus&#39;事件发送自网络对端，是一种不需要回复的远程调用，
+用于通知网络对端特定的状态信息，包括流的播放、发布状态等。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">event</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>状态信息</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>stream.on(&#39;onStatus&#39;, function(event){
+    console.dir(event);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

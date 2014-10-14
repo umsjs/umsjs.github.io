@@ -1,0 +1,2128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ums.PublishPipe</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/EventEmitterEx.html">EventEmitterEx</a></li>
+            
+                <li><a href="../classes/ums.html">ums</a></li>
+            
+                <li><a href="../classes/ums.Application.html">ums.Application</a></li>
+            
+                <li><a href="../classes/ums.NetConnection.html">ums.NetConnection</a></li>
+            
+                <li><a href="../classes/ums.NetStream.html">ums.NetStream</a></li>
+            
+                <li><a href="../classes/ums.PublishPipe.html">ums.PublishPipe</a></li>
+            
+                <li><a href="../classes/ums.PublishPool.html">ums.PublishPool</a></li>
+            
+                <li><a href="../classes/ums.RTMPCall.html">ums.RTMPCall</a></li>
+            
+                <li><a href="../classes/ums.RTMPClient.html">ums.RTMPClient</a></li>
+            
+                <li><a href="../classes/ums.RTMPConnector.html">ums.RTMPConnector</a></li>
+            
+                <li><a href="../classes/ums.RTMPOptions.html">ums.RTMPOptions</a></li>
+            
+                <li><a href="../classes/ums.RTMPServer.html">ums.RTMPServer</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnection.html">ums.RTSPConnection</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnector.html">ums.RTSPConnector</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/ums.js.html">ums.js</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>ums.PublishPipe Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/ums.js.html#l1281"><code>ums.js:1281</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/ums.js.html">ums.js</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
+        
+        
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+        
+        
+        
+            <li class="api-class-tab events"><a href="#events">Events</a></li>
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+                <div class="index-section methods">
+                    <h3>Methods</h3>
+
+                    <ul class="index-list methods">
+                        
+                            <li class="index-item method private">
+                                <a href="#method__internalCallback">_internalCallback</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_broadcast">broadcast</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_close">close</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_feed">feed</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_on">on</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_releasePublishers">releasePublishers</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_releaseStream">releaseStream</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_releaseSubscribers">releaseSubscribers</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method public">
+                                <a href="#method_switchPublisher">switchPublisher</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                        
+                            <li class="index-item property public">
+                                <a href="#property_name">name</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_pool">pool</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_publisherSize">publisherSize</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_publishToken">publishToken</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_pubStreams">pubStreams</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_subscriberSize">subscriberSize</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_subStreams">subStreams</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+                <div class="index-section events">
+                    <h3>Events</h3>
+
+                    <ul class="index-list events">
+                        
+                            <li class="index-item event">
+                                <a href="#event_aacSeqHeader">aacSeqHeader</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_audioStart">audioStart</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_avcSeqHeader">avcSeqHeader</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_error">error</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_metadata">metadata</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_peerChanged">peerChanged</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item event">
+                                <a href="#event_videoStart">videoStart</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+        </div>
+
+        
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
+
+                
+                    <div id="method__internalCallback" class="method item private">
+    <h3 class="name"><code>_internalCallback</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag private">private</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1285"><code>ums.js:1285</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Called when a publish pipe level event received.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="method_broadcast" class="method item public">
+    <h3 class="name"><code>broadcast</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>proc_name</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>...</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1481"><code>ums.js:1481</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>向所有订阅者一个远程调用.
+该接口不能指定返回结果的回调处理函数，也不能接受返回结果。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">proc_name</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要调用的远端函数的名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">...</code>
+                        <span class="type">Number/String/Boolean/Array/Object/Buffer</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要传递给远端函数的参数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.broadcast(&#39;foo&#39;, &#39;arg1&#39;, &#39;arg2&#39;);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_close" class="method item public">
+    <h3 class="name"><code>close</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1403"><code>ums.js:1403</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>关闭直播管道.</p>
+
+    </div>
+
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var isSucceed = publishPipe.close();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_feed" class="method item public">
+    <h3 class="name"><code>feed</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>packet</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1412"><code>ums.js:1412</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>发送一个数据包到订阅者发送队列，该数据包必须是metadata/video/audio三种数据
+类型中的一种.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">packet</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要切换的直播源的序号</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.feed({
+    type : 0x12, // metadata
+    size : 129,  // not used when type == metadata
+    timestamp : 0,
+    streamId : 0, // not used
+    data : buffer_data, // not used when type == metadata
+    metadata : {
+        width: 320,
+        height: 240,
+        videodatarate: 0,
+        framerate: 15,
+        videocodecid: 2,
+        audiosamplerate: 22050,
+        audiosamplesize: 16,
+        stereo: true,
+        audiocodecid: 2
+    }
+});
+publishPipe.feed({
+    type : 0x08, // audio data
+    size : 131,  // size of buffer_data
+    timestamp : 40, // milliseconds
+    streamId : 0, // not used
+    data : [buffer_data], // array of audio data buffer which total size is 131
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_on" class="method item public">
+    <h3 class="name"><code>on</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>event_name</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>callback</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1560"><code>ums.js:1560</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>为特定事件添加一个监听处理程序.
+当前支持&#39;error/end/metadata/aacSeqHeader/
+avcSeqHeader/audioStart/videoStart&#39;事件。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">event_name</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要订阅的事件名称</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">callback</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>事件处理函数</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.on(&#39;end&#39;, function(){
+    console.log(this.name, &#39;has stopped publishing.&#39;);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_releasePublishers" class="method item public">
+    <h3 class="name"><code>releasePublishers</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1524"><code>ums.js:1524</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>关闭一个直播流的所有发布者.</p>
+
+    </div>
+
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var isSucceed = publishPipe.releasePublishers();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_releaseStream" class="method item public">
+    <h3 class="name"><code>releaseStream</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1548"><code>ums.js:1548</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>关闭一个直播流的所有发布者和订阅者.</p>
+
+    </div>
+
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var isSucceed = publishPipe.releaseStream();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_releaseSubscribers" class="method item public">
+    <h3 class="name"><code>releaseSubscribers</code></h3>
+
+    
+        <span class="paren">()</span>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1536"><code>ums.js:1536</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>关闭一个直播流的所有订阅者.</p>
+
+    </div>
+
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var isSucceed = publishPipe.releaseSubscribers();</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_switchPublisher" class="method item public">
+    <h3 class="name"><code>switchPublisher</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>publishToken</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1514"><code>ums.js:1514</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>切换直播流的某个直播源.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">publishToken</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>要切换的直播源的序号</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var isSucceed = publishPipe.switchPublisher(2);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+
+        
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_name" class="property item public">
+    <h3 class="name"><code>name</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1311"><code>ums.js:1311</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>直播流名称属性.</p>
+
+    </div>
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>console.log(publishPipe.name);</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_pool" class="property item public">
+    <h3 class="name"><code>pool</code></h3>
+    <span class="type"><a href="..\classes\ums.PublishPool.html" class="crosslink">ums.PublishPool</a></span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1321"><code>ums.js:1321</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>管道所在的发布池实例.</p>
+
+    </div>
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>console.log(publishPipe.pool);</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_publisherSize" class="property item public">
+    <h3 class="name"><code>publisherSize</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1371"><code>ums.js:1371</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>管道上的发布者数量。</p>
+
+    </div>
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>console.log(publishPipe.publisherSize);</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_publishToken" class="property item public">
+    <h3 class="name"><code>publishToken</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1355"><code>ums.js:1355</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>管道上当前允许数据通行的Publisher的口令值。</p>
+
+    </div>
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>console.log(publishPipe.publishToken);</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_pubStreams" class="property item public">
+    <h3 class="name"><code>pubStreams</code></h3>
+    <span class="type">Object</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1343"><code>ums.js:1343</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>管道上的所有发布流实例.</p>
+
+    </div>
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>for (var pubIndex in publishPipe.pubStreams) {
+    console.log(publishPipe.pubStreams[pubIndex]);
+}</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_subscriberSize" class="property item public">
+    <h3 class="name"><code>subscriberSize</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1387"><code>ums.js:1387</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>管道上的订阅者数量。</p>
+
+    </div>
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>console.log(publishPipe.subscriberSize);</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+                    <div id="property_subStreams" class="property item public">
+    <h3 class="name"><code>subStreams</code></h3>
+    <span class="type">Object</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1331"><code>ums.js:1331</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>管道上的所有订阅流实例.</p>
+
+    </div>
+
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>for (var subIndex in publishPipe.subStreams) {
+    console.log(publishPipe.subStreams[subIndex]);
+}</code></pre>
+
+            </div>
+        </div>
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+            <div id="events" class="api-class-tabpanel">
+                <h2 class="off-left">Events</h2>
+
+                
+                    <div id="event_aacSeqHeader" class="events item">
+    <h3 class="name"><code>aacSeqHeader</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1601"><code>ums.js:1601</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>aac序列头事件及其事件监听处理程序.
+如果添加&#39;aacSeqHeader&#39;事件监听函数，则当收到aac序列头数据时回
+调函数将被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">data</code>
+                        <span class="type">Buffer</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>aac序列头数据</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.on(&#39;aacSeqHeader&#39;, function(data){
+    console.dir(data);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_audioStart" class="events item">
+    <h3 class="name"><code>audioStart</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1627"><code>ums.js:1627</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>直播音频流开始发布事件及其事件监听处理程序.
+如果添加&#39;audioStart&#39;事件监听函数，则当一个新的直播流中的音频流开始发布时回
+调函数将被调用。</p>
+
+    </div>
+
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.on(&#39;audioStart&#39;, function(streamName){
+    console.log(this.name, &#39;\&#39; audio is now publishing...&#39;);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_avcSeqHeader" class="events item">
+    <h3 class="name"><code>avcSeqHeader</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1614"><code>ums.js:1614</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>avc序列头事件及其事件监听处理程序.
+如果添加&#39;avcSeqHeader&#39;事件监听函数，则当收到avc序列头数据时回
+调函数将被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">data</code>
+                        <span class="type">Buffer</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>avc序列头数据</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.on(&#39;avcSeqHeader&#39;, function(data){
+    console.dir(data);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_error" class="events item">
+    <h3 class="name"><code>error</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1576"><code>ums.js:1576</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>错误事件及其事件监听处理程序.
+如果添加&#39;error&#39;事件监听函数，则当出现内部错误时回调函数将被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">error_msg</code>
+                        <span class="type">Error</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>错误信息</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.on(&#39;error&#39;, function(error_msg){
+    console.dir(error_msg);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_metadata" class="events item">
+    <h3 class="name"><code>metadata</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1588"><code>ums.js:1588</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>metadata事件及其事件监听处理程序.
+如果添加&#39;metadata&#39;事件监听函数，则当收到onMetaData事件时回
+调函数将被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">metadata</code>
+                        <span class="type">Object</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>meta数据对象</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.on(&#39;metadata&#39;, function(metadata){
+    console.dir(metadata);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_peerChanged" class="events item">
+    <h3 class="name"><code>peerChanged</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1651"><code>ums.js:1651</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>直播视频流发布者/订阅住数量变化事件及其事件监听处理程序.
+如果添加&#39;peerChanged&#39;事件监听函数，则当一个发布者或订阅者数量发生变化时回
+调函数将被调用。</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Event Payload:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">peerCount</code>
+                        <span class="type">Number</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>发布者或订阅者数量</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name">isPublisher</code>
+                        <span class="type">Boolean</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>是否是发布者</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.on(&#39;peerChanged&#39;, function(size, isPublisher){
+    console.log(this.name, size, isPublisher);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="event_videoStart" class="events item">
+    <h3 class="name"><code>videoStart</code></h3>
+    <span class="type"></span>
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l1639"><code>ums.js:1639</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>直播视频流开始发布事件及其事件监听处理程序.
+如果添加&#39;videoStart&#39;事件监听函数，则当一个新的直播流中的视频流开始发布时回
+调函数将被调用。</p>
+
+    </div>
+
+    
+
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>publishPipe.on(&#39;videoStart&#39;, function(){
+    console.log(this.name, &#39;\&#39; video is now publishing...&#39;);
+});</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+            </div>
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>

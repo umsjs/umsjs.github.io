@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ums.RTMPOptions</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
+    <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="../assets/favicon.png">
+    <script src="http://yui.yahooapis.com/combo?3.9.1/build/yui/yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="../assets/css/logo.png" title=""></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: </em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="../classes/EventEmitterEx.html">EventEmitterEx</a></li>
+            
+                <li><a href="../classes/ums.html">ums</a></li>
+            
+                <li><a href="../classes/ums.Application.html">ums.Application</a></li>
+            
+                <li><a href="../classes/ums.NetConnection.html">ums.NetConnection</a></li>
+            
+                <li><a href="../classes/ums.NetStream.html">ums.NetStream</a></li>
+            
+                <li><a href="../classes/ums.PublishPipe.html">ums.PublishPipe</a></li>
+            
+                <li><a href="../classes/ums.PublishPool.html">ums.PublishPool</a></li>
+            
+                <li><a href="../classes/ums.RTMPCall.html">ums.RTMPCall</a></li>
+            
+                <li><a href="../classes/ums.RTMPClient.html">ums.RTMPClient</a></li>
+            
+                <li><a href="../classes/ums.RTMPConnector.html">ums.RTMPConnector</a></li>
+            
+                <li><a href="../classes/ums.RTMPOptions.html">ums.RTMPOptions</a></li>
+            
+                <li><a href="../classes/ums.RTMPServer.html">ums.RTMPServer</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnection.html">ums.RTSPConnection</a></li>
+            
+                <li><a href="../classes/ums.RTSPConnector.html">ums.RTSPConnector</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+                <li><a href="../modules/ums.js.html">ums.js</a></li>
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1>ums.RTMPOptions Class</h1>
+<div class="box meta">
+    
+
+    
+
+    
+        <div class="foundat">
+            Defined in: <a href="../files/ums.js.html#l158"><code>ums.js:158</code></a>
+        </div>
+    
+
+    
+        
+            Module: <a href="../modules/ums.js.html">ums.js</a>
+        
+    
+
+    
+</div>
+
+
+
+<div class="box intro">
+    <p>Options object used to construct RTMPServer or RTMPConnector, every option 
+item has its own listeners, changes make on the option item will be 
+notified to its listeners</p>
+
+</div>
+
+
+
+<div id="classdocs" class="tabview">
+    <ul class="api-class-tabs">
+        <li class="api-class-tab index"><a href="#index">Index</a></li>
+
+        
+        
+            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
+        
+        
+        
+    </ul>
+
+    <div>
+        <div id="index" class="api-class-tabpanel index">
+            <h2 class="off-left">Item Index</h2>
+
+            
+
+            
+                <div class="index-section properties">
+                    <h3>Properties</h3>
+
+                    <ul class="index-list properties">
+                        
+                            <li class="index-item property public">
+                                <a href="#property_acceptInterval">acceptInterval</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_acceptTimeout">acceptTimeout</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_activeCheckInterval">activeCheckInterval</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_activeConnTimeout">activeConnTimeout</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_backlog">backlog</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_breakOnAssert">breakOnAssert</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_deadConnTimeout">deadConnTimeout</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_enableIPv6">enableIPv6</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_eofTimes">eofTimes</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_maxConn">maxConn</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_mediaFolders">mediaFolders</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_numOfThreads">numOfThreads</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_publishId">publishId</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_reuseAddress">reuseAddress</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_rtmpIP">rtmpIP</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_rtmpPort">rtmpPort</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item property public">
+                                <a href="#property_windowSize">windowSize</a>
+
+                                
+                                
+                            </li>
+                        
+                    </ul>
+                </div>
+            
+
+            
+
+            
+        </div>
+
+        
+
+        
+            <div id="properties" class="api-class-tabpanel">
+                <h2 class="off-left">Properties</h2>
+
+                
+                    <div id="property_acceptInterval" class="property item public">
+    <h3 class="name"><code>acceptInterval</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l268"><code>ums.js:268</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer选项.RTMPServer接受TCP连接的间隔时间（以毫秒为单位，默认值为：0）.
+RTMPServer两次接受TCP连接的时间间隔称为接受时间间隔。如果向RTMPServer新建立
+的TCP连接距离上一次接受连接的时间间隔小于该选项值，则服务器会等待，等待的时
+间长度为该选项值与实际连接间隔的时间差。当等待完成后才接受新的连接。</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_acceptTimeout" class="property item public">
+    <h3 class="name"><code>acceptTimeout</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l279"><code>ums.js:279</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer选项.服务端应用接受一个RTMP连接的超时时间（以秒为单位，默认值为：60）.
+当一个RTMP连接成功完成握手操作后，客户端会发送一个&#39;connect&#39;命令到RTMPServer，该
+命令里面携带客户端希望连接的服务端应用名称及其他信息，ums.Application通过设置
+&#39;connect&#39;事件的监听处理函数来捕获该连接操作。用户须在该选项值内调用
+ums.Application.accept()接口来接受或拒绝该连接，如果超出该选项设定的时间值，仍未
+调用该接口，则连接会被默认拒绝。</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_activeCheckInterval" class="property item public">
+    <h3 class="name"><code>activeCheckInterval</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l215"><code>ums.js:215</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer/RTMPConnector选项.连接活跃检查时间间隔（以秒为单位，默认值为：60）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_activeConnTimeout" class="property item public">
+    <h3 class="name"><code>activeConnTimeout</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l247"><code>ums.js:247</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer/RTMPConnector选项.活动连接最大超时时间（以秒为单位，默认值为：
+36000）.计算一个连接从建立连接到当前时间的时间间隔，该时间间隔即为该连接
+的连接总时长。如果某一连接的连接总时长超过该选项值，该连接将被关闭。</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_backlog" class="property item public">
+    <h3 class="name"><code>backlog</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l231"><code>ums.js:231</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer选项.内核为监听套接口排队的最大连接个数（默认值为：0）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_breakOnAssert" class="property item public">
+    <h3 class="name"><code>breakOnAssert</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l174"><code>ums.js:174</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer/RTMPConnector选项.遇到断言失败则退出执行（默认值为：true）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_deadConnTimeout" class="property item public">
+    <h3 class="name"><code>deadConnTimeout</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l257"><code>ums.js:257</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer/RTMPConnector选项不活动连接最大超时时间（以秒为单位，默认值为：300）.
+计算一个连接从发生最近一次网络活动（收/发数据）的时间开始到当前时间的时间间隔，
+该时间间隔即为该连接的空闲时间。如果某个连接的空闲时间超过该选项值，即认为该
+连接为不活动连接，该连接将被关闭。</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_enableIPv6" class="property item public">
+    <h3 class="name"><code>enableIPv6</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l191"><code>ums.js:191</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer/RTMPConnector选项.允许IPv6（默认值为：false）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_eofTimes" class="property item public">
+    <h3 class="name"><code>eofTimes</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l321"><code>ums.js:321</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer/RTMPConnector选项.允许EOF连续重试的次数.
+RTMP连接接收网络数据，允许EOF连续重试的次数。当重试次数超过此限制时，连接将被关闭。</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_maxConn" class="property item public">
+    <h3 class="name"><code>maxConn</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l166"><code>ums.js:166</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer选项.允许接受的最大连接并发数（开发版为：50；线上版默认值为：1000）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_mediaFolders" class="property item public">
+    <h3 class="name"><code>mediaFolders</code></h3>
+    <span class="type">Array of String</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l310"><code>ums.js:310</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer选项.为当前RTMPServer实例指定媒体库文件夹.当需要使用RTMPServer做vod（视
+频点播）业务时，需要为RTMPServer实例指定媒体文件的路径，即媒体文件所在的文件夹路径。
+文件夹路径可以是相对路径（相对于ums安装路径），也可以是绝对路径，以字符串形式给出，
+例如：myOptions.mediaFolders = [&#39;video&#39;,&#39;d:\video&#39;];</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_numOfThreads" class="property item public">
+    <h3 class="name"><code>numOfThreads</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l182"><code>ums.js:182</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer/RTMPConnector选项.RTMPServer/RTMPConnector线程池内的工作线程数量
+（默认值为：20）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_publishId" class="property item public">
+    <h3 class="name"><code>publishId</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l292"><code>ums.js:292</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer/RTMPConnector选项.直播发布池的ID号（默认值为：0）.
+对于RTMPServer来说，RTMPServer将接收到的客户端推送
+过来的直播音视频数据流发布到发布池中，当有订阅者连接到该RTMPServer订阅直播流时，
+RTMPServer将直播流数据从发布池中获取数据，并发送给客户端。对于RTMPConnector来说，
+RTMPConnector能创建向外的连接(NetConnection实例)，并通过建于该连接之上的NetStream
+的edge接口将远端RTMPServer上发布的直播流数据拉取过来并发布到为其指定的发布池中，
+如果该发布池被其他RTMPServer实例共用，则可通过这些RTMPServer对外提供直播流订阅服
+务。
+注意 : 系统内部自动创建publishId为0的发布池，作为默认发布池，该发布池无法提供js接
+口，也无法进行操作，如果希望使用PublishPool的相关接口和功能，请自行创建PublishPool
+实例，并将其publishId指定给相应的RTMPServer或RTMPConnector实例。</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_reuseAddress" class="property item public">
+    <h3 class="name"><code>reuseAddress</code></h3>
+    <span class="type">Boolean</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l223"><code>ums.js:223</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer选项.重用IP地址和端口（默认值为：true）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_rtmpIP" class="property item public">
+    <h3 class="name"><code>rtmpIP</code></h3>
+    <span class="type">String</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l199"><code>ums.js:199</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer选项.RTMPServer绑定的IP地址（默认值为：0.0.0.0）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_rtmpPort" class="property item public">
+    <h3 class="name"><code>rtmpPort</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l207"><code>ums.js:207</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer选项.RTMPServer的监听端口（默认值为：1935）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+                    <div id="property_windowSize" class="property item public">
+    <h3 class="name"><code>windowSize</code></h3>
+    <span class="type">Number</span>
+
+    
+
+    
+        <span class="flag public">public</span>
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/ums.js.html#l239"><code>ums.js:239</code></a>
+        
+        </p>
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>RTMPServer/RTMPConnector选项.收/发数据响应窗口值（以KB为单位，默认值为：48）.</p>
+
+    </div>
+
+    
+
+    
+
+    
+</div>
+
+                
+            </div>
+        
+
+        
+
+        
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="../assets/js/yui-prettify.js"></script>
+<script src="../assets/../api.js"></script>
+<script src="../assets/js/api-filter.js"></script>
+<script src="../assets/js/api-list.js"></script>
+<script src="../assets/js/api-search.js"></script>
+<script src="../assets/js/apidocs.js"></script>
+</body>
+</html>
