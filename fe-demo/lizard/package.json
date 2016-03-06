@@ -1,0 +1,31 @@
+{
+  "name": "umsjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nant",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "1.0.0",
+    "express": "3.4.7",
+    "flavored-path": "0.0.8",
+    "hls":"0.0.1",
+    "log4js": "0.6.14",
+    "m3u8": "0.0.6",
+    "mkdirp": "0.5.0",
+    "node-sort": "0.2.0",
+    "nodemailer-smtp-transport": "0.1.12",
+    "redis": "0.12.1",
+    "socket.io": "1.1.0",
+    "sprintf-js": "0.0.7",
+    "sqlite3": "3.1.1",
+    "tcjs":"1.0.0",
+    "tcp-port-used": "0.1.2",
+    "umsjs":"1.0.0",
+    "underscore": "1.6.0",
+    "xmldom": "0.1.13"
+  }
+}
